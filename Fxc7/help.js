@@ -64,6 +64,10 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}maid*
 ❉ │➻ *${prefix}kanna*
 ❉ │➻ *${prefix}saikawa*
+❉ │➻ *${prefix}hentai*
+❉ │➻ *${prefix}nsfwneko*
+❉ │➻ *${prefix}nsfwtrap*
+❉ │➻ *${prefix}nhview*
 ❉ │➻ *${prefix}simih On/Off*
 ❉ ╰───────────────
 ❉
