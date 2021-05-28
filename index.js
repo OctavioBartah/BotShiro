@@ -798,7 +798,6 @@ const getRegisteredRandomId = () => {
 		break 
 					
 	case 'nsfwtrap':
-		    try {
 		    if (isBanned) return reply(mess.only.benned)    
 	//	    if (!isUser) return reply(mess.only.userB)
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
@@ -817,7 +816,6 @@ const getRegisteredRandomId = () => {
             break
 					
 	case 'hentai':
-		    try {
 		    if (isBanned) return reply(mess.only.benned)    
 	//	    if (!isUser) return reply(mess.only.userB)
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
@@ -834,7 +832,6 @@ const getRegisteredRandomId = () => {
             break		    
 			    
 	case 'nsfwneko':
-		    try {
 		    if (isBanned) return reply(mess.only.benned)    
 	//	    if (!isUser) return reply(mess.only.userB)
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
