@@ -61,7 +61,9 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}neko*
 ❉ │➻ *${prefix}yuri*
 ❉ │➻ *${prefix}trap*
-❉ │➻ *${prefix}hentai*
+❉ │➻ *${prefix}maid*
+❉ │➻ *${prefix}kanna*
+❉ │➻ *${prefix}saikawa*
 ❉ │➻ *${prefix}simih On/Off*
 ❉ ╰───────────────
 ❉
@@ -110,7 +112,7 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}leave*
 ❉ ╰───────────────
 ❉ ❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉
- *O loli_senpai é grátis somente no grupo otakus sem curso se quiser contratar para seu grupo chame no PV da Loli* 
+ *Espero que se divirtam usando o botzin meus amores ^-^* 
 ❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉❉`
 }
 
