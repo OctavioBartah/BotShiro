@@ -74,22 +74,6 @@ limitt = 100000
 ban = []
 userpremium = [] //ubah nomer kalian
 
-module.exports = tobz = async (tobz, message) => {
-    try {
-        const { type, id, from, t, sender, isGroupMsg, chat, chatId, caption, isMedia, isAudio, mimetype, quotedMsg, quotedMsgObj, author, mentionedJidList } = message
-        let { body } = message
-        const { name, formattedTitle } = chat
-        let { pushname, verifiedName } = sender
-        pushname = pushname || verifiedName
-        const commands = caption || body || ''
-        const chats = (type === 'chat') ? body : (type === 'image' || type === 'video') ? caption : ''
-        const argx = commands.toLowerCase()
-        const args =  commands.split(' ')
-        const command = commands.toLowerCase().split(' ')[0] || ''
-
-        global.prefix
-
-
 function kyun(seconds){
   function pad(s){
     return (s < 10 ? '0' : '') + s;
@@ -803,48 +787,39 @@ const getRegisteredRandomId = () => {
 			if (!isGroupAdmins) return reply(mess.only.admin)
 		    if (isLimit(sender)) return reply(limitend(pushname2))
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
-		  const trapnime = await axios.get('https://tobz-api.herokuapp.com/api/nsfwtrap?apikey=' + tobzkey)
-            const trapn = trapnime.data.result
-            if (trapn.result.endsWith('.png')) {
-                var ext = '.png'
-            } else {
-                var ext = '.jpg'
-            }
-            tobz.sendImage(from, trapn.result, `trapnime${ext}`, 'Trapnime!', id)
+	 anu = await fetchJson('https://api.computerfreaker.cf/v1/nsfwtrap', {method: 'get'})
+naru = JSON.parse(JSON.stringify(anu));
+	to =  naru[Math.floor(Math.random() * naru.length)];
+	nye = await getBuffer(to)
+	client.sendMessage(from, nye, image, { caption: 'hentai!!', quoted: mek })
 	await limitAdd(sender)
-            break
+	break 
 					
 	case 'hentai':
 		    if (isBanned) return reply(mess.only.benned)    
 	//	    if (!isUser) return reply(mess.only.userB)
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
 			if (!isGroupAdmins) return reply(mess.only.admin)		    		    
-	 const hentai = await axios.get('https://tobz-api.herokuapp.com/api/hentai?apikey=' + tobzkey)
-            const henta = hentai.data
-            if (henta.result.endsWith('.png')) {
-                var ext = '.png'
-            } else {
-                var ext = '.jpg'
-            }
-            tobz.sendImage(from, henta.result, `RandomHentai${ext}`, 'Random Hentai!', id)
-            await limitAdd(serial)
-            break		    
+	 anu = await fetchJson('https://api.computerfreaker.cf/v1/hentai', {method: 'get'})
+naru = JSON.parse(JSON.stringify(anu));
+	to =  naru[Math.floor(Math.random() * naru.length)];
+	nye = await getBuffer(to)
+	client.sendMessage(from, nye, image, { caption: 'hentai!!', quoted: mek })
+	await limitAdd(sender)
+	break 
 			    
 	case 'nsfwneko':
 		    if (isBanned) return reply(mess.only.benned)    
 	//	    if (!isUser) return reply(mess.only.userB)
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
 			if (!isGroupAdmins) return reply(mess.only.admin)		    		    
-const nsfwneko = await axios.get('https://tobz-api.herokuapp.com/api/nsfwneko?apikey=' + tobzkey)
-            const nsfwn = nsfwneko.data
-            if (nsfwn.result.endsWith('.png')) {
-                var ext = '.png'
-            } else {
-                var ext = '.jpg'
-            }
-            tobz.sendImage(from, nsfwn.result, `NsfwNeko${ext}`, 'NsfwNeko!', id)
-            await limitAdd(serial)
-            break
+nek = await fetchJson('https://api.computerfreaker.cf/v1/nsfwneko', {method: 'get'})
+neko = JSON.parse(JSON.stringify(nek));
+	to =  neko[Math.floor(Math.random() * neko.length)];
+	nk = await getBuffer(to)
+	client.sendMessage(from, nk, image, { caption: 'neko!!', quoted: mek })
+	await limitAdd(sender)
+	break 
 			    
 			    
 		
