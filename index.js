@@ -41,6 +41,9 @@ const brainly = require('brainly-scraper')
 const cd = 4.32e+7
 const lolis = require('lolis.life')
 const loli = new lolis()
+const axios = require('axios')
+const nhentai = require('nhentai-js')
+const { API } = require('nhentai-api')
 
 const { BarBarApi, ZeksApi, TechApi, TobzApi, ItsApi, VthearApi } = JSON.parse(fs.readFileSync('./database/json/apikey.json'))
 const setting = JSON.parse(fs.readFileSync('./database/json/setting.json'))
@@ -787,11 +790,14 @@ const getRegisteredRandomId = () => {
 			if (!isGroupAdmins) return reply(mess.only.admin)
 		    if (isLimit(sender)) return reply(limitend(pushname2))
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
-	 anu = await fetchJson('https://api.computerfreaker.cf/v1/nsfwtrap', {method: 'get'})
-naru = JSON.parse(JSON.stringify(anu));
-	to =  naru[Math.floor(Math.random() * naru.length)];
-	nye = await getBuffer(to)
-	client.sendMessage(from, nye, image, { caption: 'hentai!!', quoted: mek })
+	 const trapnime = await axios.get('https://tobz-api.herokuapp.com/api/nsfwtrap?apikey=' + tobzkey)
+            const trapn = trapnime.data.result
+            if (trapn.result.endsWith('.png')) {
+                var ext = '.png'
+            } else {
+                var ext = '.jpg'
+            }
+            tobz.sendImage(from, trapn.result, `trapnime${ext}`, 'Trapnime!', id)
 	await limitAdd(sender)
 	break 
 					
@@ -801,10 +807,14 @@ naru = JSON.parse(JSON.stringify(anu));
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
 			if (!isGroupAdmins) return reply(mess.only.admin)		    		    
 	 anu = await fetchJson('https://api.computerfreaker.cf/v1/hentai', {method: 'get'})
-naru = JSON.parse(JSON.stringify(anu));
-	to =  naru[Math.floor(Math.random() * naru.length)];
-	nye = await getBuffer(to)
-	client.sendMessage(from, nye, image, { caption: 'hentai!!', quoted: mek })
+ const hentai = await axios.get('https://tobz-api.herokuapp.com/api/hentai?apikey=' + tobzkey)
+            const henta = hentai.data
+            if (henta.result.endsWith('.png')) {
+                var ext = '.png'
+            } else {
+                var ext = '.jpg'
+            }
+            tobz.sendImage(from, henta.result, `RandomHentai${ext}`, 'Random Hentai!', id)
 	await limitAdd(sender)
 	break 
 			    
@@ -813,11 +823,14 @@ naru = JSON.parse(JSON.stringify(anu));
 	//	    if (!isUser) return reply(mess.only.userB)
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
 			if (!isGroupAdmins) return reply(mess.only.admin)		    		    
-nek = await fetchJson('https://api.computerfreaker.cf/v1/nsfwneko', {method: 'get'})
-neko = JSON.parse(JSON.stringify(nek));
-	to =  neko[Math.floor(Math.random() * neko.length)];
-	nk = await getBuffer(to)
-	client.sendMessage(from, nk, image, { caption: 'neko!!', quoted: mek })
+  const nsfwneko = await axios.get('https://tobz-api.herokuapp.com/api/nsfwneko?apikey=' + tobzkey)
+            const nsfwn = nsfwneko.data
+            if (nsfwn.result.endsWith('.png')) {
+                var ext = '.png'
+            } else {
+                var ext = '.jpg'
+            }
+            tobz.sendImage(from, nsfwn.result, `NsfwNeko${ext}`, 'NsfwNeko!', id)
 	await limitAdd(sender)
 	break 
 			    
