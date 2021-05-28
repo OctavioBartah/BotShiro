@@ -782,7 +782,6 @@ const getRegisteredRandomId = () => {
 					
 					
 		case 'nhview':
-		    try {
 		    if (isBanned) return reply(mess.only.benned)    
 	//	    if (!isUser) return reply(mess.only.userB)
 			if (!isGroupAdmins) return reply(mess.only.admin)
