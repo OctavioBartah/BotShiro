@@ -56,7 +56,7 @@ const blocked = JSON.parse(fs.readFileSync('./database/json/blocked.json'))
 let anlink = JSON.parse(fs.readFileSync('./database/json/antilink.json'))
 
 let {
-instagram, yt, groupLink, memberLimit
+instagram, yt, groupLink, memberLimit, tobzkey
 } = setting
 
 const vcard = 'BEGIN:VCARD\n'
@@ -73,6 +73,22 @@ rmenu = "Olá amigos da LOLIBOT👋"
 limitt = 100000
 ban = []
 userpremium = [] //ubah nomer kalian
+
+module.exports = tobz = async (tobz, message) => {
+    try {
+        const { type, id, from, t, sender, isGroupMsg, chat, chatId, caption, isMedia, isAudio, mimetype, quotedMsg, quotedMsgObj, author, mentionedJidList } = message
+        let { body } = message
+        const { name, formattedTitle } = chat
+        let { pushname, verifiedName } = sender
+        pushname = pushname || verifiedName
+        const commands = caption || body || ''
+        const chats = (type === 'chat') ? body : (type === 'image' || type === 'video') ? caption : ''
+        const argx = commands.toLowerCase()
+        const args =  commands.split(' ')
+        const command = commands.toLowerCase().split(' ')[0] || ''
+
+        global.prefix
+
 
 function kyun(seconds){
   function pad(s){
@@ -759,6 +775,89 @@ const getRegisteredRandomId = () => {
 					})
 					await limitAdd(sender) 
 					break 
+				
+					
+					
+					
+					
+					
+		case 'nhview':
+		    try {
+		    if (isBanned) return reply(mess.only.benned)    
+	//	    if (!isUser) return reply(mess.only.userB)
+			if (!isGroupAdmins) return reply(mess.only.admin)
+		    if (isLimit(sender)) return reply(limitend(pushname2))
+		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
+		if (args.length === 1) return tobz.reply(from, 'Enviar pedidos *_nhview [212121]*\nExemplo : *_nhview 321421*', id)
+            	const nhsh = body.slice(11)
+            	const nhsh2 = await axios.get('https://mnazria.herokuapp.com/api/nhentai?code='+nhsh)
+           	 for (let i = 0; i < nhsh2.length; i++) {
+                await tobz.sendImage(from, nhsh2[i].data, 'thumbserc.jpg', '', id)
+					}
+		await limitAdd(sender)
+		break 
+					
+	case 'nsfwtrap':
+		    try {
+		    if (isBanned) return reply(mess.only.benned)    
+	//	    if (!isUser) return reply(mess.only.userB)
+		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
+			if (!isGroupAdmins) return reply(mess.only.admin)
+		    if (isLimit(sender)) return reply(limitend(pushname2))
+		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
+		  const trapnime = await axios.get('https://tobz-api.herokuapp.com/api/nsfwtrap?apikey=' + tobzkey)
+            const trapn = trapnime.data.result
+            if (trapn.result.endsWith('.png')) {
+                var ext = '.png'
+            } else {
+                var ext = '.jpg'
+            }
+            tobz.sendImage(from, trapn.result, `trapnime${ext}`, 'Trapnime!', id)
+	await limitAdd(sender)
+            break
+					
+	case 'hentai':
+		    try {
+		    if (isBanned) return reply(mess.only.benned)    
+	//	    if (!isUser) return reply(mess.only.userB)
+		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
+			if (!isGroupAdmins) return reply(mess.only.admin)		    		    
+	 const hentai = await axios.get('https://tobz-api.herokuapp.com/api/hentai?apikey=' + tobzkey)
+            const henta = hentai.data
+            if (henta.result.endsWith('.png')) {
+                var ext = '.png'
+            } else {
+                var ext = '.jpg'
+            }
+            tobz.sendImage(from, henta.result, `RandomHentai${ext}`, 'Random Hentai!', id)
+            await limitAdd(serial)
+            break		    
+			    
+	case 'nsfwneko':
+		    try {
+		    if (isBanned) return reply(mess.only.benned)    
+	//	    if (!isUser) return reply(mess.only.userB)
+		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
+			if (!isGroupAdmins) return reply(mess.only.admin)		    		    
+const nsfwneko = await axios.get('https://tobz-api.herokuapp.com/api/nsfwneko?apikey=' + tobzkey)
+            const nsfwn = nsfwneko.data
+            if (nsfwn.result.endsWith('.png')) {
+                var ext = '.png'
+            } else {
+                var ext = '.jpg'
+            }
+            tobz.sendImage(from, nsfwn.result, `NsfwNeko${ext}`, 'NsfwNeko!', id)
+            await limitAdd(serial)
+            break
+			    
+			    
+		
+			    
+			    
+			    
+			    
+			    
+			    
 				case 'naruto':
 				if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
