@@ -58,6 +58,8 @@ const anime = JSON.parse(fs.readFileSync('./database/json/anime.json'))
 const blocked = JSON.parse(fs.readFileSync('./database/json/blocked.json'))
 let anlink = JSON.parse(fs.readFileSync('./database/json/antilink.json'))
 
+require('./tobz.js')
+nocache('./tobz.js', module => console.log(`'${module}' Updated!`))
 let {
 instagram, yt, groupLink, memberLimit, tobzkey
 } = setting
@@ -790,6 +792,7 @@ const getRegisteredRandomId = () => {
 			if (!isGroupAdmins) return reply(mess.only.admin)
 		    if (isLimit(sender)) return reply(limitend(pushname2))
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
+	reply(mess.wait)
 	 const trapnime = await axios.get('https://tobz-api.herokuapp.com/api/nsfwtrap?apikey=' + tobzkey)
             const trapn = trapnime.data.result
             if (trapn.result.endsWith('.png')) {
@@ -805,8 +808,8 @@ const getRegisteredRandomId = () => {
 		    if (isBanned) return reply(mess.only.benned)    
 	//	    if (!isUser) return reply(mess.only.userB)
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
-			if (!isGroupAdmins) return reply(mess.only.admin)		    		    
-	 anu = await fetchJson('https://api.computerfreaker.cf/v1/hentai', {method: 'get'})
+			if (!isGroupAdmins) return reply(mess.only.admin)
+             reply(mess.wait)
  const hentai = await axios.get('https://tobz-api.herokuapp.com/api/hentai?apikey=' + tobzkey)
             const henta = hentai.data
             if (henta.result.endsWith('.png')) {
@@ -822,7 +825,8 @@ const getRegisteredRandomId = () => {
 		    if (isBanned) return reply(mess.only.benned)    
 	//	    if (!isUser) return reply(mess.only.userB)
 		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
-			if (!isGroupAdmins) return reply(mess.only.admin)		    		    
+			if (!isGroupAdmins) return reply(mess.only.admin)
+	reply(mess.wait)
   const nsfwneko = await axios.get('https://tobz-api.herokuapp.com/api/nsfwneko?apikey=' + tobzkey)
             const nsfwn = nsfwneko.data
             if (nsfwn.result.endsWith('.png')) {
