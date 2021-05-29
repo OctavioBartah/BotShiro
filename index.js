@@ -15,7 +15,7 @@ const {
     GroupSettingChange
 } = require("@adiwajshing/baileys")
 
-const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('./lib/functions')
+const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, randomNimek, getRandom, banner, start, info, success, close } = require('./lib/functions')
 const { fetchJson } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
 const { color, bgcolor } = require('./lib/color')
@@ -768,39 +768,48 @@ const getRegisteredRandomId = () => {
 					
 					
 					
-const randomNimek = async (type) => {
-    var url = 'https://api.computerfreaker.cf/v1/'
-    switch(type) {
         case 'nsfwneko':
 		   		if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
 				if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
 					reply(mess.wait)
-            const nsfw = await fetch(url + 'nsfwneko')
-            if (!nsfw.ok) throw new Error(`unexpected response ${nsfw.statusText}`)
-            const resultNsfw = await nsfw.json()
-            return resultNsfw.url
-            break
+              const nsfwneko = await randomNimek('nsfw')
+                if (nsfwneko.endsWith('.png')) {
+                    var ext = '.png'
+                } else {
+                    var ext = '.jpg'
+                }
+                client.sendFileFromUrl(from, nsfwneko, `nsfwNeko${ext}`, 'Nsfwneko!', id)
+	break
+					
+					
         case 'hentai':
 		    		if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
 				reply(mess.wait)
-            const hentai = await fetch(url + 'hentai')
-            if (!hentai.ok) throw new Error(`unexpected response ${hentai.statusText}`)
-            const resultHentai = await hentai.json()
-            return resultHentai.url
-            break
+ const hentai = await randomNimek('hentai')
+                if (hentai.endsWith('.png')) {
+                    var ext = '.png'
+                } else {
+                    var ext = '.jpg'
+                }
+                client.sendFileFromUrl(from, hentai, `Hentai${ext}`, 'Hentai!', id)
+                break
+					
+					
         case 'nsfwtrap':
 		    				if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
 					reply(mess.wait)
-            let anime = await fetch(url + 'nsfwanime')
-            const resultNime = await anime.json()
-            return resultNime.url
+const trap = await randomNimek('trap')
+            if (trap.endsWith('.png')) {
+                var ext = '.png'
+            } else {
+                var ext = '.jpg'
+            }
+            client.sendFileFromUrl(from, trap, `trapnime${ext}`, 'Trapnime!', id)
             break
-    }
-}
 
 			    
 			    
@@ -2160,4 +2169,5 @@ const randomNimek = async (type) => {
 		}
 	})
 }
+
 starts()
