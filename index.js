@@ -768,73 +768,40 @@ const getRegisteredRandomId = () => {
 					
 					
 					
-		case 'nhview':
-		    if (isBanned) return reply(mess.only.benned)    
-	//	    if (!isUser) return reply(mess.only.userB)
-			if (!isGroupAdmins) return reply(mess.only.admin)
-		    if (isLimit(sender)) return reply(limitend(pushname2))
-		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
-		if (args.length === 1) return tobz.reply(from, 'Enviar pedidos *_nhview [212121]*\nExemplo : *_nhview 321421*', id)
-            	const nhsh = body.slice(11)
-            	const nhsh2 = await axios.get('https://mnazria.herokuapp.com/api/nhentai?code='+nhsh)
-           	 for (let i = 0; i < nhsh2.length; i++) {
-                await tobz.sendImage(from, nhsh2[i].data, 'thumbserc.jpg', '', id)
-					}
-		await limitAdd(sender)
-		break 
-					
-	case 'nsfwtrap':
-		    if (isBanned) return reply(mess.only.benned)    
-	//	    if (!isUser) return reply(mess.only.userB)
-		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
-			if (!isGroupAdmins) return reply(mess.only.admin)
-		    if (isLimit(sender)) return reply(limitend(pushname2))
-		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
-	reply(mess.wait)
-	 const trapnime = await axios.get('https://tobz-api.herokuapp.com/api/nsfwtrap?apikey=' + tobzkey)
-            const trapn = trapnime.data.result
-            if (trapn.result.endsWith('.png')) {
-                var ext = '.png'
-            } else {
-                var ext = '.jpg'
-            }
-            tobz.sendImage(from, trapn.result, `trapnime${ext}`, 'Trapnime!', id)
-	await limitAdd(sender)
-	break 
-					
-	case 'hentai':
-		    if (isBanned) return reply(mess.only.benned)    
-	//	    if (!isUser) return reply(mess.only.userB)
-		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
-			if (!isGroupAdmins) return reply(mess.only.admin)
-             reply(mess.wait)
- const hentai = await axios.get('https://tobz-api.herokuapp.com/api/hentai?apikey=' + tobzkey)
-            const henta = hentai.data
-            if (henta.result.endsWith('.png')) {
-                var ext = '.png'
-            } else {
-                var ext = '.jpg'
-            }
-            tobz.sendImage(from, henta.result, `RandomHentai${ext}`, 'Random Hentai!', id)
-	await limitAdd(sender)
-	break 
-			    
-	case 'nsfwneko':
-		    if (isBanned) return reply(mess.only.benned)    
-	//	    if (!isUser) return reply(mess.only.userB)
-		if (!isNsfw) return reply(' *SO O DONO PODE ATIVAR* ')
-			if (!isGroupAdmins) return reply(mess.only.admin)
-	reply(mess.wait)
-  const nsfwneko = await axios.get('https://tobz-api.herokuapp.com/api/nsfwneko?apikey=' + tobzkey)
-            const nsfwn = nsfwneko.data
-            if (nsfwn.result.endsWith('.png')) {
-                var ext = '.png'
-            } else {
-                var ext = '.jpg'
-            }
-            tobz.sendImage(from, nsfwn.result, `NsfwNeko${ext}`, 'NsfwNeko!', id)
-	await limitAdd(sender)
-	break 
+const randomNimek = async (type) => {
+    var url = 'https://api.computerfreaker.cf/v1/'
+    switch(type) {
+        case 'nsfwneko':
+		   		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+				if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
+					reply(mess.wait)
+            const nsfw = await fetch(url + 'nsfwneko')
+            if (!nsfw.ok) throw new Error(`unexpected response ${nsfw.statusText}`)
+            const resultNsfw = await nsfw.json()
+            return resultNsfw.url
+            break
+        case 'hentai':
+		    		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+				reply(mess.wait)
+            const hentai = await fetch(url + 'hentai')
+            if (!hentai.ok) throw new Error(`unexpected response ${hentai.statusText}`)
+            const resultHentai = await hentai.json()
+            return resultHentai.url
+            break
+        case 'nsfwtrap':
+		    				if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
+					reply(mess.wait)
+            let anime = await fetch(url + 'nsfwanime')
+            const resultNime = await anime.json()
+            return resultNime.url
+            break
+    }
+}
+
 			    
 			    
 		
