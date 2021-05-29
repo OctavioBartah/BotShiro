@@ -768,52 +768,85 @@ const getRegisteredRandomId = () => {
 					
 					
 					
-        case 'nsfwneko':
-		   		if (isBanned) return reply(mess.only.benned)    
+        case 'nsfwtrap':
+	if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
-				if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
 					reply(mess.wait)
-              const nsfwneko = await randomNimek('nsfw')
-                if (nsfwneko.endsWith('.png')) {
+                          const trap = await fetch('https://api.computerfreaker.cf/v1/nsfwtrap')
+			  const resultTrap = await trap.json()
+			  const hresu = resultTrap.url
+			  const hr = hresu
+			   if (hr.endsWith('.png')) {
                     var ext = '.png'
                 } else {
                     var ext = '.jpg'
                 }
-            client.sendFileFromUrl(from, nsfwneko, `nsfwneko${ext}`, { caption: '>///<', quoted: mek })
+                client.sendFileFromUrl(from, trap, `trapnime${ext}`, 'Trapnime!', id)
 					await limitAdd(sender)
 	break
 					
 					
         case 'hentai':
-		    		if (isBanned) return reply(mess.only.benned)    
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
-				reply(mess.wait)
- const hentai = await randomNimek('hentai')
-                if (hentai.endsWith('.png')) {
+					reply(mess.wait)
+                          const hentai = await fetch('https://api.computerfreaker.cf/v1/hentai')
+			  const resultHentai = await hentai.json()
+			  const hresu = resultHentai.url
+			  const hr = hresu
+			   if (hr.endsWith('.png')) {
                     var ext = '.png'
                 } else {
                     var ext = '.jpg'
                 }
-               client.sendFileFromUrl(from, hentai, image, { caption: '>///<', quoted: mek })
-					await limitAdd(sender)
+                client.sendFileFromUrl(from, hr, image, { caption: 'hentai!!', quoted: mek })
+					await limitAdd(sender)	
                 break
 					
 					
-        case 'nsfwtrap':
-		    				if (isBanned) return reply(mess.only.benned)    
+					        case 'nsfwneko':
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
-					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
 					reply(mess.wait)
-const trap = await randomNimek('trap')
-            if (trap.endsWith('.png')) {
-                var ext = '.png'
-            } else {
-                var ext = '.jpg'
-            }
-	client.sendMessage(from, trap, image, { caption: '>///<', quoted: mek })
+                          const nsfw = await fetch('https://api.computerfreaker.cf/v1/nsfwneko')
+			  const resultnsfw = await nsfw.json()
+			  const hresu = resultnsfw.url
+			  const hr = hresu
+			   if (hr.endsWith('.png')) {
+                    var ext = '.png'
+                } else {
+                    var ext = '.jpg'
+                }
+                client.sendMessage(from, hr, image, { caption: 'hentai!!', quoted: mek })
+					await limitAdd(sender)	
+                break
+					
+					//anu = await fetchJson(`https://api.computerfreaker.cf/v1/hentai`, {method: 'get'})
+
+			//	const resultHentai = await anu.json()
+			//		nye = await getBuffer(to)
+			//		client.sendMessage(from, nye, image, { caption: 'hentai!!', quoted: mek })
+			//		await limitAdd(sender)	
+			//		break
+					
+   //     case 'nsfwtrap':
+	//	    				if (isBanned) return reply(mess.only.benned)    
+	//			if (isLimit(sender)) return reply(limitend(pushname2))
+	//				if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
+	//				reply(mess.wait)
+// const trap = await randomNimek('trap')
+  //          if (trap.endsWith('.png')) {
+    //            var ext = '.png'
+      //      } else {
+        //        var ext = '.jpg'
+          //  }
+	//client.sendMessage(from, trap, image, { caption: '>///<', quoted: mek })
       //      client.sendFileFromUrl(from, trap, `trap${ext}`, { caption: '>///<', quoted: mek })
-					await limitAdd(sender)
-            break
+	//				await limitAdd(sender)
+         //   break
 					
 					 case 'nh':
             //if (isGroupMsg) return client.reply(from, 'Sorry this command for private chat only!', id)
