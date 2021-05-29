@@ -780,6 +780,7 @@ const getRegisteredRandomId = () => {
                     var ext = '.jpg'
                 }
             client.sendFileFromUrl(from, nsfwneko, `nsfwneko${ext}`, { caption: '>///<', quoted: mek })
+					await limitAdd(sender)
 	break
 					
 					
@@ -794,6 +795,7 @@ const getRegisteredRandomId = () => {
                     var ext = '.jpg'
                 }
                client.sendFileFromUrl(from, hentai, `hentai${ext}`, { caption: '>///<', quoted: mek })
+					await limitAdd(sender)
                 break
 					
 					
@@ -809,6 +811,7 @@ const trap = await randomNimek('trap')
                 var ext = '.jpg'
             }
             client.sendFileFromUrl(from, trap, `trap${ext}`, { caption: '>///<', quoted: mek })
+					await limitAdd(sender)
             break
 
 			    
