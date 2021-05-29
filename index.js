@@ -775,14 +775,14 @@ const getRegisteredRandomId = () => {
 					reply(mess.wait)
                           const trap = await fetch('https://api.computerfreaker.cf/v1/nsfwtrap')
 			  const resultTrap = await trap.json()
-			  const hresu = resultTrap.url
-			  const hr = hresu
-			   if (hr.endsWith('.png')) {
+			  const trapresu = resultTrap.url
+			  const tr = trapresu
+			   if (tr.endsWith('.png')) {
                     var ext = '.png'
                 } else {
                     var ext = '.jpg'
                 }
-                client.sendFileFromUrl(from, trap, `trapnime${ext}`, 'Trapnime!', id)
+                client.sendFileFromUrl(from, tr, `trapnime${ext}`, 'Trapnime!', id)
 					await limitAdd(sender)
 	break
 					
@@ -813,14 +813,14 @@ const getRegisteredRandomId = () => {
 					reply(mess.wait)
                           const nsfw = await fetch('https://api.computerfreaker.cf/v1/nsfwneko')
 			  const resultnsfw = await nsfw.json()
-			  const hresu = resultnsfw.url
-			  const hr = hresu
-			   if (hr.endsWith('.png')) {
+			  const nresu = resultnsfw.url
+			  const nr = nresu
+			   if (nr.endsWith('.png')) {
                     var ext = '.png'
                 } else {
                     var ext = '.jpg'
                 }
-                client.sendMessage(from, hr, image, { caption: 'hentai!!', quoted: mek })
+                client.sendMessage(from, nr, image, { caption: 'hentai!!', quoted: mek })
 					await limitAdd(sender)	
                 break
 					
