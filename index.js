@@ -58,8 +58,6 @@ const anime = JSON.parse(fs.readFileSync('./database/json/anime.json'))
 const blocked = JSON.parse(fs.readFileSync('./database/json/blocked.json'))
 let anlink = JSON.parse(fs.readFileSync('./database/json/antilink.json'))
 
-require('./tobz.js')
-nocache('./tobz.js', module => console.log(`'${module}' Updated!`))
 let {
 instagram, yt, groupLink, memberLimit, tobzkey
 } = setting
