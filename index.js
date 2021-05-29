@@ -774,12 +774,12 @@ const getRegisteredRandomId = () => {
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
                trap = await fetchJson(`https://api.computerfreaker.cf/v1/nsfwtrap`, {method: 'get'})
-			  tra = JSON.parse(JSON.stringify(trap));
-					tr =  tra[Math.floor(Math.random() * tra.length)];
-					trp = await getBuffer(tr)
-			
-
-                client.sendMessage(from, trp, image, { caption: 'hentai!!', quoted: mek })
+			buffer = await getBuffer(trap.result)
+						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
+					} catch (e) {
+						console.log(`Error :`, color(e,'red'))
+						reply(' *ERROR* ')
+					}
 					await limitAdd(sender)	
 	break
 					
@@ -789,13 +789,13 @@ const getRegisteredRandomId = () => {
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-               hent = await fetchJson(`https://api.computerfreaker.cf/v1/hentai`, {method: 'get'})
-			  henta = JSON.parse(JSON.stringify(hent));
-					he =  henta[2];
-					hen = await getBuffer(he)
-			
-
-                client.sendMessage(from, hen, image, { caption: 'hentai!!', quoted: mek })
+               res = await fetchJson(`https://api.computerfreaker.cf/v1/hentai`, {method: 'get'})
+			buffer = await getBuffer(res.result)
+						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
+					} catch (e) {
+						console.log(`Error :`, color(e,'red'))
+						reply(' *ERROR* ')
+					}
 					await limitAdd(sender)	
                 break
 					
@@ -806,12 +806,12 @@ const getRegisteredRandomId = () => {
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
                neko = await fetchJson(`https://api.computerfreaker.cf/v1/nsfwneko`, {method: 'get'})
-			  nek = JSON.parse(JSON.stringify(neko));
-					ne =  nek[1];
-					nsn = await getBuffer(ne)
-			
-
-                client.sendMessage(from, nsn, image, { caption: 'hentai!!', quoted: mek })
+			buffer = await getBuffer(neko.result)
+						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
+					} catch (e) {
+						console.log(`Error :`, color(e,'red'))
+						reply(' *ERROR* ')
+					}
 					await limitAdd(sender)		
                 break
 					
