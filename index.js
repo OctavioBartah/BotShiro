@@ -779,7 +779,7 @@ const getRegisteredRandomId = () => {
                 } else {
                     var ext = '.jpg'
                 }
-                client.sendFileFromUrl(from, nsfwneko, `nsfwNeko${ext}`, 'Nsfwneko!', id)
+            client.sendMessage(from, nsfwneko.result, `nsfwneko${ext}`, { caption: '>///<', quoted: mek })
 	break
 					
 					
@@ -793,7 +793,7 @@ const getRegisteredRandomId = () => {
                 } else {
                     var ext = '.jpg'
                 }
-                client.sendFileFromUrl(from, hentai, `Hentai${ext}`, 'Hentai!', id)
+               client.sendMessage(from, hentai.result, `hentai${ext}`, { caption: '>///<', quoted: mek })
                 break
 					
 					
@@ -808,7 +808,7 @@ const trap = await randomNimek('trap')
             } else {
                 var ext = '.jpg'
             }
-            client.sendFileFromUrl(from, trap, `trapnime${ext}`, 'Trapnime!', id)
+            client.sendMessage(from, trap.result, `trap${ext}`, { caption: '>///<', quoted: mek })
             break
 
 			    
