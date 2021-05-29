@@ -53,10 +53,14 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FarhanXCode7/termux-bot-wa.git"
+    "url": "git+https://github.com/mhankbarbar/whatsapp-bot.git"
   },
+    "keywords": [
+    "Whatsapp-Bot"
+  ],
+  
   "bugs": {
-    "url": "https://github.com/FarhanXCode7/termux-bot-wa/issues"
+    "url": "https://github.com/mhankbarbar/whatsapp-bot/issues"
   },
   "homepage": "https://github.com/FarhanXCode7/termux-bot-wa#readme"
 }
