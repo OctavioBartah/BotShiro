@@ -773,17 +773,14 @@ const getRegisteredRandomId = () => {
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-                          const trap = await fetch('https://api.computerfreaker.cf/v1/nsfwtrap')
-			  const resultTrap = await trap.json()
-			  const trapresu = resultTrap.url
-			  const tr = trapresu
-			   if (tr.endsWith('.png')) {
-                    var ext = '.png'
-                } else {
-                    var ext = '.jpg'
-                }
-                client.sendFileFromUrl(from, tr, `trapnime${ext}`, 'Trapnime!', id)
-					await limitAdd(sender)
+               trap = await fetchJson(`https://api.computerfreaker.cf/v1/nsfwtrap`, {method: 'get'})
+			  tra = JSON.parse(JSON.stringify(trap));
+					tr =  tra[Math.floor(Math.random() * tra.length)];
+					trp = await getBuffer(tr)
+			
+
+                client.sendMessage(from, trp, image, { caption: 'hentai!!', quoted: mek })
+					await limitAdd(sender)	
 	break
 					
 					
@@ -792,16 +789,13 @@ const getRegisteredRandomId = () => {
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-                          const hentai = await fetch('https://api.computerfreaker.cf/v1/hentai')
-			  const resultHentai = await hentai.json()
-			  const hresu = resultHentai.url
-			  const hr = hresu
-			   if (hr.endsWith('.png')) {
-                    var ext = '.png'
-                } else {
-                    var ext = '.jpg'
-                }
-                client.sendFileFromUrl(from, hr, image, { caption: 'hentai!!', quoted: mek })
+               hent = await fetchJson(`https://api.computerfreaker.cf/v1/hentai`, {method: 'get'})
+			  henta = JSON.parse(JSON.stringify(hent));
+					he =  henta[2];
+					hen = await getBuffer(he)
+			
+
+                client.sendMessage(from, hen, image, { caption: 'hentai!!', quoted: mek })
 					await limitAdd(sender)	
                 break
 					
@@ -811,23 +805,20 @@ const getRegisteredRandomId = () => {
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-                          const nsfw = await fetch('https://api.computerfreaker.cf/v1/nsfwneko')
-			  const resultnsfw = await nsfw.json()
-			  const nresu = resultnsfw.url
-			  const nr = nresu
-			   if (nr.endsWith('.png')) {
-                    var ext = '.png'
-                } else {
-                    var ext = '.jpg'
-                }
-                client.sendMessage(from, nr, image, { caption: 'hentai!!', quoted: mek })
-					await limitAdd(sender)	
+               neko = await fetchJson(`https://api.computerfreaker.cf/v1/nsfwneko`, {method: 'get'})
+			  nek = JSON.parse(JSON.stringify(neko));
+					ne =  nek[1];
+					nsn = await getBuffer(ne)
+			
+
+                client.sendMessage(from, nsn, image, { caption: 'hentai!!', quoted: mek })
+					await limitAdd(sender)		
                 break
 					
-					//anu = await fetchJson(`https://api.computerfreaker.cf/v1/hentai`, {method: 'get'})
+					//hent = await fetchJson(`https://api.computerfreaker.cf/v1/hentai`, {method: 'get'})
 
-			//	const resultHentai = await anu.json()
-			//		nye = await getBuffer(to)
+			
+			//		nye = await getBuffer(hent)
 			//		client.sendMessage(from, nye, image, { caption: 'hentai!!', quoted: mek })
 			//		await limitAdd(sender)	
 			//		break
