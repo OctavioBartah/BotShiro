@@ -769,6 +769,7 @@ const getRegisteredRandomId = () => {
 					
 					
         case 'nsfwtrap':
+					 try {
 	if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
@@ -785,6 +786,7 @@ const getRegisteredRandomId = () => {
 					
 					
         case 'hentai':
+					 try {
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
@@ -801,6 +803,7 @@ const getRegisteredRandomId = () => {
 					
 					
 					        case 'nsfwneko':
+					 try {
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
