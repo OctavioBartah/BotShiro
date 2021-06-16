@@ -777,9 +777,6 @@ const getRegisteredRandomId = () => {
                trap = await fetchJson(`https://api.computerfreaker.cf/v1/nsfwtrap`, {method: 'get'})
 			buffer = await getBuffer(trap.result)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
-					} catch (e) {
-						console.log(`Error :`, color(e,'red'))
-						reply(' *ERROR* ')
 					}
 					await limitAdd(sender)	
 	break
@@ -794,9 +791,6 @@ const getRegisteredRandomId = () => {
                res = await fetchJson(`https://api.computerfreaker.cf/v1/hentai`, {method: 'get'})
 			buffer = await getBuffer(res.result)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
-					} catch (e) {
-						console.log(`Error :`, color(e,'red'))
-						reply(' *ERROR* ')
 					}
 					await limitAdd(sender)	
                 break
@@ -811,20 +805,10 @@ const getRegisteredRandomId = () => {
                neko = await fetchJson(`https://api.computerfreaker.cf/v1/nsfwneko`, {method: 'get'})
 			buffer = await getBuffer(neko.result)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
-					} catch (e) {
-						console.log(`Error :`, color(e,'red'))
-						reply(' *ERROR* ')
 					}
 					await limitAdd(sender)		
                 break
-					
-					//hent = await fetchJson(`https://api.computerfreaker.cf/v1/hentai`, {method: 'get'})
 
-			
-			//		nye = await getBuffer(hent)
-			//		client.sendMessage(from, nye, image, { caption: 'hentai!!', quoted: mek })
-			//		await limitAdd(sender)	
-			//		break
 					
         case 'nsfwtrap':
 					try {
@@ -844,56 +828,7 @@ const getRegisteredRandomId = () => {
 					await limitAdd(sender)
             break
 					
-					 case 'nh':
-            //if (isGroupMsg) return client.reply(from, 'Sorry this command for private chat only!', id)
-            if (args.length === 2) {
-                const nuklir = body.split(' ')[1]
-                client.reply(from, mess.wait, id)
-                const cek = await nhentai.exists(nuklir)
-                if (cek === true)  {
-                    try {
-                        const api = new API()
-                        const pic = await api.getBook(nuklir).then(book => {
-                            return api.getImageURL(book.cover)
-                        })
-                        const dojin = await nhentai.getDoujin(nuklir)
-                        const { title, details, link } = dojin
-                        const { parodies, tags, artists, groups, languages, categories } = await details
-                        var teks = `*Title* : ${title}\n\n*Parodies* : ${parodies}\n\n*Tags* : ${tags.join(', ')}\n\n*Artists* : ${artists.join(', ')}\n\n*Groups* : ${groups.join(', ')}\n\n*Languages* : ${languages.join(', ')}\n\n*Categories* : ${categories}\n\n*Link* : ${link}`
-                        //exec('nhentai --id=' + nuklir + ` -P mantap.pdf -o ./hentong/${nuklir}.pdf --format `+ `${nuklir}.pdf`, (error, stdout, stderr) => {
-                        client.sendFileFromUrl(from, pic, 'hentod.jpg', teks, id)
-                            //client.sendFile(from, `./hentong/${nuklir}.pdf/${nuklir}.pdf.pdf`, then(() => `${title}.pdf`, '', id)).catch(() => 
-                            //client.sendFile(from, `./hentong/${nuklir}.pdf/${nuklir}.pdf.pdf`, `${title}.pdf`, '', id))
-                            /*if (error) {
-                                console.log('error : '+ error.message)
-                                return
-                            }
-                            if (stderr) {
-                                console.log('stderr : '+ stderr)
-                                return
-                            }
-                            console.log('stdout : '+ stdout)*/
-                            //})
-                    } catch (err) {
-                        client.reply(from, '[❗] Terjadi kesalahan, mungkin kode nuklir salah', id)
-                    }
-                } else {
-                    client.reply(from, '[❗] Kode nuClear Salah!')
-                }
-            } else {
-                client.reply(from, '[ WRONG ] Kirim perintah *!nh [nuClear]* untuk contoh kirim perintah *!readme*')
-            }
-        	break
-
-			    
-			    
-		
-			    
-			    
-			    
-			    
-			    
-			    
+	    
 				case 'naruto':
 				if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
