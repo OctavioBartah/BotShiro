@@ -826,21 +826,23 @@ const getRegisteredRandomId = () => {
 			//		await limitAdd(sender)	
 			//		break
 					
-   //     case 'nsfwtrap':
-	//	    				if (isBanned) return reply(mess.only.benned)    
-	//			if (isLimit(sender)) return reply(limitend(pushname2))
-	//				if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
-	//				reply(mess.wait)
-// const trap = await randomNimek('trap')
-  //          if (trap.endsWith('.png')) {
-    //            var ext = '.png'
-      //      } else {
-        //        var ext = '.jpg'
-          //  }
-	//client.sendMessage(from, trap, image, { caption: '>///<', quoted: mek })
+        case 'nsfwtrap':
+					try {
+		    				if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
+					reply(mess.wait)
+ const trap = await randomNimek('trap')
+            if (trap.endsWith('.png')) {
+                var ext = '.png'
+            } else {
+               var ext = '.jpg'
+            }
+	client.sendMessage(from, trap, image, { caption: '>///<', quoted: mek })
       //      client.sendFileFromUrl(from, trap, `trap${ext}`, { caption: '>///<', quoted: mek })
-	//				await limitAdd(sender)
-         //   break
+					}
+					await limitAdd(sender)
+            break
 					
 					 case 'nh':
             //if (isGroupMsg) return client.reply(from, 'Sorry this command for private chat only!', id)
@@ -936,11 +938,50 @@ const getRegisteredRandomId = () => {
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
 					reply(mess.wait)
-					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=kawaii-loli`, {method: 'get'})
+					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=loli-chan`, {method: 'get'})
 					min = JSON.parse(JSON.stringify(anu));
 					ato =  min[Math.floor(Math.random() * min.length)];
 					nye = await getBuffer(ato)
 					client.sendMessage(from, nye, image, { caption: 'loli!!', quoted: mek })
+					await limitAdd(sender)
+					break 
+					
+									case 'nami':
+				if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
+					reply(mess.wait)
+					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=nami-one-piece`, {method: 'get'})
+					min = JSON.parse(JSON.stringify(anu));
+					ato =  min[Math.floor(Math.random() * min.length)];
+					nye = await getBuffer(ato)
+					client.sendMessage(from, nye, image, { caption: 'nami!!', quoted: mek })
+					await limitAdd(sender)
+					break 
+					
+									case 'zoro':
+				if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
+					reply(mess.wait)
+					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=zoro-one-piece`, {method: 'get'})
+					min = JSON.parse(JSON.stringify(anu));
+					ato =  min[Math.floor(Math.random() * min.length)];
+					nye = await getBuffer(ato)
+					client.sendMessage(from, nye, image, { caption: 'zoro!!', quoted: mek })
+					await limitAdd(sender)
+					break 
+					
+														case 'erza':
+				if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
+					reply(mess.wait)
+					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=erza-one-piece`, {method: 'get'})
+					min = JSON.parse(JSON.stringify(anu));
+					ato =  min[Math.floor(Math.random() * min.length)];
+					nye = await getBuffer(ato)
+					client.sendMessage(from, nye, image, { caption: 'erza!!', quoted: mek })
 					await limitAdd(sender)
 					break 
 					
@@ -1002,7 +1043,7 @@ const getRegisteredRandomId = () => {
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
 					reply(mess.wait)
-					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=Hinata+anime`, {method: 'get'})
+					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=hinata+anime`, {method: 'get'})
 					hina = JSON.parse(JSON.stringify(anu));
 					ta =  hina[Math.floor(Math.random() * hina.length)];
 					nye = await getBuffer(ta)
@@ -1135,7 +1176,7 @@ const getRegisteredRandomId = () => {
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
 					reply(mess.wait)
-					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=saikawa`, {method: 'get'})
+					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=riko-saikawa-kobayashi-san`, {method: 'get'})
 					kur = JSON.parse(JSON.stringify(anu));
 					imi =  kur[Math.floor(Math.random() * kur.length)];
 					nye = await getBuffer(imi)
@@ -1149,7 +1190,7 @@ const getRegisteredRandomId = () => {
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
 					reply(mess.wait)
-					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=kanna`, {method: 'get'})
+					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=kanna-kobayashi-san`, {method: 'get'})
 					kur = JSON.parse(JSON.stringify(anu));
 					imi =  kur[Math.floor(Math.random() * kur.length)];
 					nye = await getBuffer(imi)
