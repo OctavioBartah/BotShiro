@@ -797,7 +797,7 @@ const getRegisteredRandomId = () => {
 					
 					
 					        case 'nsfwneko':
-					 try {
+					
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
@@ -805,7 +805,7 @@ const getRegisteredRandomId = () => {
                neko = await fetchJson(`https://api.computerfreaker.cf/v1/nsfwneko`, {method: 'get'})
 			buffer = await getBuffer(neko.result)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
-					}
+					
 					await limitAdd(sender)		
                 break
 
