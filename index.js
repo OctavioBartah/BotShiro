@@ -769,7 +769,7 @@ const getRegisteredRandomId = () => {
 					
 					
         case 'nsfwtrap':
-					 try {
+					
 	if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
@@ -777,13 +777,13 @@ const getRegisteredRandomId = () => {
                trap = await fetchJson(`https://api.computerfreaker.cf/v1/nsfwtrap`, {method: 'get'})
 			buffer = await getBuffer(trap.result)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
-					}
+				
 					await limitAdd(sender)	
 	break
 					
 					
         case 'hentai':
-					 try {
+					
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
@@ -791,7 +791,7 @@ const getRegisteredRandomId = () => {
                res = await fetchJson(`https://api.computerfreaker.cf/v1/hentai`, {method: 'get'})
 			buffer = await getBuffer(res.result)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
-					}
+					
 					await limitAdd(sender)	
                 break
 					
@@ -811,7 +811,7 @@ const getRegisteredRandomId = () => {
 
 					
         case 'nsfwtrap':
-					try {
+					
 		    				if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
@@ -824,7 +824,7 @@ const getRegisteredRandomId = () => {
             }
 	client.sendMessage(from, trap, image, { caption: '>///<', quoted: mek })
       //      client.sendFileFromUrl(from, trap, `trap${ext}`, { caption: '>///<', quoted: mek })
-					}
+					
 					await limitAdd(sender)
             break
 					
