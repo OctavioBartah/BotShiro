@@ -69,7 +69,7 @@ const vcard = 'BEGIN:VCARD\n'
             + 'TEL;type=CELL;type=VOICE;waid=628311800241:+62 831-1800-241\n'
             + 'END:VCARD'
 
-prefix = "_"
+prefix = "#"
 name = "~ Loli_Senpai | B O T"
 rdaftar = "OBRIGADO POR SE REGISTRAR😁"
 rmenu = "Olá amigos da LOLIBOT👋"
