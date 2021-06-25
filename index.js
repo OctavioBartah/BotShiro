@@ -973,18 +973,22 @@ const getRegisteredRandomId = () => {
 					client.sendMessage(from, nye, image, { caption: 'boruto!!', quoted: mek })
 					await limitAdd(sender)
 					break 
-				case 'hinata':
+	
+									case 'hinata':
 				if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
 					reply(mess.wait)
-					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=hinata+anime`, {method: 'get'})
-					hina = JSON.parse(JSON.stringify(anu));
-					ta =  hina[Math.floor(Math.random() * hina.length)];
-					nye = await getBuffer(ta)
+					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=hinata`, {method: 'get'})
+					bor = JSON.parse(JSON.stringify(anu));
+					uto =  bor[Math.floor(Math.random() * bor.length)];
+					nye = await getBuffer(uto)
 					client.sendMessage(from, nye, image, { caption: 'hinata!!', quoted: mek })
 					await limitAdd(sender)
 					break 
+					
+					
+					
 				case 'sasuke':
 				if (isBanned) return reply(mess.only.benned)    
 			//	if (!isUser) return reply(mess.only.userB)
