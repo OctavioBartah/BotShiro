@@ -784,7 +784,7 @@ imageToBase64(res.data.url)
 .then(
 (ress) => {
 var buf = Buffer.from(ress, 'base64')
-client.sendMessage(from, buf, MessageType.image, {quoted: mek})
+client.sendMessage(from, buf, image, '', {quoted: mek})
 })
 })
 } catch (e) {
@@ -808,7 +808,7 @@ imageToBase64(res.data.url)
 .then(
 (ress) => {
 var buf = Buffer.from(ress, 'base64')
-client.sendMessage(from, buf, MessageType.image, {quoted: mek})
+client.sendMessage(from, buf, image, {quoted: mek})
 })
 })
 } catch (e) {
@@ -832,7 +832,7 @@ imageToBase64(res.data.url)
 .then(
 (ress) => {
 var buf = Buffer.from(ress, 'base64')
-client.sendMessage(from, buf, MessageType.image, {quoted: mek})
+client.sendMessage(from, buf, image, { caption: 'baka', quoted: mek })
 })
 })
 } catch (e) {
