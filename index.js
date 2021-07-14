@@ -767,20 +767,7 @@ const getRegisteredRandomId = () => {
 					
 					
 					
-					
-        case 'nsfwtrap':
-					
-	if (isBanned) return reply(mess.only.benned)    
-					 if (!isGroupAdmins) return reply(mess.only.admin)
-				if (isLimit(sender)) return reply(limitend(pushname2))
-					reply(mess.wait)
-               trap = await fetchJson(`https://api.computerfreaker.cf/v1/nsfwtrap`, {method: 'get'})
-			buffer = await getBuffer(trap.result)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
-				
-					await limitAdd(sender)	
-	break
-					
+							
 					
         case 'hentai':
 					
@@ -788,9 +775,9 @@ const getRegisteredRandomId = () => {
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-               res = await fetchJson(`https://api.computerfreaker.cf/v1/hentai`, {method: 'get'})
-			buffer = await getBuffer(res.result)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
+	 			const rtrap = ["hentai", "https://api.computerfreaker.cf/v1/hentai"];const rtrapc = rtrap[Math.floor(Math.random() * rtrap.length)]
+				const tapr = rtrapc.includes('https') ? await axios.get(rtrapc) : await axios.get('https://nekos.life/api/v2/img/' + rtrapc)
+	client.sendMessage(from, tapr.data.url, image, { caption: '>///<', quoted: mek })
 					
 					await limitAdd(sender)	
                 break
@@ -802,9 +789,9 @@ const getRegisteredRandomId = () => {
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-               neko = await fetchJson(`https://api.computerfreaker.cf/v1/nsfwneko`, {method: 'get'})
-			buffer = await getBuffer(neko.result)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tai safado'})
+	 			const rtrap = ["nsfwneko", "https://api.computerfreaker.cf/v1/nsfwneko"];const rtrapc = rtrap[Math.floor(Math.random() * rtrap.length)]
+				const tapr = rtrapc.includes('https') ? await axios.get(rtrapc) : await axios.get('https://nekos.life/api/v2/img/' + rtrapc)
+	client.sendMessage(from, tapr.data.url, image, { caption: '>///<', quoted: mek })
 					
 					await limitAdd(sender)		
                 break
@@ -814,15 +801,11 @@ const getRegisteredRandomId = () => {
 					
 		    				if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
-					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
+						 if (!isGroupAdmins) return reply(mess.only.admin)
 					reply(mess.wait)
- const trap = await randomNimek('trap')
-            if (trap.endsWith('.png')) {
-                var ext = '.png'
-            } else {
-               var ext = '.jpg'
-            }
-	client.sendMessage(from, trap, image, { caption: '>///<', quoted: mek })
+	 			const rtrap = ["trap", "https://api.computerfreaker.cf/v1/trap"];const rtrapc = rtrap[Math.floor(Math.random() * rtrap.length)]
+				const tapr = rtrapc.includes('https') ? await axios.get(rtrapc) : await axios.get('https://nekos.life/api/v2/img/' + rtrapc)
+	client.sendMessage(from, tapr.data.url, image, { caption: '>///<', quoted: mek })
       //      client.sendFileFromUrl(from, trap, `trap${ext}`, { caption: '>///<', quoted: mek })
 					
 					await limitAdd(sender)
