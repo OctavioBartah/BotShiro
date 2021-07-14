@@ -44,6 +44,7 @@ const loli = new lolis()
 const axios = require('axios')
 const nhentai = require('nhentai-js')
 const { API } = require('nhentai-api')
+const math = require('mathjs')
 
 const { BarBarApi, ZeksApi, TechApi, TobzApi, ItsApi, VthearApi } = JSON.parse(fs.readFileSync('./database/json/apikey.json'))
 const setting = JSON.parse(fs.readFileSync('./database/json/setting.json'))
