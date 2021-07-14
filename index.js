@@ -167,7 +167,7 @@ const getRegisteredRandomId = () => {
 			const nameReq = insom ? mek.participant : mek.key.remoteJid
 			pushname2 = client.contacts[nameReq] != undefined ? client.contacts[nameReq].vname || client.contacts[nameReq].notify : undefined
             
-			const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
+			const { text, extendedText, contact, location, liveLocation, id, image, video, sticker, document, audio, product } = MessageType
 
 			const date = new Date().toLocaleDateString()
 			const time = moment.tz('Asia/Jakarta').format('HH:mm:ss')
@@ -778,7 +778,7 @@ const getRegisteredRandomId = () => {
 					reply(mess.wait)
 	 			const rhent = ["hentai", "https://api.computerfreaker.cf/v1/hentai"];const rhentc = rhent[Math.floor(Math.random() * rhent.length)]
 				const hentr = rhentc.includes('https') ? await axios.get(rhentc) : await axios.get('https://nekos.life/api/v2/img/' + rhentc)
-	client.sendMessage(from, hentr.data.url, image, { caption: '>///<', quoted: mek })
+	client.sendMessage(from, hentr.data.url, '', '', id)
 					
 					await limitAdd(sender)	
                 break
@@ -792,7 +792,7 @@ const getRegisteredRandomId = () => {
 					reply(mess.wait)
 	 			const rnek = ["nsfwneko", "https://api.computerfreaker.cf/v1/nsfwneko"];const rnekc = rnek[Math.floor(Math.random() * rnek.length)]
 				const nekr = rnekc.includes('https') ? await axios.get(rnekc) : await axios.get('https://nekos.life/api/v2/img/' + rnekc)
-	client.sendMessage(from, nekr.data.url, image, { caption: '>///<', quoted: mek })
+	client.sendMessage(from, nekr.data.url, '', '', id)
 					
 					await limitAdd(sender)		
                 break
@@ -806,7 +806,7 @@ const getRegisteredRandomId = () => {
 					reply(mess.wait)
 	 			const rtrap = ["trap", "https://api.computerfreaker.cf/v1/trap"];const rtrapc = rtrap[Math.floor(Math.random() * rtrap.length)]
 				const tapr = rtrapc.includes('https') ? await axios.get(rtrapc) : await axios.get('https://nekos.life/api/v2/img/' + rtrapc)
-	client.sendMessage(from, tapr.data.url, image, { caption: '>///<', quoted: mek })
+	client.sendFileFromUrl(from, tapr.data.url, '', '', id)
       //      client.sendFileFromUrl(from, trap, `trap${ext}`, { caption: '>///<', quoted: mek })
 					
 					await limitAdd(sender)
