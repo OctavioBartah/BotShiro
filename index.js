@@ -776,11 +776,21 @@ const getRegisteredRandomId = () => {
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-	 			const rhent = ["hentai", "https://api.computerfreaker.cf/v1/hentai"];const rhentc = rhent[Math.floor(Math.random() * rhent.length)]
-				const hentr = rhentc.includes('https') ? await axios.get(rhentc) : await axios.get('https://nekos.life/api/v2/img/' + rhentc)
-	client.sendMessage(from, hentr.data.url, image, { caption: '', quoted: mek })
-					
-					await limitAdd(sender)	
+try {
+msgFilter.isFiltered(from)
+reply(ptbr.waitsfw())
+res = axios.get(`https://nekos.life/api/v2/img/hentai`).then(res => {
+imageToBase64(res.data.url)
+.then(
+(ress) => {
+var buf = Buffer.from(ress, 'base64')
+client.sendMessage(from, buf, MessageType.image, {quoted: mek})
+})
+})
+} catch (e) {
+if(console.log == "marker was not found")
+reply('❌ocorreu um erro❌\n\nTente novamente. ')
+}
                 break
 					
 					
@@ -790,11 +800,21 @@ const getRegisteredRandomId = () => {
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-	 			const rnek = ["nsfwneko", "https://api.computerfreaker.cf/v1/nsfwneko"];const rnekc = rnek[Math.floor(Math.random() * rnek.length)]
-				const nekr = rnekc.includes('https') ? await axios.get(rnekc) : await axios.get('https://nekos.life/api/v2/img/' + rnekc)
-	client.sendMessage(from, nekr.data.url, image, '', id)
-					
-					await limitAdd(sender)		
+try {
+msgFilter.isFiltered(from)
+reply(ptbr.waitsfw())
+res = axios.get(`https://nekos.life/api/v2/img/nsfwneko`).then(res => {
+imageToBase64(res.data.url)
+.then(
+(ress) => {
+var buf = Buffer.from(ress, 'base64')
+client.sendMessage(from, buf, MessageType.image, {quoted: mek})
+})
+})
+} catch (e) {
+if(console.log == "marker was not found")
+reply('❌ocorreu um erro❌\n\nTente novamente. ')
+}	
                 break
 
 					
@@ -804,9 +824,21 @@ const getRegisteredRandomId = () => {
 				if (isLimit(sender)) return reply(limitend(pushname2))
 						 if (!isGroupAdmins) return reply(mess.only.admin)
 					reply(mess.wait)
-	 			const rtrap = ["trap", "https://api.computerfreaker.cf/v1/trap"];const rtrapc = rtrap[Math.floor(Math.random() * rtrap.length)]
-				const tapr = rtrapc.includes('https') ? await axios.get(rtrapc) : await axios.get('https://nekos.life/api/v2/img/' + rtrapc)
-	client.sendFileFromUrl(from, tapr.data.url, image, '', id)
+try {
+msgFilter.isFiltered(from)
+reply(ptbr.waitsfw())
+res = axios.get(`https://nekos.life/api/v2/img/nsfwtrap`).then(res => {
+imageToBase64(res.data.url)
+.then(
+(ress) => {
+var buf = Buffer.from(ress, 'base64')
+client.sendMessage(from, buf, MessageType.image, {quoted: mek})
+})
+})
+} catch (e) {
+if(console.log == "marker was not found")
+reply('❌ocorreu um erro❌\n\nTente novamente. ')
+}
       //      client.sendFileFromUrl(from, trap, `trap${ext}`, { caption: '>///<', quoted: mek })
 					
 					await limitAdd(sender)
