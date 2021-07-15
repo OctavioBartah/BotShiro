@@ -764,13 +764,33 @@ const getRegisteredRandomId = () => {
 					await limitAdd(sender) 
 					break 
 				
+							case 'ht':
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+					reply(mess.wait)
+				const hent = await axios.get('https://meme-api.herokuapp.com/gimme/hentai')
+				await client.sendMessage(from, `${hent.data.url}`, image, `${hent.data.title}`, {quoted: mek})
+				break	
 					
 					
+							case 'trap':
+				 if (!isGroupAdmins) return reply(mess.only.admin)
+					reply(mess.wait)
+				const rtrap = ["trap", "https://api.computerfreaker.cf/v1/trap"];const rtrapc = rtrap[Math.floor(Math.random() * rtrap.length)]
+				const tapr = rtrapc.includes('https') ? await axios.get(rtrapc) : await axios.get('https://nekos.life/api/v2/img/' + rtrapc)
+				await client.sendFileFromUrl(from, tapr.data.url, image, '', {quoted: mek})
+				await client.sendMessage(from, tapr.data.url, image, '', {quoted: mek})
+				await client.sendMessage(from, tapr, image, '', {quoted: mek})
+				break	
 					
-					
+								case 'ihentai':
+			
+				const hntai = ["hentai", "pussy", "pussy_jpg", "classic", "https://api.computerfreaker.cf/v1/hentai"];const hentcc = hntai[Math.floor(Math.random() * hntai.length)]
+				const hentai1 = hentcc.includes('https') ? await axios.get(hentcc) : await axios.get('https://nekos.life/api/v2/img/' + hentcc)
+				await client.sendMessage(from, hentai1.data.url, image, {quoted: mek})
+				break
 							
 					
-        case 'hentai':
+   /*     case 'hentai':
 					
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
@@ -843,6 +863,25 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 					
 					await limitAdd(sender)
             break
+	*/
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 					
 	    
 				case 'naruto':
