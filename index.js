@@ -779,7 +779,7 @@ const getRegisteredRandomId = () => {
 try {
 msgFilter.isFiltered(from)
 reply(ptbr.waitsfw())
-res = axios.get(`https://nekos.life/api/v2/img/hentai`).then(res => {
+res = axios.get(`https://api.computerfreaker.cf/v1/hentai`).then(res => {
 imageToBase64(res.data.url)
 .then(
 (ress) => {
@@ -803,7 +803,7 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 try {
 msgFilter.isFiltered(from)
 reply(ptbr.waitsfw())
-res = axios.get(`https://nekos.life/api/v2/img/nsfwneko`).then(res => {
+res = axios.get(`https://api.computerfreaker.cf/v1/nsfwneko`).then(res => {
 imageToBase64(res.data.url)
 .then(
 (ress) => {
@@ -827,7 +827,7 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 try {
 msgFilter.isFiltered(from)
 reply(ptbr.waitsfw())
-res = axios.get(`https://nekos.life/api/v2/img/nsfwtrap`).then(res => {
+res = axios.get(`https://api.computerfreaker.cf/v1/nsfwtrap`).then(res => {
 imageToBase64(res.data.url)
 .then(
 (ress) => {
