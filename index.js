@@ -772,8 +772,9 @@ const getRegisteredRandomId = () => {
                    if (!isGroup) return reply(ind.groupo())
                    if (!isNsfw) return reply(ind.nsfwoff())
 					 if (!isGroupAdmins) return reply(mess.only.admin)
+					reply(mess.wait)
 					  try {
-						res = await fetchJson(`https://tobz-api.herokuapp.com/api/hentai?apikey=BotWeA`)
+						res = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`, {method: 'get'})
 						buffer = await getBuffer(res.image)
 						client.sendMessage(from, buffer, image, { caption: 'nya', quoted: mek })
 					} catch (e) {
@@ -789,8 +790,9 @@ const getRegisteredRandomId = () => {
                    if (!isGroup) return reply(ind.groupo())
                    if (!isNsfw) return reply(ind.nsfwoff())
 					 if (!isGroupAdmins) return reply(mess.only.admin)
+					reply(mess.wait)
 					  try {
-						res = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwtrap?apikey=APIKEYLU`)
+						res = await fetchJson(`http://lolhuman.herokuapp.com/api/random/nsfw/trap?apikey=6856eab13d43bf000864bbdb`, {method: 'get'})
 						buffer = await getBuffer(res.image)
 						client.sendMessage(from, buffer, image, { caption: 'nya', quoted: mek })
 					} catch (e) {
