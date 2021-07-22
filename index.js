@@ -764,33 +764,41 @@ const getRegisteredRandomId = () => {
 					await limitAdd(sender) 
 					break 
 				
-							case 'ht':
+
+					
+					
+				case 'hentai':
+            
+                   if (!isGroup) return reply(ind.groupo())
+                   if (!isNsfw) return reply(ind.nsfwoff())
 					 if (!isGroupAdmins) return reply(mess.only.admin)
-					reply(mess.wait)
-				const hent = await axios.get('https://meme-api.herokuapp.com/gimme/hentai')
-				await client.sendMessage(from, `${hent.data.url}`, image, `${hent.data.title}`, {quoted: mek})
-				break	
+					  try {
+						res = await fetchJson(`https://tobz-api.herokuapp.com/api/hentai?apikey=BotWeA`)
+						buffer = await getBuffer(res.image)
+						client.sendMessage(from, buffer, image, { caption: 'nya', quoted: mek })
+					} catch (e) {
+						console.log(`Error :`, color(e,'red'))
+						reply('❌ *ERROR* ❌')
+					}
+					await limitAdd(sender)
+					break
 					
 					
-							case 'ntrap':
-				 if (!isGroupAdmins) return reply(mess.only.admin)
-					reply(mess.wait)
-				const rtrap = ["trap", "https://api.computerfreaker.cf/v1/trap"];const rtrapc = rtrap[Math.floor(Math.random() * rtrap.length)]
-				const tapr = rtrapc.includes('https') ? await axios.get(rtrapc) : await axios.get('https://nekos.life/api/v2/img/' + rtrapc)
-				await client.sendFileFromUrl(from, tapr.data.url, image, '', {quoted: mek})
-				await client.sendMessage(from, tapr.data.url, image, '', {quoted: mek})
-				await client.sendMessage(from, tapr, image, '', {quoted: mek})
-				break	
-					
-								case 'ihentai':
-			 if (!isGroupAdmins) return reply(mess.only.admin)
-					reply(mess.wait)
-				const hntai = ["hentai", "pussy", "pussy_jpg", "classic", "https://api.computerfreaker.cf/v1/hentai"];const hentcc = hntai[Math.floor(Math.random() * hntai.length)]
-				const hentai1 = hentcc.includes('https') ? await axios.get(hentcc) : await axios.get('https://nekos.life/api/v2/img/' + hentcc)
-				await client.sendMessage(from, hentai1.data.url, image, {quoted: mek})
-				break
-							
-					
+									case 'nsfwtrap':
+            
+                   if (!isGroup) return reply(ind.groupo())
+                   if (!isNsfw) return reply(ind.nsfwoff())
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+					  try {
+						res = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwtrap?apikey=APIKEYLU`)
+						buffer = await getBuffer(res.image)
+						client.sendMessage(from, buffer, image, { caption: 'nya', quoted: mek })
+					} catch (e) {
+						console.log(`Error :`, color(e,'red'))
+						reply('❌ *ERROR* ❌')
+					}
+					await limitAdd(sender)
+					break
    /*     case 'hentai':
 					
 		if (isBanned) return reply(mess.only.benned)    
