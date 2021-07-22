@@ -775,7 +775,7 @@ const getRegisteredRandomId = () => {
 					reply(mess.wait)
 					  try {
 						res = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`, {method: 'get'})
-						buffer = await getBuffer(res.image)
+						buffer = await getBuffer(res.result)
 						client.sendMessage(from, buffer, image, { caption: 'nya', quoted: mek })
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
@@ -793,7 +793,7 @@ const getRegisteredRandomId = () => {
 					reply(mess.wait)
 					  try {
 						res = await fetchJson(`http://lolhuman.herokuapp.com/api/random/nsfw/trap?apikey=6856eab13d43bf000864bbdb`, {method: 'get'})
-						buffer = await getBuffer(res.image)
+						buffer = await getBuffer(res.result)
 						client.sendMessage(from, buffer, image, { caption: 'nya', quoted: mek })
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
