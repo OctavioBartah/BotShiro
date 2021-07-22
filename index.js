@@ -765,25 +765,14 @@ const getRegisteredRandomId = () => {
 					break 
 				
 
-					
-					
-				case 'hentai':
-            
-                   if (!isGroup) return reply(ind.groupo())
-                   if (!isNsfw) return reply(ind.nsfwoff())
-					 if (!isGroupAdmins) return reply(mess.only.admin)
-					reply(mess.wait)
-					  try {
-						res = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`, {method: 'get'})
-						buffer = await getBuffer(res.result)
+			case 'nsfwloli':
+					if (!isNsfw) return reply('❌ *FALSE* ❌')
+					loli.getNSFWLoli(async (err, res) => {
+						if (err) return reply('❌ *ERROR* ❌')
+						buffer = await getBuffer(res.url)
 						client.sendMessage(from, buffer, image, { caption: 'nya', quoted: mek })
-					} catch (e) {
-						console.log(`Error :`, color(e,'red'))
-						reply('❌ *ERROR* ❌')
-					}
-					await limitAdd(sender)
+					})
 					break
-					
 					
 									case 'nsfwtrap':
             
