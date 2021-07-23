@@ -773,18 +773,15 @@ const getRegisteredRandomId = () => {
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 try {
-res = axios.get(`https://api.computerfreaker.cf/v1/hentai`).then(res => {
-imageToBase64(res.data.url)
-.then(
-(ress) => {
-var buf = Buffer.from(ress, 'base64')
-client.sendMessage(from, buf, image, '', {quoted: mek})
-})
-})
-} catch (e) {
+res = axios.get(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`), {method: 'get'})
+					nye = await getBuffer(res)
+					client.sendMessage(from, nye, image, { caption: 'nya!!', quoted: mek })
+					await limitAdd(sender)
+	} catch (e) {
 if(console.log == "marker was not found")
 reply('❌ocorreu um erro❌\n\nTente novamente. ')
 }
+	
                 break
 					
 					        case 't2':
@@ -815,14 +812,9 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 try {
-fes = axios.get(`https://nekos.life/`).then(res => {
-imageToBase64(fes.data.url)
-.then(
-(fess) => {
-var buf = Buffer.from(fess, 'base64')
-client.sendMessage(from, buf, image, '', {quoted: mek})
-})
-})
+	anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`, {method: 'get'})
+nye = await getBuffer(anu)
+client.sendMessage(from, nye, image, '', {quoted: mek})
 } catch (e) {
 if(console.log == "marker was not found")
 reply('❌ocorreu um erro❌\n\nTente novamente. ')
@@ -837,7 +829,7 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 					reply(mess.wait)
 try {
 ges = axios.get(`https://nekos.life/lewd`).then(res => {
-imageToBase64(ges.data.url)
+imageToBase64(ges.data)
 .then(
 (gess) => {
 var buf = Buffer.from(gess, 'base64')
@@ -849,6 +841,23 @@ if(console.log == "marker was not found")
 reply('❌ocorreu um erro❌\n\nTente novamente. ')
 }
                 break
+					
+		  case 't5':
+					
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+try {
+	anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`, {method: 'get'})
+nye = await getBuffer(anu)
+client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek }})
+} catch (e) {
+if(console.log == "marker was not found")
+reply('❌ocorreu um erro❌\n\nTente novamente. ')
+}
+                break
+				
 					
 									
 					
