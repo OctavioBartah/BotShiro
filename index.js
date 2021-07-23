@@ -773,7 +773,7 @@ const getRegisteredRandomId = () => {
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 try {
-res = axios.get(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`), {method: 'get'})
+res = axios.get(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`, {method: 'get'})
 					nye = await getBuffer(res)
 					client.sendMessage(from, nye, image, { caption: 'nya!!', quoted: mek })
 					await limitAdd(sender)
