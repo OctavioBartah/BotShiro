@@ -851,7 +851,7 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 try {
 	anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`, {method: 'get'})
 nye = await getBuffer(anu)
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek }})
+client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
 } catch (e) {
 if(console.log == "marker was not found")
 reply('❌ocorreu um erro❌\n\nTente novamente. ')
