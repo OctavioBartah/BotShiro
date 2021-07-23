@@ -765,31 +765,14 @@ const getRegisteredRandomId = () => {
 					break 
 				
 					
-									case 'nsfwtrap':
-            
-                   if (!isGroup) return reply(ind.groupo())
-                   if (!isNsfw) return reply(ind.nsfwoff())
-					 if (!isGroupAdmins) return reply(mess.only.admin)
-					reply(mess.wait)
-					  try {
-						res = await fetchJson(`http://lolhuman.herokuapp.com/api/random/nsfw/trap?apikey=6856eab13d43bf000864bbdb`, {method: 'get'})
-						buffer = await getBuffer(res.result)
-						client.sendMessage(from, buffer, image, { caption: 'nya', quoted: mek })
-					} catch (e) {
-						console.log(`Error :`, color(e,'red'))
-						reply('❌ *ERROR* ❌')
-					}
-					await limitAdd(sender)
-					break
-   /*     case 'hentai':
+		
+        case 't1':
 					
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 try {
-msgFilter.isFiltered(from)
-reply(ptbr.waitsfw())
 res = axios.get(`https://api.computerfreaker.cf/v1/hentai`).then(res => {
 imageToBase64(res.data.url)
 .then(
@@ -804,72 +787,70 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 }
                 break
 					
-					
-					        case 'nsfwneko':
+					        case 't2':
 					
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 try {
-msgFilter.isFiltered(from)
-reply(ptbr.waitsfw())
-res = axios.get(`https://api.computerfreaker.cf/v1/nsfwneko`).then(res => {
-imageToBase64(res.data.url)
+des = axios.get(`https://nekos.life/api/v2/img/erokemo`).then(res => {
+imageToBase64(des.data.url)
 .then(
-(ress) => {
-var buf = Buffer.from(ress, 'base64')
-client.sendMessage(from, buf, image, {quoted: mek})
-})
-})
-} catch (e) {
-if(console.log == "marker was not found")
-reply('❌ocorreu um erro❌\n\nTente novamente. ')
-}	
-                break
-
-					
-        case 'nsfwtrap':
-					
-		    				if (isBanned) return reply(mess.only.benned)    
-				if (isLimit(sender)) return reply(limitend(pushname2))
-						 if (!isGroupAdmins) return reply(mess.only.admin)
-					reply(mess.wait)
-try {
-msgFilter.isFiltered(from)
-reply(ptbr.waitsfw())
-res = axios.get(`https://api.computerfreaker.cf/v1/nsfwtrap`).then(res => {
-imageToBase64(res.data.url)
-.then(
-(ress) => {
-var buf = Buffer.from(ress, 'base64')
-client.sendMessage(from, buf, image, { caption: 'baka', quoted: mek })
+(dess) => {
+var buf = Buffer.from(dess, 'base64')
+client.sendMessage(from, buf, image, { caption: '190!!', quoted: mek })
 })
 })
 } catch (e) {
 if(console.log == "marker was not found")
 reply('❌ocorreu um erro❌\n\nTente novamente. ')
 }
-      //      client.sendFileFromUrl(from, trap, `trap${ext}`, { caption: '>///<', quoted: mek })
+                break
 					
-					await limitAdd(sender)
-            break
-	*/
+					        case 't3':
 					
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+try {
+fes = axios.get(`https://nekos.life/`).then(res => {
+imageToBase64(fes.data.url)
+.then(
+(fess) => {
+var buf = Buffer.from(fess, 'base64')
+client.sendMessage(from, buf, image, '', {quoted: mek})
+})
+})
+} catch (e) {
+if(console.log == "marker was not found")
+reply('❌ocorreu um erro❌\n\nTente novamente. ')
+}
+                break
 					
+					        case 't4':
 					
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+try {
+ges = axios.get(`https://nekos.life/lewd`).then(res => {
+imageToBase64(ges.data.url)
+.then(
+(gess) => {
+var buf = Buffer.from(gess, 'base64')
+client.sendMessage(from, buf, image, '', {quoted: mek})
+})
+})
+} catch (e) {
+if(console.log == "marker was not found")
+reply('❌ocorreu um erro❌\n\nTente novamente. ')
+}
+                break
 					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+									
 					
 					
 					
