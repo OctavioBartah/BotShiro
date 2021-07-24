@@ -63,6 +63,25 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}kanna*
 ❉ │➻ *${prefix}saikawa*
 ❉ ╰───────────────
+❉ ╭─ ❉ *NSFW MENU* ❉──── 
+❉ │
+❉ │➻ *${prefix}hentai1*
+❉ │➻ *${prefix}hentai2*
+❉ │➻ *${prefix}trap1*
+❉ │➻ *${prefix}trap2*
+❉ │➻ *${prefix}neko1*
+❉ │➻ *${prefix}neko2*
+❉ │➻ *${prefix}yuri1*
+❉ │➻ *${prefix}yuri2*
+❉ │➻ *${prefix}yaoi1*
+❉ │➻ *${prefix}yaoi2*
+❉ │➻ *${prefix}shota1*
+❉ │➻ *${prefix}shota2*
+❉ │➻ *${prefix}waifu1*
+❉ │➻ *${prefix}waifu2*
+❉ │➻ *${prefix}elf1*
+❉ │➻ *${prefix}elf2*
+❉ ╰───────────────
 ❉
 ❉ ╭─❉ *ADMS* ❉──────────
 ❉ │➻ *${prefix}welcome On/Off*
