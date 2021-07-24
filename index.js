@@ -788,7 +788,7 @@ res = axios.get(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e88485
 					reply(mess.wait)
 
 des = await fetchJson(`https://nekos.life/api/v2/img/erokemo`)
-buffer = await getBuffer(des.result.url)
+buffer = await getBuffer(des.url.result)
 client.sendMessage(from, buffer, image, { caption: '190!!', quoted: mek })
 
                 break
@@ -810,7 +810,6 @@ client.sendMessage(from, buffer, image, { caption: '190!!', quoted: mek })
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-try {
 ges = axios.get(`https://nekos.life/lewd`).then(res => {
 imageToBase64(ges.data)
 .then(
@@ -819,10 +818,7 @@ var buf = Buffer.from(gess, 'base64')
 client.sendMessage(from, buf, image, '', {quoted: mek})
 })
 })
-} catch (e) {
-if(console.log == "marker was not found")
-reply('❌ocorreu um erro❌\n\nTente novamente. ')
-}
+
                 break
 					
 		  case 't5':
