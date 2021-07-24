@@ -790,19 +790,11 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-try {
-des = axios.get(`https://nekos.life/api/v2/img/erokemo`).then(res => {
-imageToBase64(des.data.url)
-.then(
-(dess) => {
-var buf = Buffer.from(dess, 'base64')
-client.sendMessage(from, buf, image, { caption: '190!!', quoted: mek })
-})
-})
-} catch (e) {
-if(console.log == "marker was not found")
-reply('❌ocorreu um erro❌\n\nTente novamente. ')
-}
+
+des = await fetchJson(`https://nekos.life/api/v2/img/erokemo`)
+buffer = await getBuffer(des.url.result)
+client.sendMessage(from, buffer, image, { caption: '190!!', quoted: mek })
+
                 break
 					
 					        case 't3':
@@ -811,14 +803,9 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-try {
-	anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`, {method: 'get'})
-nye = await getBuffer(anu)
-client.sendMessage(from, nye, image, '', {quoted: mek})
-} catch (e) {
-if(console.log == "marker was not found")
-reply('❌ocorreu um erro❌\n\nTente novamente. ')
-}
+des = await fetchJson(`https://nekos.life/api/v2/img/erokemo`, {method: 'get'})
+buffer = await getBuffer(des.url.result)
+client.sendMessage(from, buffer, image, { caption: '190!!', quoted: mek })
                 break
 					
 					        case 't4':
@@ -881,6 +868,31 @@ client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
 
                 break
 			
+					
+					
+					
+					
+					
+					
+			 case 't8':
+        
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+                 const hentai = await randomNimek('hentai')
+		 client.sendMessage(from, hentai, image, { caption: '190!!', quoted: mek })
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 					
 									
 					
