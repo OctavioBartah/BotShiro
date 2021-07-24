@@ -858,6 +858,29 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 }
                 break
 				
+							  case 't6':
+					
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c')
+client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
+
+                break
+												  case 't7':
+					
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c', {method: 'get'})
+client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
+
+                break
+			
 					
 									
 					
