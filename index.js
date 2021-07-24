@@ -772,15 +772,11 @@ const getRegisteredRandomId = () => {
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-try {
+
 res = axios.get(`http://lolhuman.herokuapp.com/api/random2/hentai?apikey=6e8848511bb8f8757d7fc85c`, {method: 'get'})
 					nye = await getBuffer(res)
 					client.sendMessage(from, nye, image, { caption: 'nya!!', quoted: mek })
 					await limitAdd(sender)
-	} catch (e) {
-if(console.log == "marker was not found")
-reply('❌ocorreu um erro❌\n\nTente novamente. ')
-}
 	
                 break
 					
@@ -792,7 +788,7 @@ reply('❌ocorreu um erro❌\n\nTente novamente. ')
 					reply(mess.wait)
 
 des = await fetchJson(`https://nekos.life/api/v2/img/erokemo`)
-buffer = await getBuffer(des.url.result)
+buffer = await getBuffer(des.result.url)
 client.sendMessage(from, buffer, image, { caption: '190!!', quoted: mek })
 
                 break
@@ -883,10 +879,22 @@ client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
                  const hentai = await randomNimek('hentai')
 		 client.sendMessage(from, hentai, image, { caption: '190!!', quoted: mek })
 					
+					break
 					
 					
 					
+									        case 't9':
 					
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+des = await fetchJson(`https://nekos.life/api/v2/img/erokemo`)
+buffer = await getBuffer(des.result)
+client.sendMessage(from, buffer, image, { caption: '190!!', quoted: mek })
+
+                break
 					
 					
 					
