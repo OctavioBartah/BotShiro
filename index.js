@@ -737,23 +737,48 @@ const getRegisteredRandomId = () => {
 					break 
 
 // only grup fitur anime
-              case 'anime':
-                if (isBanned) return reply(mess.only.benned)    
-                if (isLimit(sender)) return reply(limitend(pushname2))
-                if (!isAnime) return reply(' *Ative o modo anime* ')
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomanime?apikey=${TobzApi}`, {method: 'get'})
-					reply(mess.wait)
-					pok = await getBuffer(anu.result)
-					client.sendMessage(from, pok, image, { quoted: mek , caption: 'nihhh'})
-					await limitAdd(sender) 
-					break  
-				case 'animekiss':
+          
+				case 'kiss':
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
 					anp = getRandom('.gif')
 					rano = getRandom('.webp')
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/kiss?apikey=${TobzApi}`, {method: 'get'})
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/kiss?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+					case 'baka':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/baka?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+					case 'gawr':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/sticker/gawrgura?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
 						if (err) return reply(mess.error.stick)
@@ -764,11 +789,216 @@ const getRegisteredRandomId = () => {
 					await limitAdd(sender) 
 					break 
 		
+										case 'blowjob':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+										 if (!isGroupAdmins) return reply(mess.only.admin)
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/nsfw/blowjob?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, image, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+										case 'cum':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+										 if (!isGroupAdmins) return reply(mess.only.admin)
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/cum?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+															case 'poke':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/poke?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+							case 'smug':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/smug?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+												case 'cuddle':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/cuddle?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+												case 'cry':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/cry?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+												case 'abrac':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/hug?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+												case 'lick':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/lick?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+																	case 'sorrir':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/smile?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+																	case 'maos':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/handhold?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+					case 'kill':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/kill?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
+					
+										case 'cringe':
+                if (isBanned) return reply(mess.only.benned)    
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                if (!isAnime) return reply(' *Ative o modo anime* ')
+					anp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/cringe?apikey=OctavioBartah1508`, {method: 'get'})
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender) 
+					break 
 					
 					
 					
 				
-							  case 'hentai1':
+							  case 'hentai':
 					
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
@@ -776,24 +1006,14 @@ const getRegisteredRandomId = () => {
 					reply(mess.wait)
 
 nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/hentai?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
+client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 
                 break
-												  case 'hentai2':
-					
-		if (isBanned) return reply(mess.only.benned)    
-					 if (!isGroupAdmins) return reply(mess.only.admin)
-				if (isLimit(sender)) return reply(limitend(pushname2))
-					reply(mess.wait)
 
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/hentai?apikey=OctavioBartah1508', {method: 'get'})
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
-
-                break
 					
 										
 				
-							  case 'neko1':
+							  case 'hneko':
 					
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
@@ -801,25 +1021,15 @@ client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
 					reply(mess.wait)
 
 nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/neko?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
+client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 
                 break
-												  case 'neko2':
-					
-		if (isBanned) return reply(mess.only.benned)    
-					 if (!isGroupAdmins) return reply(mess.only.admin)
-				if (isLimit(sender)) return reply(limitend(pushname2))
-					reply(mess.wait)
 
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/neko?apikey=OctavioBartah1508', {method: 'get'})
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
-
-                break
 			
 					
 										
 				
-							  case 'trap1':
+							  case 'htrap':
 					
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
@@ -827,25 +1037,15 @@ client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
 					reply(mess.wait)
 
 nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/trap?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
+client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 
                 break
-												  case 'trap2':
-					
-		if (isBanned) return reply(mess.only.benned)    
-					 if (!isGroupAdmins) return reply(mess.only.admin)
-				if (isLimit(sender)) return reply(limitend(pushname2))
-					reply(mess.wait)
 
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/trap?apikey=OctavioBartah1508', {method: 'get'})
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
-
-                break
 			
 					
 										
 				
-							  case 'yaoi1':
+							  case 'hyaoi':
 					
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
@@ -853,97 +1053,196 @@ client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
 					reply(mess.wait)
 
 nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/yaoi?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
+client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 
                 break
-												  case 'yaoi2':
-					
-		if (isBanned) return reply(mess.only.benned)    
-					 if (!isGroupAdmins) return reply(mess.only.admin)
-				if (isLimit(sender)) return reply(limitend(pushname2))
-					reply(mess.wait)
 
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/yaoi?apikey=OctavioBartah1508', {method: 'get'})
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
-
-                break
-			
 					
 										
 				
-							  case 'elf1':
+							  case 'elf':
 					
 		if (isBanned) return reply(mess.only.benned)    
-					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 
 nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/elf?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
+client.sendMessage(from, nye, image, { caption: 'elf!!', quoted: mek })
 
                 break
-												  case 'elf2':
-					
-		if (isBanned) return reply(mess.only.benned)    
-					 if (!isGroupAdmins) return reply(mess.only.admin)
-				if (isLimit(sender)) return reply(limitend(pushname2))
-					reply(mess.wait)
 
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/elf?apikey=OctavioBartah1508', {method: 'get'})
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
-
-                break
 			
 			
-					  case 'waifu1':
+					  case 'waifu':
 					
 		if (isBanned) return reply(mess.only.benned)    
-					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 
 nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/waifu?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
+client.sendMessage(from, nye, image, { caption: 'waifu!!', quoted: mek })
 
                 break
-												  case 'waifu2':
+
+					
+					  case 'shota':
 					
 		if (isBanned) return reply(mess.only.benned)    
-					 if (!isGroupAdmins) return reply(mess.only.admin)
-				if (isLimit(sender)) return reply(limitend(pushname2))
-					reply(mess.wait)
-
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/waifu?apikey=OctavioBartah1508', {method: 'get'})
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
-
-                break
-					
-					  case 'shota1':
-					
-		if (isBanned) return reply(mess.only.benned)    
-					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 
 nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/shota?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
+client.sendMessage(from, nye, image, { caption: 'shota!!', quoted: mek })
 
                 break
-												  case 'shota2':
+					
+										  case 'neko':
+					
+		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/neko?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'neko!!', quoted: mek })
+
+                break
+					
+				  case 'ecchi':
+					
+		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/ecchi?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'ecchi!!', quoted: mek })
+
+                break
+				
+									  case 'kanna':
+					
+		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/kanna?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'kanna!!', quoted: mek })
+
+                break
+												  case 'ero':
 					
 		if (isBanned) return reply(mess.only.benned)    
 					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/shota?apikey=OctavioBartah1508', {method: 'get'})
-client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/erokemo?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'ero!!', quoted: mek })
 
                 break
 					
+												  case 'hyuri':
 					
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/eroyuri?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
+
+                break
+			
+								  case 'erok':
+					
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/erokemo?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
+
+                break
+					
+						  case 'fox':
+					
+		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/fox_girl?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'fox!!', quoted: mek })
+
+                break
 		
+											  case 'anime':
 					
+		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/art?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'fanart!!', quoted: mek })
+
+                break
+					
+							
+											  case 'wallpaper':
+					
+		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/wallnime?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'wallpaper!!', quoted: mek })
+
+                break
+		
+						  case 'ahegao':
+					
+		if (isBanned) return reply(mess.only.benned)    
+					if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/ahegao?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'ahegao!!', quoted: mek })
+
+                break
+					
+											  case 'feet':
+					
+		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/feet?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'feet!!', quoted: mek })
+
+                break
+		
+		  case 'kemono':
+					
+		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/kemonomimi?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'kemono!!', quoted: mek })
+
+                break
+					
+					case 'shinobu':
+					
+		if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/shinobu?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
+
+                break
+		
 					
 					
 					
@@ -968,7 +1267,7 @@ client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
 					await limitAdd(sender)
 					break 
 					
-					case 'shota':
+	/*				case 'shota':
 				if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
@@ -979,7 +1278,7 @@ client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
 					nye = await getBuffer(to)
 					client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
 					await limitAdd(sender)
-					break 
+					break */
 					
 				case 'minato':
 				if (isBanned) return reply(mess.only.benned)    
@@ -1249,7 +1548,7 @@ client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
 					await limitAdd(sender) 
 					break 
 					
-				case 'kanna':
+			/*	case 'kanna':
 				if (isBanned) return reply(mess.only.benned)    
 		//		if (!isUser) return reply(mess.only.userB)
 				if (isLimit(sender)) return reply(limitend(pushname2))
@@ -1261,7 +1560,7 @@ client.sendMessage(from, nye, image, { caption: '190!!', quoted: mek })
 					nye = await getBuffer(imi)
 					client.sendMessage(from, nye, image, { caption: 'kanna-chan!!', quoted: mek })
 					await limitAdd(sender) 
-					break 
+					break */
 					
 				case 'miku':
 				if (isBanned) return reply(mess.only.benned)    
