@@ -1001,7 +1001,7 @@ const getRegisteredRandomId = () => {
 					await limitAdd(sender) 
 					break 
 					
-					case 'kill':
+		/*			case 'kill':
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
@@ -1017,7 +1017,7 @@ const getRegisteredRandomId = () => {
 					})
 					await limitAdd(sender) 
 					break 
-					
+					*/
 										case 'cringe':
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
@@ -1320,7 +1320,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                         pp = 'calma man, a mina não é um poço😳'
                     } else if (tamanho == 20) {
                         pp = 'você tem um poste no meio das pernas'
-				    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+				    figb = fs.readFileSync('./src/pau/p1' + '.webp')
 			     setTimeout(() => {
                             client.sendMessage(from, figb, sticker, {
                                 quoted: mek
@@ -1328,7 +1328,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                         }, 2100)
                     } else if (tamanho == 21) {
                         pp = 'você tem um poste no meio das pernas'
-					    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+					    figb = fs.readFileSync('./src/pau/p1' + '.webp')
 			     setTimeout(() => {
                             client.sendMessage(from, figb, sticker, {
                                 quoted: mek
@@ -1336,7 +1336,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                         }, 2100)
                     } else if (tamanho == 22) {
                         pp = 'você tem um poste no meio das pernas'
-			    		    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+			    		figb = fs.readFileSync('./src/pau/p1' + '.webp')
 			     setTimeout(() => {
                             client.sendMessage(from, figb, sticker, {
                                 quoted: mek
@@ -1344,7 +1344,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                         }, 2100)
                     } else if (tamanho == 23) {
                         pp = 'você tem um poste no meio das pernas'
-				    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+				  figb = fs.readFileSync('./src/pau/p1' + '.webp')
 			     setTimeout(() => {
                             client.sendMessage(from, figb, sticker, {
                                 quoted: mek
@@ -1352,7 +1352,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                         }, 2100)
                     } else if (tamanho == 24) {
                         pp = 'você tem um poste no meio das pernas'
-			    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+			 figb = fs.readFileSync('./src/pau/p1' + '.webp')
 			     setTimeout(() => {
                             client.sendMessage(from, figb, sticker, {
                                 quoted: mek
@@ -1360,7 +1360,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                         }, 2100)
                     } else if (tamanho > 25) {
                         pp = 'vai procurar petróleo com isso?'
-					    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+					figb = fs.readFileSync('./src/pau/p1' + '.webp')
 			    setTimeout(() => {
                             client.sendMessage(from, figb, sticker, {
                                 quoted: mek
@@ -1485,7 +1485,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                   1 impostor remain   。　.
 　 　　。　　 　　　　ﾟ　　　.　      　　　.
 ,　　　　.                  .`
-                        //  tiringa.groupRemove(from, mentioned)
+                          client.groupRemove(from, mentioned)
                     mentions(`${sus}`, mentioned, true)
                     break
 
@@ -1495,7 +1495,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     pro = '.\n'
 		const kigr = ["h1", "h2", "h3", "h4", "h5", "h6"]
                     tpb = kigr[Math.floor(Math.random() * (kigr.length))]
-                    figb = fs.readFileSync('./src/hug/' + tpb + '.gif')
+                    figb = fs.readFileSync('./src/hug/' + tpb + '.webp')
                     for (let _ of mentioned) {
                         pro += `@${_.split('@')[0]}\n`
                     }
@@ -1521,10 +1521,10 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     }
                     const ligr = ["c1", "c2", "c3", "c4", "c5", "c6"]
                     tpb = ligr[Math.floor(Math.random() * (ligr.length))]
-                    figb = fs.readFileSync('./src/cry/' + tpb + '.gif')
+                    figb = fs.readFileSync('./src/cry/' + tpb + '.webp')
 		    const gigr = ["ks1", "ks2", "ks3", "ks4", "ks5", "ks6"]
                     gpb = gigr[Math.floor(Math.random() * (gigr.length))]
-                    gigb = fs.readFileSync('./src/kiss/' + gpb + '.gif')			
+                    gigb = fs.readFileSync('./src/kiss/' + gpb + '.webp')			
                     porc = `${Math.floor(Math.random() * 100)}`
                     yhb = `@${mentioned[0].split('@')[0]} tem uma chance de ${porc}% de namorar com @${mentioned[1].split('@')[0]}`
 			      if (porc < 50) {
@@ -1560,7 +1560,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     }
                     const zigr = ["bl1", "bl2", "bl3", "bl4", "bl5", "bl6"]
                     tpb = zigr[Math.floor(Math.random() * (zigr.length))]
-                    figb = fs.readFileSync('./src/blow/' + tpb + '.jpg')
+                    figb = fs.readFileSync('./src/blow/' + tpb + '.webp')
 	
                     yhb = `@${mentioned[0].split('@')[0]} deu uma mamada em @${mentioned[1].split('@')[0]}`
 			    
@@ -1583,7 +1583,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     pro = '.\n'
 		const sigr = ["k1", "k2", "k3", "k4", "k5", "k6"]
                     tpb = sigr[Math.floor(Math.random() * (sigr.length))]
-                    figb = fs.readFileSync('./src/kill/' + tpb + '.gif')
+                    figb = fs.readFileSync('./src/kill/' + tpb + '.webp')
                     for (let _ of mentioned) {
                         pro += `@${_.split('@')[0]}\n`
                     }
