@@ -1533,14 +1533,10 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                                 quoted: mek
                             })
                         }, 2100)
-                    }
-                    setTimeout(() => {
-                                mentions(`${yhb}`, mentioned, true, {
-                            quoted: mek
-                        })
-                    }, 2300)
+                    
+			      }
 
-					if (porc > 50) {
+					else if (porc > 50) {
                         setTimeout(() => {
                             client.sendMessage(from, gigb, sticker, {
                                 quoted: mek
