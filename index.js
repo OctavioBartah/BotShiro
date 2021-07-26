@@ -1302,7 +1302,184 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 					break 
 					
 					
-					
+/*/////////////////////////JOGOS E COISAS RANDOM*/////////////////////////////
+					 case 'pau':
+                    random = `${Math.floor(Math.random() * 35)}`
+                    const tamanho = random
+                    if (tamanho < 13) {
+                        pp = 'só a fimose'
+                    } else if (tamanho == 13) {
+                        pp = 'passou da média😳'
+                    } else if (tamanho == 14) {
+                        pp = 'passou da média😳'
+                    } else if (tamanho == 15) {
+                        pp = 'eita, vai pegar manga?'
+                    } else if (tamanho == 16) {
+                        pp = 'eita, vai pegar manga?'
+                    } else if (tamanho == 17) {
+                        pp = 'calma man, a mina não é um poço😳'
+                    } else if (tamanho == 18) {
+                        pp = 'calma man, a mina não é um poço😳'
+                    } else if (tamanho == 19) {
+                        pp = 'calma man, a mina não é um poço😳'
+                    } else if (tamanho == 20) {
+                        pp = 'você tem um poste no meio das pernas'
+                    } else if (tamanho == 21) {
+                        pp = 'você tem um poste no meio das pernas'
+                    } else if (tamanho == 22) {
+                        pp = 'você tem um poste no meio das pernas'
+                    } else if (tamanho == 23) {
+                        pp = 'você tem um poste no meio das pernas'
+                    } else if (tamanho == 24) {
+                        pp = 'você tem um poste no meio das pernas'
+                    } else if (tamanho > 25) {
+                        pp = 'vai procurar petróleo com isso?'
+                    }
+                    hasil = `Seu pau tem ${random}cm\n\n${pp}`
+                    reply(hasil)
+                    break
+
+                case 'gay':
+                    client.updatePresence(from, Presence.composing)
+                    random = `${Math.floor(Math.random() * 100)}`
+                    boiola = random
+                    if (boiola < 20) {
+                        bo = 'hmm... você é hetero😔'
+                    } else if (boiola == 21) {
+                        bo = '+/- boiola'
+                    } else if (boiola == 23) {
+                        bo = '+/- boiola'
+                    } else if (boiola == 24) {
+                        bo = '+/- boiola'
+                    } else if (boiola == 25) {
+                        bo = '+/- boiola'
+                    } else if (boiola == 26) {
+                        bo = '+/- boiola'
+                    } else if (boiola == 27) {
+                        bo = '+/- boiola'
+                    } else if (boiola == 28) {
+                        bo = '+/- boiola'
+                    } else if (boiola == 29) {
+                        bo = '+/- boiola'
+                    } else if (boiola == 30) {
+                        bo = '+/- boiola'
+                    } else if (boiola == 31) {
+                        bo = 'tenho minha desconfiança...😑'
+                    } else if (boiola == 32) {
+                        bo = 'tenho minha desconfiança...😑'
+                    } else if (boiola == 33) {
+                        bo = 'tenho minha desconfiança...😑'
+                    } else if (boiola == 34) {
+                        bo = 'tenho minha desconfiança...😑'
+                    } else if (boiola == 35) {
+                        bo = 'tenho minha desconfiança...😑'
+                    } else if (boiola == 36) {
+                        bo = 'tenho minha desconfiança...😑'
+                    } else if (boiola == 37) {
+                        bo = 'tenho minha desconfiança...😑'
+                    } else if (boiola == 38) {
+                        bo = 'tenho minha desconfiança...😑'
+                    } else if (boiola == 39) {
+                        bo = 'tenho minha desconfiança...😑'
+                    } else if (boiola == 40) {
+                        bo = 'tenho minha desconfiança...😑'
+                    } else if (boiola == 41) {
+                        bo = 'você é né?😏'
+                    } else if (boiola == 42) {
+                        bo = 'você é né?😏'
+                    } else if (boiola == 43) {
+                        bo = 'você é né?😏'
+                    } else if (boiola == 44) {
+                        bo = 'você é né?😏'
+                    } else if (boiola == 45) {
+                        bo = 'você é né?😏'
+                    } else if (boiola == 46) {
+                        bo = 'você é né?😏'
+                    } else if (boiola == 47) {
+                        bo = 'você é né?😏'
+                    } else if (boiola == 48) {
+                        bo = 'você é né?😏'
+                    } else if (boiola == 49) {
+                        bo = 'você é né?😏'
+                    } else if (boiola == 50) {
+                        bo = 'você é ou não?🧐'
+                    } else if (boiola > 51) {
+                        bo = 'você é gay🙈'
+                    }
+                    hasil = `Você é ${random}% gay\n\n${bo}`
+                    reply(hasil)
+                    break
+
+                case 'roleta':
+                    const tiro = ["vazio", "vazio", "vazio", "vazio", "vazio", "vazio", "vazio", "vazio", "pow", "pow"]
+                    const figr = ["tambor"]
+                    tpa = tiro[Math.floor(Math.random() * (tiro.length))]
+                    tpb = figr[Math.floor(Math.random() * (figr.length))]
+                    figb = fs.readFileSync('./src/' + tpb + '.webp')
+                    if (tpa == "vazio") {
+                        var morte = "Você teve sorte dessa vez, o tambor estava vazio."
+                    } else if (tpa == "pow") {
+                        var morte = "Tinha uma bala no tambor, POW!"
+                    }
+                    if (morte == "Tinha uma bala no tambor, POW!") {
+                        setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
+                    }
+                    setTimeout(() => {
+                        client.sendMessage(from, morte, text, {
+                            quoted: mek
+                        })
+                        client.groupRemove(sender)
+                    }, 2300)
+                    break
+
+                case 'amongus':
+                    if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Você precisa mencionar alguém')
+                    mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+                    pro = '.\n'
+                    for (let _ of mentioned) {
+                        pro += `@${_.split('@')[0]}\n`
+                    }
+                    sus =
+                        `.      　。　　　　•　    　ﾟ　　。
+　　.　　　.　　　  　　.　　　　　。　　   。　.
+　.　　      。　        ඞ   。　    .    •
+•            @${mentioned[0].split('@')[0]} was E j e c t e d
+                  1 impostor remain   。　.
+　 　　。　　 　　　　ﾟ　　　.　      　　　.
+,　　　　.                  .`
+                        //  tiringa.groupRemove(from, mentioned)
+                    mentions(`${sus}`, mentioned, true)
+                    break
+
+                case 'abraço':
+                    if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
+                    mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+                    pro = '.\n'
+                    for (let _ of mentioned) {
+                        pro += `@${_.split('@')[0]}\n`
+                    }
+                    yhb = `Que fofo... @${sender.split("@")[0]} deu um abraço apertado em @${mentioned[0].split('@')[0]}`
+                    mentions(yhb, yhb, true)
+                    break
+
+                case 'shipp':
+                    if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Mecione dois membros do grupo')
+                    mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+                    pro = '.\n'
+                    for (let _ of mentioned) {
+                        pro += `@${_.split('@')[0]}\n`
+                    }
+                    porc = `${Math.floor(Math.random() * 100)}`
+                    yhb = `@${mentioned[0].split('@')[0]} tem uma chance de ${porc}% de namorar com @${mentioned[1].split('@')[0]}`,
+                        mentions(`${yhb}`, mentioned, true, {
+                            quoted: mek
+                        })
+
+                    break
 					
 									
 					
