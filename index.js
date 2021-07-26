@@ -1526,7 +1526,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     gpb = gigr[Math.floor(Math.random() * (gigr.length))]
                     gigb = fs.readFileSync('./src/kiss/' + gpb + '.gif')			
                     porc = `${Math.floor(Math.random() * 100)}`
-                    yhb = `@${mentioned[0].split('@')[0]} tem uma chance de ${porc}% de namorar com @${mentioned[1].split('@')[0]}`,
+                    yhb = `@${mentioned[0].split('@')[0]} tem uma chance de ${porc}% de namorar com @${mentioned[1].split('@')[0]}`
 			      if (porc < 50) {
                         setTimeout(() => {
                             client.sendMessage(from, figb, sticker, {
@@ -1562,7 +1562,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     tpb = zigr[Math.floor(Math.random() * (zigr.length))]
                     figb = fs.readFileSync('./src/blow/' + tpb + '.jpg')
 	
-                    yhb = `@${mentioned[0].split('@')[0]} deu uma mamada em @${mentioned[1].split('@')[0]}`,
+                    yhb = `@${mentioned[0].split('@')[0]} deu uma mamada em @${mentioned[1].split('@')[0]}`
 			    
 			     mentions(`${yhb}`, mentioned, true, {
                             quoted: mek
