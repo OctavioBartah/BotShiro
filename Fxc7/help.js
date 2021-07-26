@@ -33,6 +33,13 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ |➻ *${prefix}tts + idioma + texto*
 ❉ │➻ *${prefix}ocr*     
 ❉ ╰────────────
+❉ ╭─❉ *Jogos* ❉  ────
+❉ │➻ *${prefix}pau*
+❉ │➻ *${prefix}gay*
+❉ │➻ *${prefix}roleta*
+❉ │➻ *${prefix}abraço*
+❉ │➻ *${prefix}shipp*   
+❉ ╰────────────
 ❉
 ❉ ╭─ ❉ *MIDIA GRUPO* ❉──── 
 ❉ │
