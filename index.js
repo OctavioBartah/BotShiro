@@ -1246,6 +1246,23 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 					
 					
 					
+			case 'pornhub':
+					if (args.length < 1) return reply('Cade o textu? ;-;')
+						if (args.length > 11) return reply('M-muito grande >///<')
+					gh = body.slice(11)
+					gl1 = gh.split("|")[0];
+					gl2 = gh.split("|")[1];
+					
+				if (isBanned) return reply(mess.only.benned)    
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/textprome2/pornhub?apikey=OctavioBartah1508&text1=${gl1}&text2=${gl2}`, {method: 'get'})
+					nye = await getBuffer(anu.result)
+					client.sendMessage(from, nye, image, {quoted: mek})
+					await limitAdd(sender)
+					break 
+					
+					
 					
 					
 									
