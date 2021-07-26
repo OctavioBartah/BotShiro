@@ -789,7 +789,7 @@ const getRegisteredRandomId = () => {
 					await limitAdd(sender) 
 					break 
 		
-										case 'blowjob':
+						/*				case 'blowjob':
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
 										 if (!isGroupAdmins) return reply(mess.only.admin)
@@ -805,7 +805,7 @@ const getRegisteredRandomId = () => {
 						fs.unlinkSync(rano)
 					})
 					await limitAdd(sender) 
-					break 
+					break */
 					
 										case 'cum':
                 if (isBanned) return reply(mess.only.benned)    
@@ -967,7 +967,7 @@ const getRegisteredRandomId = () => {
                 if (!isAnime) return reply(' *Ative o modo anime* ')
 					anp = getRandom('.gif')
 					rano = getRandom('.webp')
-					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/kill?apikey=OctavioBartah1508`, {method: 'get'})
+					anu = await getBuffer(`http://lolhuman.herokuapp.com/api/random/kill?apikey=OctavioBartah1508`)
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
 						if (err) return reply(mess.error.stick)
@@ -1257,12 +1257,22 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 				if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/textprome2/pornhub?apikey=OctavioBartah1508&text1=${gl1}&text2=${gl2}`, {method: 'get'})
 					nye = await getBuffer(anu.result)
-					client.sendMessage(from, nye, image, {quoted: mek})
+					client.sendMessage(from, 'http://lolhuman.herokuapp.com/api/textprome2/pornhub?apikey=OctavioBartah1508&text1=${gl1}&text2=${gl2}', image, {quoted: mek})
 					await limitAdd(sender)
 					break 
 					
+											  case 'blowjob':
+					
+		if (isBanned) return reply(mess.only.benned)    
+					if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/blowjob?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'ahegao!!', quoted: mek })
+
+                break
 					
 					
 					
