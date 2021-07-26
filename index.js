@@ -742,7 +742,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/kiss?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -759,7 +759,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/baka?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -776,7 +776,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/sticker/gawrgura?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -789,12 +789,12 @@ const getRegisteredRandomId = () => {
 					await limitAdd(sender) 
 					break 
 		
-						/*				case 'blowjob':
+										case 'blowjob':
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
 										 if (!isGroupAdmins) return reply(mess.only.admin)
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/nsfw/blowjob?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -805,14 +805,14 @@ const getRegisteredRandomId = () => {
 						fs.unlinkSync(rano)
 					})
 					await limitAdd(sender) 
-					break */
+					break 
 					
 										case 'cum':
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
 										 if (!isGroupAdmins) return reply(mess.only.admin)
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/cum?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -829,7 +829,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/poke?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -846,7 +846,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/smug?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -863,7 +863,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/cuddle?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -880,7 +880,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/cry?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -897,7 +897,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/hug?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -914,7 +914,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/lick?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -931,7 +931,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/smile?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -948,7 +948,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/handhold?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -965,7 +965,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await getBuffer(`http://lolhuman.herokuapp.com/api/random/kill?apikey=OctavioBartah1508`)
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -982,7 +982,7 @@ const getRegisteredRandomId = () => {
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
                 if (!isAnime) return reply(' *Ative o modo anime* ')
-					anp = getRandom('.gif')
+					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/cringe?apikey=OctavioBartah1508`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
@@ -1257,22 +1257,10 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 				if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-					nye = await getBuffer(anu.result)
 					client.sendMessage(from, 'http://lolhuman.herokuapp.com/api/textprome2/pornhub?apikey=OctavioBartah1508&text1=${gl1}&text2=${gl2}', image, {quoted: mek})
 					await limitAdd(sender)
 					break 
 					
-											  case 'blowjob':
-					
-		if (isBanned) return reply(mess.only.benned)    
-					if (!isGroupAdmins) return reply(mess.only.admin)
-				if (isLimit(sender)) return reply(limitend(pushname2))
-					reply(mess.wait)
-
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/blowjob?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: 'ahegao!!', quoted: mek })
-
-                break
 					
 					
 					
