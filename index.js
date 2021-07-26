@@ -1109,7 +1109,8 @@ client.sendMessage(from, nye, image, { caption: 'neko!!', quoted: mek })
 					
 				  case 'ecchi':
 					
-		if (isBanned) return reply(mess.only.benned)    
+		if (isBanned) return reply(mess.only.benned)  
+					 if (!isGroupAdmins) return reply(mess.only.admin)
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 
