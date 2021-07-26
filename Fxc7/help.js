@@ -51,9 +51,6 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}ash*
 ❉ │➻ *${prefix}shota*
 ❉ │➻ *${prefix}anime*
-❉ │➻ *${prefix}animecry*
-❉ │➻ *${prefix}neonime*
-❉ │➻ *${prefix}animekiss*
 ❉ │➻ *${prefix}nsfw On/Off*
 ❉ │➻ *${prefix}loli*
 ❉ │➻ *${prefix}neko*
@@ -62,25 +59,44 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}maid*
 ❉ │➻ *${prefix}kanna*
 ❉ │➻ *${prefix}saikawa*
+❉ │➻ *${prefix}elf*
+❉ │➻ *${prefix}waifu*
+❉ │➻ *${prefix}fox*
+❉ │➻ *${prefix}anime*
+❉ │➻ *${prefix}wallpaper*
+❉ │➻ *${prefix}feet*
+❉ │➻ *${prefix}kemono*
+❉ │➻ *${prefix}shinobu*
+❉ ╰───────────────
+❉ ╭─ ❉ *Sticker* ❉──── 
+❉ │
+❉ │➻ *${prefix}kiss*
+❉ │➻ *${prefix}baka*
+❉ │➻ *${prefix}gawr*
+❉ │➻ *${prefix}cum*
+❉ │➻ *${prefix}poke*
+❉ │➻ *${prefix}smug*
+❉ │➻ *${prefix}cuddle*
+❉ │➻ *${prefix}cry*
+❉ │➻ *${prefix}abrac*
+❉ │➻ *${prefix}lick*
+❉ │➻ *${prefix}sorrir*
+❉ │➻ *${prefix}maos*
+❉ │➻ *${prefix}kill*
+❉ │➻ *${prefix}cringe*
 ❉ ╰───────────────
 ❉ ╭─ ❉ *NSFW MENU* ❉──── 
 ❉ │
-❉ │➻ *${prefix}hentai1*
-❉ │➻ *${prefix}hentai2*
-❉ │➻ *${prefix}trap1*
-❉ │➻ *${prefix}trap2*
-❉ │➻ *${prefix}neko1*
-❉ │➻ *${prefix}neko2*
-❉ │➻ *${prefix}yuri1*
-❉ │➻ *${prefix}yuri2*
-❉ │➻ *${prefix}yaoi1*
-❉ │➻ *${prefix}yaoi2*
-❉ │➻ *${prefix}shota1*
-❉ │➻ *${prefix}shota2*
-❉ │➻ *${prefix}waifu1*
-❉ │➻ *${prefix}waifu2*
-❉ │➻ *${prefix}elf1*
-❉ │➻ *${prefix}elf2*
+❉ │➻ *${prefix}hentai*
+❉ │➻ *${prefix}hneko*
+❉ │➻ *${prefix}htrap*
+❉ │➻ *${prefix}hyaoi*
+❉ │➻ *${prefix}ecchi*
+❉ │➻ *${prefix}ero*
+❉ │➻ *${prefix}hyuri*
+❉ │➻ *${prefix}erok*
+❉ │➻ *${prefix}ahegao*
+❉ │➻ *${prefix}blowjob*
 ❉ ╰───────────────
 ❉
 ❉ ╭─❉ *ADMS* ❉──────────
