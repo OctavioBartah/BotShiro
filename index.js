@@ -1493,14 +1493,23 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Mecione dois membros do grupo')
                     mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
                     pro = '.\n'
+		const kigr = ["h1", "h2", "h3", "h4", "h5", "h6"]
+                    tpb = kigr[Math.floor(Math.random() * (kigr.length))]
+                    figb = fs.readFileSync('./src/hug/' + tpb + '.gif')
                     for (let _ of mentioned) {
                         pro += `@${_.split('@')[0]}\n`
                     }
                     yhb = `Que fofo... @${mentioned[0].split('@')[0]} deu um abraço apertado em @${mentioned[1].split('@')[0]}`
+		                            setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
 		    
                     mentions(`${yhb}`, mentioned, true, {
                             quoted: mek
                         })
+
                     break
 
                 case 'shipp':
@@ -1510,11 +1519,11 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     for (let _ of mentioned) {
                         pro += `@${_.split('@')[0]}\n`
                     }
-                    const figr = ["c1", "c2", "c3", "c4", "c5", "c6"]
-                    tpb = figr[Math.floor(Math.random() * (figr.length))]
+                    const ligr = ["c1", "c2", "c3", "c4", "c5", "c6"]
+                    tpb = ligr[Math.floor(Math.random() * (ligr.length))]
                     figb = fs.readFileSync('./src/cry/' + tpb + '.gif')
 		    const gigr = ["ks1", "ks2", "ks3", "ks4", "ks5", "ks6"]
-                    gpb = gigr[Math.floor(Math.random() * (figr.length))]
+                    gpb = gigr[Math.floor(Math.random() * (gigr.length))]
                     gigb = fs.readFileSync('./src/kiss/' + gpb + '.gif')			
                     porc = `${Math.floor(Math.random() * 100)}`
                     yhb = `@${mentioned[0].split('@')[0]} tem uma chance de ${porc}% de namorar com @${mentioned[1].split('@')[0]}`,
@@ -1553,8 +1562,8 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     for (let _ of mentioned) {
                         pro += `@${_.split('@')[0]}\n`
                     }
-                    const figr = ["bl1", "bl2", "bl3", "bl4", "bl5", "bl6"]
-                    tpb = figr[Math.floor(Math.random() * (figr.length))]
+                    const zigr = ["bl1", "bl2", "bl3", "bl4", "bl5", "bl6"]
+                    tpb = zigr[Math.floor(Math.random() * (zigr.length))]
                     figb = fs.readFileSync('./src/blow/' + tpb + '.jpg')
 	
                     yhb = `@${mentioned[0].split('@')[0]} deu uma mamada em @${mentioned[1].split('@')[0]}`,
@@ -1576,8 +1585,8 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Mecione dois membros do grupo')
                     mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
                     pro = '.\n'
-		const figr = ["k1", "k2", "k3", "k4", "k5", "k6"]
-                    tpb = figr[Math.floor(Math.random() * (figr.length))]
+		const sigr = ["k1", "k2", "k3", "k4", "k5", "k6"]
+                    tpb = sigr[Math.floor(Math.random() * (sigr.length))]
                     figb = fs.readFileSync('./src/kill/' + tpb + '.gif')
                     for (let _ of mentioned) {
                         pro += `@${_.split('@')[0]}\n`
