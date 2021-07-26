@@ -89,6 +89,46 @@ function kyun(seconds){
   return `${pad(hours)} Jam ${pad(minutes)} Menit ${pad(seconds)} Detik`
 }
 
+function addMetadata(packname, author) {	
+	if (!packname) packname = 'WABot'; if (!author) author = 'Bot';	
+	author = author.replace(/[^a-zA-Z0-9]/g, '');	
+	let name = `${author}_${packname}`
+	if (fs.existsSync(`./${name}.exif`)) return `./${name}.exif`
+	const json = {	
+		"sticker-pack-name": packname,
+		"sticker-pack-publisher": author,
+	}
+	const littleEndian = Buffer.from([0x49, 0x49, 0x2A, 0x00, 0x08, 0x00, 0x00, 0x00, 0x01, 0x00, 0x41, 0x57, 0x07, 0x00])	
+	const bytes = [0x00, 0x00, 0x16, 0x00, 0x00, 0x00]	
+
+	let len = JSON.stringify(json).length	
+	let last	
+
+	if (len > 256) {	
+		len = len - 256	
+		bytes.unshift(0x01)	
+	} else {	
+		bytes.unshift(0x00)	
+	}	
+
+	if (len < 16) {	
+		last = len.toString(16)	
+		last = "0" + len	
+	} else {	
+		last = len.toString(16)	
+	}	
+
+	const buf2 = Buffer.from(last, "hex")	
+	const buf3 = Buffer.from(bytes)	
+	const buf4 = Buffer.from(JSON.stringify(json))	
+
+	const buffer = Buffer.concat([littleEndian, buf2, buf3, buf4])	
+
+	fs.writeFile(`./${name}.exif`, buffer, (err) => {	
+		return `./${name}.exif`	
+	})	
+
+} 
 
 async function starts() {
 	const client = new WAConnection()
@@ -544,7 +584,7 @@ const getRegisteredRandomId = () => {
 				case 'animecry':
 					cry = getRandom('.gif')
 					rano = getRandom('.webp')
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cry?apikey=${TobzApi}`, {method: 'get'})
+					anu = await getBuffer(`http://lolhuman.herokuapp.com/api/random/cry?apikey=OctavioBartah1508`)
                    if (isLimit(sender)) return reply(limitend(pushname2))
                    if (isBanned) return reply(mess.only.benned)
                    if (!isGroup) return reply(mess.only.group)
@@ -564,7 +604,7 @@ const getRegisteredRandomId = () => {
 					case 'animehug':
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=${TobzApi}`, {method: 'get'})
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/cry?apikey=OctavioBartah1508`, {method: 'get'})
                    if (isLimit(sender)) return reply(limitend(pushname2))
                    if (isBanned) return reply(mess.only.benned)
                    if (!isGroup) return reply(mess.only.group)
@@ -814,8 +854,8 @@ const getRegisteredRandomId = () => {
                 if (!isAnime) return reply(' *Ative o modo anime* ')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
-					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random2/cum?apikey=OctavioBartah1508`, {method: 'get'})
-					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					anu = await getBuffer(`http://lolhuman.herokuapp.com/api/random2/cum?apikey=OctavioBartah1508`)
+					exec(`wget ${anu} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
 						if (err) return reply(mess.error.stick)
 						buffer = fs.readFileSync(rano)
