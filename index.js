@@ -829,7 +829,7 @@ const getRegisteredRandomId = () => {
 					await limitAdd(sender) 
 					break 
 		
-										case 'blowjob':
+	/*									case 'blowjob':
                 if (isBanned) return reply(mess.only.benned)    
                 if (isLimit(sender)) return reply(limitend(pushname2))
 										 if (!isGroupAdmins) return reply(mess.only.admin)
@@ -845,7 +845,7 @@ const getRegisteredRandomId = () => {
 						fs.unlinkSync(rano)
 					})
 					await limitAdd(sender) 
-					break 
+					break */
 					
 										case 'cum':
                 if (isBanned) return reply(mess.only.benned)    
@@ -1287,17 +1287,13 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 					
 					
 					
-			case 'pornhub':
+			case 'blood':
 					if (args.length < 1) return reply('Cade o textu? ;-;')
 						if (args.length > 11) return reply('M-muito grande >///<')
 					gh = body.slice(11)
-					gl1 = gh.split("|")[0];
-					gl2 = gh.split("|")[1];
-					
-				if (isBanned) return reply(mess.only.benned)    
-				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
-					client.sendMessage(from, 'http://lolhuman.herokuapp.com/api/textprome2/pornhub?apikey=OctavioBartah1508&text1=${gl1}&text2=${gl2}', image, {quoted: mek})
+					hehe = await getBuffer(`http://lolhuman.herokuapp.com/api/textprome/horrorblood?apikey=OctavioBartah1508&text=${gh}`)
+					client.sendMessage(from, hehe, image, {quoted: mek})
 					await limitAdd(sender)
 					break 
 					
@@ -1324,19 +1320,57 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                         pp = 'calma man, a mina não é um poço😳'
                     } else if (tamanho == 20) {
                         pp = 'você tem um poste no meio das pernas'
+				    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+			     setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
                     } else if (tamanho == 21) {
                         pp = 'você tem um poste no meio das pernas'
+					    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+			     setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
                     } else if (tamanho == 22) {
                         pp = 'você tem um poste no meio das pernas'
+			    		    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+			     setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
                     } else if (tamanho == 23) {
                         pp = 'você tem um poste no meio das pernas'
+				    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+			     setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
                     } else if (tamanho == 24) {
                         pp = 'você tem um poste no meio das pernas'
+			    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+			     setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
                     } else if (tamanho > 25) {
                         pp = 'vai procurar petróleo com isso?'
+					    figb = fs.readFileSync('./src/pau/p1' + '.gif')
+			    setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100) 
+			  
                     }
                     hasil = `Seu pau tem ${random}cm\n\n${pp}`
                     reply(hasil)
+		
                     break
 
                 case 'gay':
@@ -1456,14 +1490,17 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     break
 
                 case 'abraço':
-                    if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
+                    if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Mecione dois membros do grupo')
                     mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
                     pro = '.\n'
                     for (let _ of mentioned) {
                         pro += `@${_.split('@')[0]}\n`
                     }
-                    yhb = `Que fofo... @${sender.split("@")[0]} deu um abraço apertado em @${mentioned[0].split('@')[0]}`
-                    mentions(yhb, yhb, true)
+                    yhb = `Que fofo... @${mentioned[0].split('@')[0]} deu um abraço apertado em @${mentioned[1].split('@')[0]}`
+		    
+                    mentions(`${yhb}`, mentioned, true, {
+                            quoted: mek
+                        })
                     break
 
                 case 'shipp':
@@ -1473,18 +1510,90 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     for (let _ of mentioned) {
                         pro += `@${_.split('@')[0]}\n`
                     }
+                    const figr = ["c1", "c2", "c3", "c4", "c5", "c6"]
+                    tpb = figr[Math.floor(Math.random() * (figr.length))]
+                    figb = fs.readFileSync('./src/cry/' + tpb + '.gif')
+		    const gigr = ["ks1", "ks2", "ks3", "ks4", "ks5", "ks6"]
+                    gpb = gigr[Math.floor(Math.random() * (figr.length))]
+                    gigb = fs.readFileSync('./src/kiss/' + gpb + '.gif')			
                     porc = `${Math.floor(Math.random() * 100)}`
                     yhb = `@${mentioned[0].split('@')[0]} tem uma chance de ${porc}% de namorar com @${mentioned[1].split('@')[0]}`,
-                        mentions(`${yhb}`, mentioned, true, {
+			      if (porc < 50) {
+                        setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
+                    }
+                    setTimeout(() => {
+                                mentions(`${yhb}`, mentioned, true, {
                             quoted: mek
                         })
+                    }, 2300)
+
+					if (porc > 50) {
+                        setTimeout(() => {
+                            client.sendMessage(from, gigb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
+                    }
+                    setTimeout(() => {
+                                mentions(`${yhb}`, mentioned, true, {
+                            quoted: mek
+                        })
+                    }, 2300)
 
                     break
 					
-									
+		 case 'blowjob':
+                    if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Mecione dois membros do grupo')
+                    mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+                    pro = '.\n'
+                    for (let _ of mentioned) {
+                        pro += `@${_.split('@')[0]}\n`
+                    }
+                    const figr = ["bl1", "bl2", "bl3", "bl4", "bl5", "bl6"]
+                    tpb = figr[Math.floor(Math.random() * (figr.length))]
+                    figb = fs.readFileSync('./src/blow/' + tpb + '.jpg')
+	
+                    yhb = `@${mentioned[0].split('@')[0]} deu uma mamada em @${mentioned[1].split('@')[0]}`,
+			    
+			     mentions(`${yhb}`, mentioned, true, {
+                            quoted: mek
+                        })
+	
+                        setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
+                    							
+			break
+			
 					
-					
-					
+					  case 'kill':
+                    if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Mecione dois membros do grupo')
+                    mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+                    pro = '.\n'
+		const figr = ["k1", "k2", "k3", "k4", "k5", "k6"]
+                    tpb = figr[Math.floor(Math.random() * (figr.length))]
+                    figb = fs.readFileSync('./src/kill/' + tpb + '.gif')
+                    for (let _ of mentioned) {
+                        pro += `@${_.split('@')[0]}\n`
+                    }
+                    yhb = `A paz nunca foi uma opção... @${mentioned[0].split('@')[0]} acabou de matar @${mentioned[1].split('@')[0]}`
+		    
+                    mentions(`${yhb}`, mentioned, true, {
+                            quoted: mek
+                        })
+				setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
+                    break
+					               
 					
 	    
 				case 'naruto':
