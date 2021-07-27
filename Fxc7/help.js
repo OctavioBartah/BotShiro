@@ -4,7 +4,6 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉  ┴
 ❉  │➻ *${prefix}info*
 ❉  │➻ *${prefix}speed*
-❉  │➻ *${prefix}daftar*
 ❉  │➻ *${prefix}totaluser*
 ❉  │➻ *${prefix}grouplist*
 ❉  │➻ *${prefix}blocklist*
@@ -38,7 +37,8 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}gay*
 ❉ │➻ *${prefix}roleta*
 ❉ │➻ *${prefix}abraço*
-❉ │➻ *${prefix}shipp*   
+❉ │➻ *${prefix}shipp*
+❉ │➻ *${prefix}slot* 
 ❉ ╰────────────
 ❉
 ❉ ╭─ ❉ *MIDIA GRUPO* ❉──── 
@@ -127,7 +127,8 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}fitnah*
 ❉ │➻ *${prefix}listadmin*
 ❉ │➻ *${prefix}openanime*
-❉ │➻ *${prefix}edotense*
+❉ │➻ *${prefix}katiau*
+❉ │➻ *${prefix}amongus*
 ❉ ╰─────────────
 ❉
 ❉ ╭─❉ *SO PROPRIETARIO* ❉────
