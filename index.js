@@ -1856,7 +1856,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                                         break
                                 case 'mining':
                                    
-                                        if (!isEventon) return reply(`maaf ${pushname} event mining tidak di aktifkan oleh owner`)
+                                        if (!isEventon) return reply(`lamento ${pushname}, mas evento não foi ativada pelo proprietário`)
                                         if (isOwner) {
                                                 const one = 999999999
                                                 addLevelingXp(sender, one)
