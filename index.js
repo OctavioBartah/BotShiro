@@ -25,6 +25,7 @@ const { donasi } = require('./Fxc7/donasi')
 const { limitend, limitcount } = require('./Fxc7/limit')
 
 const fs = require('fs-extra')
+const { ind } = require('./language')
 const moment = require('moment-timezone')
 const { exec } = require('child_process')
 const kagApi = require('@kagchi/kag-api')
@@ -45,6 +46,9 @@ const axios = require('axios')
 const nhentai = require('nhentai-js')
 const { API } = require('nhentai-api')
 const math = require('mathjs')
+const _leveling = JSON.parse(fs.readFileSync('./database/json/leveling.json'))
+const _level = JSON.parse(fs.readFileSync('./database/json/level.json'))
+const event = JSON.parse(fs.readFileSync('./database/json/event.json'))
 
 const { BarBarApi, ZeksApi, TechApi, TobzApi, ItsApi, VthearApi } = JSON.parse(fs.readFileSync('./database/json/apikey.json'))
 const setting = JSON.parse(fs.readFileSync('./database/json/setting.json'))
@@ -77,6 +81,78 @@ rmenu = "Olá amigos da LOLIBOT👋"
 limitt = 100000
 ban = []
 userpremium = [] //ubah nomer kalian
+
+// Functions///////////////////////////////////////////////////////////
+const getLevelingXp = (userId) => {
+            let position = false
+            Object.keys(_level).forEach((i) => {
+                if (_level[i].jid === userId) {
+                    position = i
+                }
+            })
+            if (position !== false) {
+                return _level[position].xp
+            }
+        }
+
+        const getLevelingLevel = (userId) => {
+            let position = false
+            Object.keys(_level).forEach((i) => {
+                if (_level[i].jid === userId) {
+                    position = i
+                }
+            })
+            if (position !== false) {
+                return _level[position].level
+            }
+        }
+
+        const getLevelingId = (userId) => {
+            let position = false
+            Object.keys(_level).forEach((i) => {
+                if (_level[i].jid === userId) {
+                    position = i
+                }
+            })
+            if (position !== false) {
+                return _level[position].jid
+            }
+        }
+
+        const addLevelingXp = (userId, amount) => {
+            let position = false
+            Object.keys(_level).forEach((i) => {
+                if (_level[i].jid === userId) {
+                    position = i
+                }
+            })
+            if (position !== false) {
+                _level[position].xp += amount
+                fs.writeFileSync('./database/json/level.json', JSON.stringify(_level))
+            }
+        }
+
+        const addLevelingLevel = (userId, amount) => {
+            let position = false
+            Object.keys(_level).forEach((i) => {
+                if (_level[i].jid === userId) {
+                    position = i
+                }
+            })
+            if (position !== false) {
+                _level[position].level += amount
+                fs.writeFileSync('./database/json/level.json', JSON.stringify(_level))
+            }
+        }
+
+        const addLevelingId = (userId) => {
+            const obj = {jid: userId, xp: 1, level: 1}
+            _level.push(obj)
+            fs.writeFileSync('./database/json/level.json', JSON.stringify(_level))
+        }
+
+// Functions///////////////////////////////////////////////////////////
+
 
 function kyun(seconds){
   function pad(s){
@@ -217,7 +293,7 @@ const getRegisteredRandomId = () => {
 			budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 			const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()
 			const args = body.trim().split(/ +/).slice(1)
-			const Far = args.join(' ')
+			const far = args.join(' ')
 			const isCmd = body.startsWith(prefix)
 			
 			const sotoy = [
@@ -251,6 +327,10 @@ const getRegisteredRandomId = () => {
 					stick: ' *Não consegui converter  ;-;*',
 					Iv: '*𝙚𝙨𝙨𝙚 𝙡𝙞𝙣𝙠 𝙣𝙖𝙤 𝙫𝙖𝙡𝙚 !!*'
 				},
+				levelon: '[✔ ]*O level foi ativado*',
+				leveloff: '[ ❌ ]*O level foi desativado*',
+				levelnoton: '[ ❌ ]*O level nao está ativo*',
+				levelnol: '*LEVEL KAKAK MASIH* 0 *-*',
 				only: {
 					group: '*𝐃𝐞𝐬𝐜𝐮𝐥𝐩𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐬o 𝐩𝐨𝐝𝐞 𝐬𝐞𝐫 𝐮𝐬𝐚𝐝𝐨 𝐞𝐦 𝐠𝐫𝐮𝐩𝐨!*',
 					benned: '*𝘀𝗲𝘂 𝗻u𝗺𝗲𝗿𝗼 𝘁a 𝗽𝗿𝗼𝗶𝗯𝗶𝗱𝗼 𝗱𝗲 𝘂𝘀𝗮𝗿 𝗼 𝗯𝗼𝘁 𝗰𝗼𝗻𝘁𝗮𝗰𝘁𝗲 𝗼 𝗱𝗼𝗻𝗼 𝗱𝗲𝗹𝗲 *',
@@ -300,6 +380,7 @@ const getRegisteredRandomId = () => {
 			const groupMembers = isGroup ? groupMetadata.participants : ''
 			const groupDesc = isGroup ? groupMetadata.desc : ''
 			const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : ''
+			const isLevelingOn = isGroup ? _leveling.includes(groupId) : false
 			const totalchat = await client.chats.all()
 			const isBotGroupAdmins = groupAdmins.includes(botNumber) || false 
 			const isGroupAdmins = groupAdmins.includes(sender) || false
@@ -307,6 +388,7 @@ const getRegisteredRandomId = () => {
 			const isNsfw = isGroup ? nsfw.includes(from) : false
 			const isAnime = isGroup ? anime.includes(from) : false
 			const isSimi = isGroup ? samih.includes(from) : false 
+		const isEventon = isGroup ? event.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
 			const antilink = isGroup ? anlink.includes(from) : false
 			const isUser = user.includes(sender)
@@ -335,7 +417,24 @@ const getRegisteredRandomId = () => {
 			const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
 			const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage')
 			
-
+  //function leveling
+            if (isGroup && isLevelingOn) {
+            const currentLevel = getLevelingLevel(sender)
+            const checkId = getLevelingId(sender)
+            try {
+                if (currentLevel === undefined && checkId === undefined) addLevelingId(sender)
+                const amountXp = Math.floor(Math.random() * 10) + 500
+                const requiredXp = 5000 * (Math.pow(2, currentLevel) - 1)
+                const getLevel = getLevelingLevel(sender)
+                addLevelingXp(sender, amountXp)
+                if (requiredXp <= getLevelingXp(sender)) {
+                    addLevelingLevel(sender, 1)
+                    await reply(`*「 LEVEL UP 」*\n\n➸ *Name*: ${sender}\n➸ *XP*: ${getLevelingXp(sender)}\n➸ *Level*: ${getLevel} -> ${getLevelingLevel(sender)}\n\nCongrats!! 🎉🎉`)
+                }
+            } catch (err) {
+                console.error(err)
+            }
+        }
            const isLimit = (sender) =>{
                       let position = false
               for (let i of _limit) {
@@ -435,6 +534,7 @@ const getRegisteredRandomId = () => {
 			if (isBanned) return reply(mess.only.benned)
 				uptime = process.uptime()
 				user.push(sender)
+					    const reqXp  = 5000 * (Math.pow(2, getLevelingLevel(sender)) - 1)
 				myMonths = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
                 myDays = ['Domigo','Segunda-feira','terça','Quarta feira','Quinta feira','Sexta','Sábado'];
                 var tgl = new Date();
@@ -1665,6 +1765,103 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 					client.sendMessage(from, figb, image, { caption: 'nyaa!!', quoted: mek })
 					await limitAdd(sender)
 					break 
+					
+	case 'event':
+                                        if (!isGroup) return reply(mess.only.group)
+                                        if (!isOwner) return reply(mess.only.ownerB)
+                                        if (args.length < 1) return reply('digite 1 para ativar')
+                                        if (Number(args[0]) === 1) {
+                                                if (isEventon) return reply('*ATIVADO* !!!')
+                                                event.push(from)
+                                                fs.writeFileSync('./database/json/event.json', JSON.stringify(event))
+                                                reply('*Evento ativo nesse grupo!*')
+                                        } else if (Number(args[0]) === 0) {
+                                                event.splice(from, 1)
+                                                fs.writeFileSync('./database/json/event.json', JSON.stringify(event))
+                                                reply('*Evento desativado nesse grupo!*')
+                                        } else {
+                                                reply(ind.satukos())
+                                        }
+                                        break				
+					
+					
+					 case 'level':
+                if (!isLevelingOn) return reply(mess.levelnoton)
+                if (!isGroup) return reply(mess.only.group)
+                const userLevel = getLevelingLevel(sender)
+                const userXp = getLevelingXp(sender)
+                if (userLevel === undefined && userXp === undefined) return reply(mess.levelnol)
+                sem = sender.replace('@s.whatsapp.net','')
+                resul = `=>*LEVEL*\n=> *Name* : ${sem}\n=>*User XP* : ${userXp}\n=>*User Level* : ${userLevel}`
+               client.sendMessage(from, resul, text, { quoted: mek})
+                .catch(async (err) => {
+                        console.error(err)
+                        await reply(`Error!\n${err}`)
+                    })
+            break
+				case 'calunia':
+				if (args.length < 1) return reply(`Usa :\n${prefix}calunia [@tag|mensagem|resposta]]\n\nExemplo : \n${prefix}calunia @tagmember|oie|oi mano`)
+				var fitn = body.slice(7)
+				mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+					var replace3 = fitn.split("|")[0];
+					var target3 = fitn.split("|")[1];
+					var bot3 = fitn.split("|")[2];
+					client.sendMessage(from, `${bot3}`, text, {quoted: { key: { fromMe: false, participant: `${mentioned}`, ...(from ? { remoteJid: from } : {}) }, message: { conversation: `${target3}` }}})
+					break
+            case 'leveling':
+                if (!isGroup) return reply(mess.only.group)
+                if (!isGroupAdmins) return reply(mess.only.admin)
+                if (args.length < 1) return reply('Digite 1 para ativar o recurso')
+                if (args[0] === '1') {
+                    if (isLevelingOn) return reply('*o recurso de nível já estava ativo antes*')
+                    _leveling.push(groupId)
+                    fs.writeFileSync('./database/json/leveling.json', JSON.stringify(_leveling))
+                     reply(mess.levelon)
+                } else if (args[0] === '0') {
+                    _leveling.splice(groupId, 1)
+                    fs.writeFileSync('./database/json/leveling.json', JSON.stringify(_leveling))
+                     reply(mess.leveloff)
+                } else {
+                    reply(' *Digite o comando 1 para ativar, 0 para desativar* \n *Exemplo: ${prefix}leveling 1*')
+                }
+            break
+					
+					 case 'rg':
+                                    
+                                        if (!far.includes('|')) return  reply(ind.wrongf())
+                                        const namaUser = far.substring(0, far.indexOf('|') - 0)
+                                        const umurUser = far.substring(far.lastIndexOf('|') + 1)
+                                        const serialUser = createSerial(20)
+                                        veri = sender
+                                        if (isGroup) {
+                                                addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
+                                                await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
+                                                addATM(sender)
+                                                addLevelingId(sender)
+                                                console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
+                                        } else {
+                                                addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
+                                                await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
+                                                addATM(sender)
+                                                addLevelingId(sender)
+                                                console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
+                                        }
+                                        break
+                                case 'mining':
+                                   
+                                        if (!isEventon) return reply(`maaf ${pushname} event mining tidak di aktifkan oleh owner`)
+                                        if (isOwner) {
+                                                const one = 999999999
+                                                addLevelingXp(sender, one)
+                                                addLevelingLevel(sender, 99)
+                                                reply(`porque você é nosso dono da equipe bot enviada ${one}Xp para você`)
+                                        } else {
+                                                const mining = Math.ceil(Math.random() * 10000)
+                                                addLevelingXp(sender, mining)
+                                                await reply(`*seguro* ${pushname} você pega *${mining}Xp*`)
+                                        }
+                                        await limitAdd(sender)
+                                        break
 			/*/////////////////////////GRUPO*/////////////////////////////
 					case 'dorot':
 					if (!isGroupAdmins) return reply(mess.only.admin)
