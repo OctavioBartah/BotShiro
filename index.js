@@ -46,10 +46,7 @@ const axios = require('axios')
 const nhentai = require('nhentai-js')
 const { API } = require('nhentai-api')
 const math = require('mathjs')
-const _leveling = JSON.parse(fs.readFileSync('./database/json/leveling.json'))
-const _level = JSON.parse(fs.readFileSync('./database/json/level.json'))
-const event = JSON.parse(fs.readFileSync('./database/json/event.json'))
-const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'))
+
 
 const { BarBarApi, ZeksApi, TechApi, TobzApi, ItsApi, VthearApi } = JSON.parse(fs.readFileSync('./database/json/apikey.json'))
 const setting = JSON.parse(fs.readFileSync('./database/json/setting.json'))
@@ -63,6 +60,10 @@ const adminNumber = JSON.parse(fs.readFileSync('./database/json/admin.json'))
 const anime = JSON.parse(fs.readFileSync('./database/json/anime.json'))
 const blocked = JSON.parse(fs.readFileSync('./database/json/blocked.json'))
 let anlink = JSON.parse(fs.readFileSync('./database/json/antilink.json'))
+const _leveling = JSON.parse(fs.readFileSync('./database/json/leveling.json'))
+const _level = JSON.parse(fs.readFileSync('./database/json/level.json'))
+const event = JSON.parse(fs.readFileSync('./database/json/event.json'))
+const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'))
 
 let {
 instagram, yt, groupLink, memberLimit, tobzkey
