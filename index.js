@@ -1307,22 +1307,55 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 
                 break
 		
+				                case 'blood':
+              	    if (args.length < 1) return reply('qual txt anjo??')
+                    teks = `${body.slice(8)}`
+		    	reply(mess.wait)
+                    if (teks.length > 10) return client.sendMessage(from, 'limite de 10 letras', text, {quoted: mek})
+		anu = await fetchJson(`http://lolhuman.herokuapp.com/api/textprome/horrorblood?apikey=OctavioBartah1508&text=${teks}`, {method: 'get'})
+		bufferkmn = await getBuffer(anu.result)
+		client.sendMessage(from, bufferkmn, image, {quoted: mek})
+                                        await limitAdd(sender)
+			     	break	
 					
-					
-					
-			case 'blood':
-					if (args.length < 1) return reply('Cade o textu? ;-;')
-						if (args.length > 11) return reply('M-muito grande >///<')
-					gh = body.slice(11)
+					    case 'water':
+					if (args.length < 1) return reply('qual txt anjo??')
+					telskla = body.slice(7)
+					if (telskla.length > 15) return reply('O texto é muito longo, até 20 caracteres')
 					reply(mess.wait)
-					hehe = await getBuffer(`http://lolhuman.herokuapp.com/api/textprome/horrorblood?apikey=OctavioBartah1508&text=${gh}`)
-					client.sendMessage(from, hehe, image, {quoted: mek})
-					await limitAdd(sender)
-					break 
-					
-					
+					anu = await fetchJson(`https://kocakz.herokuapp.com/api/flamingtext/water?text=${telskla}`, {method: 'get'})
+					bufferkmn = await getBuffer(anu.result)
+					client.sendMessage(from, bufferkmn, image, {quoted: mek})
+                                        await limitAdd(sender)
+					break
 /*/////////////////////////JOGOS E COISAS RANDOM*/////////////////////////////
-					 case 'pau':
+					
+				 case 'game':
+				//	anu = await fetchJson(`http://rt-files.000webhostapp.com/tts.php?apikey=rasitech`, {method: 'get'})
+					setTimeout( () => {
+					client.sendMessage(from, '*Responda :* De quem é a famosa frase “Penso, logo existo"?', text, {quoted: mek}) // ur cods
+					}, 0) // 1000 = 1s,
+				//	setTimeout( () => {
+				//	client.sendMessage(from, '_10 segundos para ir�_', text) // ur cods
+				//	}, 20000) // 1000 = 1s,
+					setTimeout( () => {
+					client.sendMessage(from, '_10 segundos para ir_�', text) // ur cods
+					}, 1000) // 1000 = 1s,
+					setTimeout( () => {
+					client.sendMessage(from, '_5 segundos para ir_�', text) // ur cods
+					}, 5000) // 1000 = 1s,
+				
+
+					setTimeout( () => {
+					client.sendMessage(from, 'Descartes', text, { quoted: mek }) // ur cods
+					}, 10000) // 1000 = 1s,
+					break
+				
+				
+				
+				
+				
+				case 'pau':
                     random = `${Math.floor(Math.random() * 35)}`
                     const tamanho = random
                     if (tamanho < 13) {
