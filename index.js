@@ -220,6 +220,29 @@ const getRegisteredRandomId = () => {
 			const Far = args.join(' ')
 			const isCmd = body.startsWith(prefix)
 			
+			const sotoy = [
+		'🍊 : 🍒 : 🍐',
+		'🍒 : 🔔 : 🍊',
+		'🍇 : 🍒 : 🍐',
+		'🍊 : 🍋 : 🔔',//by Fadhlur Owner of NotBot
+		'🔔 : 🍒 : 🍐',
+		'🔔 : 🍒 : 🍊',
+                '🍊 : 🍋 : 🔔',		
+		'🍐 : 🍒 : 🍋',
+		'🍐 : 🍐 : 🍐',
+		'🍊 : 🍒 : 🍒',
+		'🔔 : 🔔 : 🍇',
+		'🍌 : 🍒 : 🔔',
+		'🍐 : 🔔 : 🔔',
+		'🍊 : 🍋 : 🍒',
+		'🍋 : 🍋 : 🍌',
+		'🔔 : 🔔 : 🍇',
+		'🔔 : 🍐 : 🍇',
+		'🔔 : 🔔 : 🔔',
+		'🍒 : 🍒 : 🍒',
+		'🍌 : 🍌 : 🍌'
+		]
+			
 
 			mess = {
 				wait: '*⏳ Espere um pouco senpai, 𝘁𝗼𝗺𝗲 𝘂𝗺 𝗰𝗮𝗳é☕𝗲 𝘂𝗺 𝗯𝗶𝘀𝗰𝗼𝗶𝘁𝗼 🥯 𝗽𝗼𝗿 𝗲𝗻𝗾𝘂𝗮𝗻𝘁𝗼 ^~^...*',
@@ -1471,6 +1494,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                     break
 
                 case 'amongus':
+		if (!isGroupAdmins) return reply(mess.only.admin)
                     if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Você precisa mencionar alguém')
                     mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
                     pro = '.\n'
@@ -1485,8 +1509,9 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                   1 impostor remain   。　.
 　 　　。　　 　　　　ﾟ　　　.　      　　　.
 ,　　　　.                  .`
-                          client.groupRemove(from, mentioned)
+
                     mentions(`${sus}`, mentioned, true)
+			client.groupRemove(from, mentioned)
                     break
 
                 case 'abraço':
@@ -1598,9 +1623,27 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                             })
                         }, 2100)
                     break
-					               
+			/*/////////////////////////SISTEMA DE LEVEL*/////////////////////////////
 					
+
+			/*/////////////////////////GRUPO*/////////////////////////////
+					case 'dorot':
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (args[0] === 'a') {
+					    reply(`*❗️GRUPO ABERTO❗*`)
+						client.groupSettingChange(from, GroupSettingChange.messageSend, false)
+					} else if (args[0] === 'f') {
+						reply(`*❗GRUPO ABRE AMANHÃ AS 7:00❗*️`)
+						client.groupSettingChange(from, GroupSettingChange.messageSend, true)
+					}
+				break      
 	    
+				 case 'slot':
+          const somtoy = sotoy[Math.floor(Math.random() * (sotoy.length))]	
+             client.sendText(from, `[  🎰 | SLOTS ]\n-----------------\n🍋 : 🍌 : 🍍\n${somtoy}<=====\n🍋 : 🍌 : 🍍\n[  🎰 | SLOTS ]\n\nDescrição: Se você conseguir 3 peças, você ganha\n\nExemplo : 🍌 : 🍌 : 🍌<=====`, text, {quoted:mek})
+	    break	
+					
+					
 				case 'naruto':
 				if (isBanned) return reply(mess.only.benned)    
 				if (isLimit(sender)) return reply(limitend(pushname2))
@@ -2173,7 +2216,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 						client.groupRemove(from, mentioned)
 					}
 					break
-				case 'edotense':
+				case 'katiau':
 				if (isBanned) return reply(mess.only.benned)    
 		//		if (!isUser) return reply(mess.only.userB)
 					if (!isGroup) return reply(mess.only.group)
@@ -2189,7 +2232,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 						mentions(teks, mentioned, true)
 						client.groupRemove(from, mentioned)
 					} else {
-						mentions(`Perintah di terima, di edotense : @${mentioned[0].split('@')[0]}`, mentioned, true)
+						mentions(`Katiau! : @${mentioned[0].split('@')[0]} foi embora`, mentioned, true)
 						client.groupRemove(from, mentioned)
 					}
 					break
