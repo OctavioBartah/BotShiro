@@ -1624,7 +1624,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                         }, 2100)
                     break
 			/*/////////////////////////SISTEMA DE LEVEL*/////////////////////////////
-					
+			 case 'boot':		
 		const boot = ["bt1.jfif", "bt2.jfif", "bt3.jfif", "bt4.png", "bt5.jfif", "bt6.jfif", "bt7.jfif", "bt8.png", "bt9.jfif", "bt10.jfif", "bt11.png", "bt12.jfif", "bt13.jfif", "bt14.jfif", "bt15.jfif", "bt16.jfif", "bt17.jfif", "bt18.jfif", 
 			 "bt19.jfif", "bt20.jfif", "bt21.jfif", "bt22.png", "bt23.png", "bt24.jfif", "bt25.jfif", "bt26.jfif", "bt27.jfif", "bt28.jfif", "bt29.jfif", "bt30.png", "bt31.jfif", "bt32.jfif", "bt33.jfif", "bt34.jfif", "bt33.jfif"]
                     tpb = boot[Math.floor(Math.random() * (boot.length))]
@@ -1646,7 +1646,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 	    
 				 case 'slot':
           const somtoy = sotoy[Math.floor(Math.random() * (sotoy.length))]	
-             client.sendText(from, `[  🎰 | SLOTS ]\n-----------------\n🍋 : 🍌 : 🍍\n${somtoy}<=====\n🍋 : 🍌 : 🍍\n[  🎰 | SLOTS ]\n\nDescrição: Se você conseguir 3 peças, você ganha\n\nExemplo : 🍌 : 🍌 : 🍌<=====`, text, {quoted:mek})
+             client.sendMessage(from, `[  🎰 | SLOTS ]\n-----------------\n🍋 : 🍌 : 🍍\n${somtoy}<=====\n🍋 : 🍌 : 🍍\n[  🎰 | SLOTS ]\n\nDescrição: Se você conseguir 3 peças, você ganha\n\nExemplo : 🍌 : 🍌 : 🍌<=====`, text, {quoted:mek})
 	    break	
 					
 					
