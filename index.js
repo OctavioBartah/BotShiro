@@ -1165,6 +1165,28 @@ const getRegisteredRandomId = () => {
 					await limitAdd(sender) 
 					break 
 					
+	 case 'bully':
+                    
+                    const bul = ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10"]
+                    tpb = bul[Math.floor(Math.random() * (bul.length))]
+                    figb = fs.readFileSync('./src/bully/' + tpb + '.webp')
+	
+                    yhb = `@${mentioned[0].split('@')[0]} deu uma mamada em @${mentioned[1].split('@')[0]}`
+			    
+			     mentions(`${yhb}`, mentioned, true, {
+                            quoted: mek
+                        })
+	
+                        setTimeout(() => {
+                            client.sendMessage(from, figb, sticker, {
+                                quoted: mek
+                            })
+                        }, 2100)
+                    								
+					
+					
+					
+					
 					
 					
 				
