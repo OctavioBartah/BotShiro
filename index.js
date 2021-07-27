@@ -1171,17 +1171,9 @@ const getRegisteredRandomId = () => {
                     tpb = bul[Math.floor(Math.random() * (bul.length))]
                     figb = fs.readFileSync('./src/bully/' + tpb + '.webp')
 	
-                    yhb = `@${mentioned[0].split('@')[0]} deu uma mamada em @${mentioned[1].split('@')[0]}`
-			    
-			     mentions(`${yhb}`, mentioned, true, {
-                            quoted: mek
-                        })
-	
-                        setTimeout(() => {
-                            client.sendMessage(from, figb, sticker, {
-                                quoted: mek
-                            })
-                        }, 2100)
+                            client.sendMessage(from, figb, sticker, {quoted: mek})
+					  break
+
                     								
 					
 					
