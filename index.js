@@ -49,6 +49,7 @@ const math = require('mathjs')
 const _leveling = JSON.parse(fs.readFileSync('./database/json/leveling.json'))
 const _level = JSON.parse(fs.readFileSync('./database/json/level.json'))
 const event = JSON.parse(fs.readFileSync('./database/json/event.json'))
+const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'))
 
 const { BarBarApi, ZeksApi, TechApi, TobzApi, ItsApi, VthearApi } = JSON.parse(fs.readFileSync('./database/json/apikey.json'))
 const setting = JSON.parse(fs.readFileSync('./database/json/setting.json'))
@@ -264,6 +265,12 @@ async function starts() {
 const getRegisteredRandomId = () => {
 			return user[Math.floor(Math.random() * user.length)].id.replace('@s.whatsapp.net','')
 			}
+
+  const addRegisteredUser = (userid, sender, age, time, serials) => {
+            const obj = { id: userid, name: sender, age: age, time: time, serial: serials }
+            _registered.push(obj)
+            fs.writeFileSync('./database/json/registered.json', JSON.stringify(_registered))
+        }
 
 	client.on('chat-update', async (mek) => {
 		try {
