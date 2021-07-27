@@ -84,21 +84,12 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}shinobu*
 ❉ ╰───────────────
 ❉ ╭─ ❉ *Sticker* ❉──── 
+❉ │➻ *${prefix}bully*
+❉ ╰───────────────
+❉ ╭─ ❉ *TEXTO ANIMADO* ❉──── 
 ❉ │
-❉ │➻ *${prefix}kiss*
-❉ │➻ *${prefix}baka*
-❉ │➻ *${prefix}gawr*
-❉ │➻ *${prefix}cum*
-❉ │➻ *${prefix}poke*
-❉ │➻ *${prefix}smug*
-❉ │➻ *${prefix}cuddle*
-❉ │➻ *${prefix}cry*
-❉ │➻ *${prefix}abrac*
-❉ │➻ *${prefix}lick*
-❉ │➻ *${prefix}sorrir*
-❉ │➻ *${prefix}maos*
-❉ │➻ *${prefix}kill*
-❉ │➻ *${prefix}cringe*
+❉ │➻ *${prefix}blood*
+❉ │➻ *${prefix}water*
 ❉ ╰───────────────
 ❉ ╭─ ❉ *NSFW MENU* ❉──── 
 ❉ │
