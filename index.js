@@ -46,6 +46,7 @@ const axios = require('axios')
 const nhentai = require('nhentai-js')
 const { API } = require('nhentai-api')
 const math = require('mathjs')
+const crypto = require('crypto')
 
 
 const { BarBarApi, ZeksApi, TechApi, TobzApi, ItsApi, VthearApi } = JSON.parse(fs.readFileSync('./database/json/apikey.json'))
@@ -83,6 +84,8 @@ rmenu = "Olá amigos da LOLIBOT👋"
 limitt = 100000
 ban = []
 userpremium = [] //ubah nomer kalian
+
+
 
 // Functions///////////////////////////////////////////////////////////
 const getLevelingXp = (userId) => {
@@ -263,9 +266,17 @@ async function starts() {
 	    	blocked.push(i.replace('c.us','s.whatsapp.net'))
 	    }
 	})
+	
+	
+        const createSerial = (size) => {
+            return crypto.randomBytes(size).toString('hex').slice(0, size)
+        }
+	
+	
 const getRegisteredRandomId = () => {
 			return user[Math.floor(Math.random() * user.length)].id.replace('@s.whatsapp.net','')
 			}
+
 
   const addRegisteredUser = (userid, sender, age, time, serials) => {
             const obj = { id: userid, name: sender, age: age, time: time, serial: serials }
