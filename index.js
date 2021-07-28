@@ -448,7 +448,7 @@ const getRegisteredRandomId = () => {
                 addLevelingXp(sender, amountXp)
                 if (requiredXp <= getLevelingXp(sender)) {
                     addLevelingLevel(sender, 1)
-                    await reply(`*「 LEVEL UP 」*\n\n➸ *Name*: ${sender}\n➸ *XP*: ${getLevelingXp(sender)}\n➸ *Level*: ${getLevel} -> ${getLevelingLevel(sender)}\n\nCongrats!! 🎉🎉`)
+                    await reply(`*「 LEVEL UP 」*\n\n➸ *Name*: @${nom.split("@s.whatsapp.net")[0]}\n➸ *XP*: ${getLevelingXp(sender)}\n➸ *Level*: ${getLevel} -> ${getLevelingLevel(sender)}\n\nCongrats!! 🎉🎉`)
                 }
             } catch (err) {
                 console.error(err)
@@ -1462,6 +1462,27 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                                         await limitAdd(sender)
 					break
 /*/////////////////////////JOGOS E COISAS RANDOM*/////////////////////////////
+				
+		case 'hidetag':
+                client.updatePresence(from, Presence.composing) 
+                if (!isGroup) return reply(mess.only.group)
+                teks = body.slice(9)
+                group = await client.groupMetadata(from);
+                member = group['participants']
+                jids = [];
+                member.map( async adm => {
+                jids.push(adm.id.replace('c.us', 's.whatsapp.net'));
+                 })
+                 options = {
+                 text: teks,
+                contextInfo: {mentionedJid: jids},
+                quoted: mek
+                }
+              await client.sendMessage(from, options, text)
+               break
+					
+					
+					
 					
 				 case 'game':
 				//	anu = await fetchJson(`http://rt-files.000webhostapp.com/tts.php?apikey=rasitech`, {method: 'get'})
@@ -1825,8 +1846,13 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                 const userLevel = getLevelingLevel(sender)
                 const userXp = getLevelingXp(sender)
                 if (userLevel === undefined && userXp === undefined) return reply(mess.levelnol)
-                sem = sender.replace('@s.whatsapp.net','')
-                resul = `=>*LEVEL*\n=> *Name* : ${sem}\n=>*User XP* : ${userXp}\n=>*User Level* : ${userLevel}`
+              //  sem = sender.replace('@s.whatsapp.net','')
+			//	var nom = mek.participant
+			//		const tag = {
+			//		text: `@${nom.split("@s.whatsapp.net")[0]} tag!`,
+			//		contextInfo: { mentionedJid: [nom] }
+			//		}
+                resul = `=>*LEVEL*\n=> *Name* : *${pushname2}*\n=>*User XP* : ${userXp}\n=>*User Level* : ${userLevel}`
                client.sendMessage(from, resul, text, { quoted: mek})
                 .catch(async (err) => {
                         console.error(err)
@@ -1862,7 +1888,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 					
 					 case 'rg':
                                     
-                                        if (!far.includes('|')) return  reply(ind.wrongf())
+                                        if (!far.includes('|')) return  reply('Ta errado po')
                                         const namaUser = far.substring(0, far.indexOf('|') - 0)
                                         const umurUser = far.substring(far.lastIndexOf('|') + 1)
                                         const serialUser = createSerial(20)
@@ -1883,7 +1909,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                                         break
                                 case 'mining':
                                    
-                                        if (!isEventon) return reply(`lamento ${pushname}, mas evento não foi ativada pelo proprietário`)
+                                        if (!isEventon) return reply(`lamento *${pushname2}*, mas evento não foi ativada pelo proprietário`)
                                         if (isOwner) {
                                                 const one = 999999999
                                                 addLevelingXp(sender, one)
@@ -1892,7 +1918,7 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                                         } else {
                                                 const mining = Math.ceil(Math.random() * 10000)
                                                 addLevelingXp(sender, mining)
-                                                await reply(`*seguro* ${pushname} você pega *${mining}Xp*`)
+                                                await reply(`*seguro* *${pushname2}* você pega *${mining}Xp*`)
                                         }
                                         await limitAdd(sender)
                                         break
