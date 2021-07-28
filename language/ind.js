@@ -7,7 +7,7 @@ exports.rediregis = () => {
 }
 
 exports.wrongf = () => {
-        return`*format salah/text kosong*`
+        return`*formato errado / texto vazio`
 }
 
 exports.clears = () => {
