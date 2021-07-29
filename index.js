@@ -314,6 +314,7 @@ const getRegisteredRandomId = () => {
 			const args = body.trim().split(/ +/).slice(1)
 			const far = args.join(' ')
 			const isCmd = body.startsWith(prefix)
+			const is = budy.slice(0).trim().split(/ +/).shift().toLowerCase()
 			
 			const sotoy = [
 		'🍊 : 🍒 : 🍐',
@@ -521,6 +522,34 @@ const getRegisteredRandomId = () => {
                 }
             }
          }
+			
+			switch(is) {
+
+  case 'loli':
+
+buf = fs.readFileSync(`./audio/oni.mp3`)
+
+client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
+
+break
+
+case 'fds':
+
+buf = fs.readFileSync(`./audio/Quando.mp3`)
+
+client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
+
+break
+					
+case 'fds':
+
+buf = fs.readFileSync(`./audio/Falsidade.mp3`)
+
+client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
+
+break
+
+
 			switch(command) {
 
 				case 'grouplist':
@@ -1439,6 +1468,40 @@ nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/shinobu?apikey=O
 client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
 
                 break
+					
+												  case 'tidds':
+					
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/biganimetiddies?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
+
+                break
+				  case 'pussy':
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/pussy_jpg?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
+
+                break
+				  case 'solo':
+		if (isBanned) return reply(mess.only.benned)    
+					 if (!isGroupAdmins) return reply(mess.only.admin)
+				if (isLimit(sender)) return reply(limitend(pushname2))
+					reply(mess.wait)
+
+nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/solo?apikey=OctavioBartah1508')
+client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
+
+                break					
+					
+					
 		
 				                case 'blood':
               	    if (args.length < 1) return reply('qual txt anjo??')
@@ -1811,24 +1874,6 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                         }, 2100)
                     break
 			/*/////////////////////////SISTEMA DE LEVEL*/////////////////////////////
-			 case 'boot':		
-		//const boot = ["bt1.jfif", "bt2.jfif", "bt3.jfif", "bt4.png", "bt5.jfif", "bt6.jfif", "bt7.jfif", "bt8.png", "bt9.jfif", "bt10.jfif", "bt11.png", "bt12.jfif", "bt13.jfif", "bt14.jfif", "bt15.jfif", "bt16.jfif", "bt17.jfif", "bt18.jfif", 
-		//	 "bt19.jfif", "bt20.jfif", "bt21.jfif", "bt22.png", "bt23.png", "bt24.jfif", "bt25.jfif", "bt26.jfif", "bt27.jfif", "bt28.jfif", "bt29.jfif", "bt30.png", "bt31.jfif", "bt32.jfif", "bt33.jfif", "bt34.jfif", "bt33.jfif"]
-                   const boot = ["bt28", "bt29", "bt30", "bt31", "bt32", "bt33", "bt34", "bt35"]
-					tpb = boot[Math.floor(Math.random() * (boot.length))]
-                    figb = fs.readFileSync('./src/bt/' + tpb + '.webp')	
-					client.sendMessage(from, figb, image, { caption: 'nyaa!!', quoted: mek })
-					await limitAdd(sender)
-					break 
-					
-					case 'paradise':		
-		    const pa = ["h1", "h2", "h3", "h4", "h5", "h6", "h7", "h9", "h10", "h11", "h12", "h13", "h14", "h15", "h16",
-			       "h17", "h18", "h19", "h20", "h21", "h22", "h23", "h24", "h26", "h27", "h28", "h29", "h30"]
-					tpb = pa[Math.floor(Math.random() * (pa.length))]
-                    figb = fs.readFileSync('./src/paradise/' + tpb + '.jfif')	
-					client.sendMessage(from, figb, image, { caption: 'nyaa!!', quoted: mek })
-					await limitAdd(sender)
-					break 
 					
 	case 'event':
                                         if (!isGroup) return reply(mess.only.group)
@@ -1919,15 +1964,48 @@ client.sendMessage(from, nye, image, { caption: 'shinobu!!', quoted: mek })
                                 case 'mining':
                                    
                                         if (!isEventon) return reply(`lamento *${pushname2}*, mas evento não foi ativada pelo proprietário`)
-                                        if (isOwner) {
-                                                const one = 999999999
-                                                addLevelingXp(sender, one)
-                                                addLevelingLevel(sender, 99)
-                                                reply(`porque você é nosso dono da equipe bot enviada ${one}Xp para você`)
-                                        } else {
-                                                const mining = Math.ceil(Math.random() * 10000)
+					if (isGroupAdmins) {
+                    const minin = Math.ceil(Math.random() * 20000)
+                      addLevelingXp(sender, minin)
+                      reply(`Esse e pra vc  ${minin} 🙈`)
+                      }else{
+                                                const mining = Math.ceil(Math.random() * 5000)
                                                 addLevelingXp(sender, mining)
                                                 await reply(`*seguro* *${pushname2}* você pega *${mining}Xp*`)
+                                        await limitAdd(sender)
+                                        break
+					
+					case 'mowner':
+                                   
+                                        if (!isEventon) return reply(`lamento *${pushname2}*, mas evento não foi ativada pelo proprietário`)
+                                        if (!isOwner) reply('Você não é a mamae!')
+                                                const one = 10000000
+                                                addLevelingXp(sender, one)
+                                                reply(`porque você é nosso dono da equipe bot enviada ${one}Xp para você`)
+                                        
+					
+                                        await limitAdd(sender)
+                                        break
+					
+					case 'sendxp':
+                                   
+                                        if (!isEventon) return reply(`lamento *${pushname2}*, mas evento não foi ativada pelo proprietário`)
+					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+					
+                                
+					if (mentioned.length > 1) {
+						teks = 'Pedidos aceitos, bora dar XP! :\n'
+						for (let _ of mentioned) {
+							teks += `@${_.split('@')[0]}\n`
+						}
+						const mini = Math.ceil(Math.random() * 10000)
+                                                addLevelingXp(mentioned, mini)
+						mentions(teks, mentioned, true)	
+					}	
+						else {
+                                                const min = Math.ceil(Math.random() * 10000)
+                                                addLevelingXp(mentioned, min)
+                                                await reply(`*Entendido ADM!* *${mentioned}* você pega *${mining}Xp*`)
                                         }
                                         await limitAdd(sender)
                                         break
