@@ -541,7 +541,7 @@ client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 
 break
 					
-case 'fds':
+case 'falsidade':
 
 buf = fs.readFileSync(`./audio/Falsidade.mp3`)
 
