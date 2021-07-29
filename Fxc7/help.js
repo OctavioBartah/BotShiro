@@ -30,7 +30,14 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}nobg*
 ❉ │➻ *${prefix}tomp3*
 ❉ |➻ *${prefix}tts + idioma + texto*
-❉ │➻ *${prefix}ocr*     
+❉ │➻ *${prefix}ocr*   
+❉ │➻ *${prefix}tagme*
+❉ │➻ *${prefix}hidetag*
+❉ ╰────────────
+❉ ╭─❉ *Auto* ❉  ────
+❉ │➻ *fds*
+❉ │➻ *falsidade*
+❉ │➻ *loli*
 ❉ ╰────────────
 ❉ ╭─❉ *Jogos* ❉  ────
 ❉ │➻ *${prefix}pau*
@@ -111,6 +118,7 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ ╰───────────────
 ❉
 ❉ ╭─❉ *ADMS* ❉──────────
+❉ │➻ *${prefix}hidetag*
 ❉ │➻ *${prefix}welcome On/Off*
 ❉ │➻ *${prefix}grup buka/tutup*
 ❉ │➻ *${prefix}antilink on/off*
