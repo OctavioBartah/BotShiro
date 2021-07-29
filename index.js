@@ -65,6 +65,7 @@ const _leveling = JSON.parse(fs.readFileSync('./database/json/leveling.json'))
 const _level = JSON.parse(fs.readFileSync('./database/json/level.json'))
 const event = JSON.parse(fs.readFileSync('./database/json/event.json'))
 const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'))
+const sotoy = JSON.parse(fs.readFileSync('./src/sotoy.json'));
 
 let {
 instagram, yt, groupLink, memberLimit, tobzkey
@@ -2107,9 +2108,36 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 				break      
 	    
 				 case 'slot':
-          const somtoy = sotoy[Math.floor(Math.random() * (sotoy.length))]	
-             client.sendMessage(from, `[  🎰 | SLOTS ]\n-----------------\n🍋 : 🍌 : 🍍\n${somtoy}<=====\n🍋 : 🍌 : 🍍\n[  🎰 | SLOTS ]\n\nDescrição: Se você conseguir 3 peças, você ganha\n\nExemplo : 🍌 : 🍌 : 🍌<=====`, text, {quoted:mek})
-	    break	
+                    const somtoy = sotoy[Math.floor(Math.random() * (sotoy.length))]
+                    ppg = Math.floor(Math.random() * 13) + 349
+                    if ((somtoy == '🥑 : 🥑 : 🥑') || (somtoy == '🍉 : 🍉 : 🍉') || (somtoy == '🍓 : 🍓 : 🍓') || (somtoy == '🍎 : 🍎 : 🍎') || (somtoy == '🍍 : 🍍 : 🍍') || (somtoy == '🥝 : 🥝 : 🥝') || (somtoy == '🍑 : 🍑 : 🍑') || (somtoy == '🥥 : 🥥 : 🥥') || (somtoy == '🍋 : 🍋 : 🍋') || (somtoy == '🍐 : 🍐 : 🍐') || (somtoy == '🍌 : 🍌 : 🍌') || (somtoy == '🍒 : 🍒 : 🍒') || (somtoy == '🔔 : 🔔 : 🔔') || (somtoy == '🍊 : 🍊 : 🍊') || (somtoy == '🍇 : 🍇 : 🍇')) {
+                        var vitr = "Você ganhou!!!"
+                    } else {
+                        var vitr = "Você perdeu..."
+                    }
+                    const slott =
+                        `Consiga 3 iguais para ganhar
+╔═══ ≪ •❈• ≫ ════╗
+║         [💰SLOT💰 | 777 ]        
+║                                             
+║                                             
+║           ${somtoy}  ◄━━┛
+║            
+║                                           
+║         [💰SLOT💰 | 777 ]        
+╚════ ≪ •❈• ≫ ═══╝
+                      @ɪᴛᴀʟᴜ
+${vitr}`
+                    if (vitr == "Você ganhou!!!") {
+                        setTimeout(() => {
+                            reply(`Você ganhou ${ppg} em xp!!!`)
+                        }, 1100)
+                    }
+                    tiringa.sendMessage(from, slott, text, {
+                        quoted: mek
+                    })
+                    break
+
 					
 					
 				case 'naruto':
