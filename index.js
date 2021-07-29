@@ -1577,7 +1577,7 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
                     if (args.length < 1) return reply('Qual é a sua jogada?')
                     ppt = ["pedra", "papel", "tesoura"]	
                     ppy = ppt[Math.floor(Math.random() * ppt.length)]
-			const ppg = Math.ceil(Math.random() * 150)
+			const ppg = Math.ceil(Math.random() * 500)
                       addLevelingXp(sender, ppg)
                     pptb = ppy
                     pph = `Você ganhou ${ppg} em xp`
@@ -2126,16 +2126,14 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 ║                                           
 ║         [💰SLOT💰 | 777 ]        
 ╚════ ≪ •❈• ≫ ═══╝
-                      @ɪᴛᴀʟᴜ
+                  
 ${vitr}`
                     if (vitr == "Você ganhou!!!") {
                         setTimeout(() => {
                             reply(`Você ganhou ${ppg} em xp!!!`)
                         }, 1100)
                     }
-                    tiringa.sendMessage(from, slott, text, {
-                        quoted: mek
-                    })
+                    client.sendMessage(from, slott, text, {quoted: mek})
                     break
 
 					
