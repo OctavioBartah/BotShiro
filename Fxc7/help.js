@@ -38,6 +38,7 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *fds*
 ❉ │➻ *falsidade*
 ❉ │➻ *loli*
+❉ │➻ *sayonara*
 ❉ ╰────────────
 ❉ ╭─❉ *Jogos* ❉  ────
 ❉ │➻ *${prefix}pau*
