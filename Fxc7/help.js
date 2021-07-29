@@ -47,6 +47,8 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}rg*
 ❉ │➻ *${prefix}mining*
 ❉ │➻ *${prefix}event*
+❉ │➻ *${prefix}mowner*
+❉ │➻ *${prefix}sendxp*
 ❉ ╰────────────
 ❉
 ❉ ╭─ ❉ *MIDIA GRUPO* ❉──── 
@@ -103,6 +105,9 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}erok*
 ❉ │➻ *${prefix}ahegao*
 ❉ │➻ *${prefix}blowjob*
+❉ │➻ *${prefix}pussy*
+❉ │➻ *${prefix}solo*
+❉ │➻ *${prefix}tidds*
 ❉ ╰───────────────
 ❉
 ❉ ╭─❉ *ADMS* ❉──────────
