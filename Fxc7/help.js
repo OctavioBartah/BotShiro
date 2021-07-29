@@ -46,6 +46,13 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}abraço*
 ❉ │➻ *${prefix}shipp*
 ❉ │➻ *${prefix}slot* 
+❉ │➻ *${prefix}ppt*
+❉ │➻ *${prefix}sn*
+❉ │➻ *${prefix}slot* 
+❉ │➻ *${prefix}gado*
+❉ │➻ *${prefix}caracoroa* 
+❉ │➻ *${prefix}morte*
+❉ │➻ *${prefix}dado* 
 ❉ ╰────────────
 ❉
 ❉ ╭─❉ *LEVEL* ❉  ────
