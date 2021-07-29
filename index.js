@@ -2774,7 +2774,7 @@ ${vitr}`
 						mentions(teks, mentioned, true)
 						client.groupDemoteAdmin(from, mentioned)
 					} else {
-						mentions(`Pedidos recebidos, Trazer para baixo : @${mentioned[0].split('@')[0]} Menjadi Member`, mentioned, true)
+						mentions(`Pedido recebido, Trazer para baixo : @${mentioned[0].split('@')[0]} agora é um mebro kkj`, mentioned, true)
 						client.groupDemoteAdmin(from, mentioned)
 					}
 					break
