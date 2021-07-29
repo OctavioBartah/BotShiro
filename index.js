@@ -1526,7 +1526,34 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
                                         await limitAdd(sender)
 					break
 /*/////////////////////////JOGOS E COISAS RANDOM*/////////////////////////////
-			
+		case 'top5':
+                    try {
+                        if (args.length < 1) return reply('top5....?')
+                        if (!isGroup) return reply(mess.only.group)
+                        d = []
+                        top1 = body.slice(5)
+                        teks = `️‍Top 5${top1}:\n`
+                        for (i = 0; i < 5; i++) {
+                            r = Math.floor(Math.random() * groupMetadata.participants.length + 0)
+                            teks += `️‍❧ @${groupMembers[r].jid.split('@')[0]}\n`
+                            d.push(groupMembers[r].jid)
+                        }
+                        mentions(teks, d, true, {quoted: mek})
+                    } catch (e) {
+                        console.log(e)
+                        reply('ocorreu um erro')
+                    }
+                    break
+
+		case 'chance':
+                    client.updatePresence(from, Presence.composing)
+                    var avb = body.slice(7)
+                    if (args.length < 1) return client.sendMessage(from, `Você precisa digitar da forma correta\nExemplo: ${prefix}chance do mundo acabar`, text, {quoted: mek})
+                    random = `${Math.floor(Math.random() * 100)}`
+                    hasil = `A chance ${body.slice(8)}\n\né de... ${random}%`
+                    client.sendMessage(from, hasil, text, {quoted: mek,contextInfo: {mentionedJid: [sender]}})
+                    break
+
 			case 'dado':
                     const dadus = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"]
                     dadu = dadus[Math.floor(Math.random() * dadus.length)]
