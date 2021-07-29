@@ -1525,7 +1525,92 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
                                         await limitAdd(sender)
 					break
 /*/////////////////////////JOGOS E COISAS RANDOM*/////////////////////////////
-				
+			
+			case 'dado':
+                    const dadus = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"]
+                    dadu = dadus[Math.floor(Math.random() * dadus.length)]
+                    dador = fs.readFileSync('./src/dados/' + dadu + '.webp')
+                    client.sendMessage(from, dador, sticker, {quoted: mek})
+                    break
+
+                case 'caracoroa':
+                    const cara = fs.readFileSync('./database/cara/cara.webp');
+                    const coroa = fs.readFileSync('./database/cara/coroa.webp');
+                    cararo = ["cara", "coroa"]
+                    fej = cararo[Math.floor(Math.random() * cararo.length)]
+                    gg = fej
+                    reply(`você conseguiu: ${fej}`)
+                    cararoa = fs.readFileSync('./src/cara/' + fej + '.webp')
+                    client.sendMessage(from, cararoa, sticker, {quoted: mek})
+                    break
+
+                case 'morte':
+                case 'death':
+                    idde = ["30", "76", "90", "72", "83", "73", "83", "74", "92", "100", "94", "48", "37", "53", "63"]
+                    idade = idde[Math.floor(Math.random() * (idde.length))]
+                    morte = `Pessoas com este nome: ${pushname2} \nTendem a morrer aos ${idade} anos de idade.`
+                    reply(morte)
+                    break
+
+                case 'sn':
+                    const sn = ['sim', 'não']
+                    gosto = body.slice(4)
+                    if (args.length < 1) client.sendMessage(from, `Você deve fazer uma pergunta...\nExemplo: ${prefix}sn O Italu é um baiano preguiçoso?`, text, {
+                        quoted: mek
+                    })
+                    const jawab = sn[Math.floor(Math.random() * (sn.length))]
+                    hasil = `${gosto}\n\nSegundo meus cálculos, eu acredito que... ${jawab}`
+                    reply(hasil)
+                    break
+
+                case 'gadometro':
+                case 'gado':
+                    var chifre = ["ultra extreme gado", "Gado-Master", "Gado-Rei", "Gado", "Escravo-ceta", "Escravo-ceta Maximo", "Gacorno?", "Jogador De Forno Livre<3", "Mestre Do Frifai<3<3", "Gado-Manso", "Gado-Conformado", "Gado-Incubado", "Gado Deus", "Mestre dos Gados", "Topa tudo por buceta", "Gado Comum", "Mini Gadinho", "Gado Iniciante", "Gado Basico", "Gado Intermediario", "Gado Avançado", "Gado Profisional", "Gado Mestre", "Gado Chifrudo", "Corno Conformado", "Corno HiperChifrudo", "Chifrudo Deus", "Mestre dos Chifrudos"]
+                    var gado = chifre[Math.floor(Math.random() * chifre.length)]
+                    gadop = `${Math.floor(Math.random() * 100)}`
+                    hisil = `Você é:\n\n${gado}`
+                    reply(hisil)
+                    break
+
+                case "ppt":
+                    if (args.length < 1) return reply('Qual é a sua jogada?')
+                    ppt = ["pedra", "papel", "tesoura"]	
+                    ppy = ppt[Math.floor(Math.random() * ppt.length)]
+			const ppg = Math.ceil(Math.random() * 150)
+                      addLevelingXp(sender, ppg)
+                    pptb = ppy
+                    pph = `Você ganhou ${ppg} em xp`
+                    if ((pptb == "pedra" && args == "papel") ||
+                        (pptb == "papel" && args == "tesoura") ||
+                        (pptb == "tesoura" && args == "pedra")) {
+                        var vit = "vitoria"
+                    } else if ((pptb == "pedra" && args == "tesoura") ||
+                        (pptb == "papel" && args == "pedra") ||
+                        (pptb == "tesoura" && args == "papel")) {
+                        var vit = "derrota"
+                    } else if ((pptb == "pedra" && args == "pedra") ||
+                        (pptb == "papel" && args == "papel") ||
+                        (pptb == "tesoura" && args == "tesoura")) {
+                        var vit = "empate"
+                    } else if (vit = "undefined") {
+                        return reply('Algo deu errado')
+                    }
+                    if (vit == "vitoria") {
+                        var tes = "Vitória do jogador"
+                    }
+                    if (vit == "derrota") {
+                        var tes = "A vitória é da Loli"
+                    }
+                    if (vit == "empate") {
+                        var tes = "O jogo terminou em empate"
+                    }
+                    reply(`Loli jogou: ${pptb}\nO jogador jogou: ${args}\n\n${tes}`)
+                    if (tes == "Vitória do jogador") {
+                        reply(pph)
+                    }
+                    break			
+					
+					
 		case 'hidetag':
                 client.updatePresence(from, Presence.composing) 
                 if (!isGroup) return reply(mess.only.group)
