@@ -549,6 +549,14 @@ buf = fs.readFileSync(`./audio/Falsidade.mp3`)
 client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 
 break
+					case 'sayonara':
+
+buf = fs.readFileSync(`./audio/ash.mp3`)
+
+client.sendMessage(from, buf, audio, {quoted: mek, ptt:true})
+
+break
+			}
 
 
 			switch(command) {
