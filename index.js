@@ -530,7 +530,7 @@ const getRegisteredRandomId = () => {
 
 buf = fs.readFileSync(`./audio/oni.mp3`)
 
-client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
+client.sendMessage(from, buf, audio, {quoted: mek, ptt:true})
 
 break
 
@@ -553,7 +553,7 @@ break
 
 buf = fs.readFileSync(`./audio/ash.mp3`)
 
-client.sendMessage(from, buf, audio, {quoted: mek, ptt:true})
+client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 
 break
 			}
