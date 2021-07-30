@@ -2093,7 +2093,9 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
                                                 const mining = Math.ceil(Math.random() * 5000)
                                                 addLevelingXp(sender, mining)
                                                 await reply(`*seguro* *${pushname2}* você pega *${mining}Xp*`)
-                                        await limitAdd(sender)
+			      await limitAdd(sender)
+		      }
+                                        
                                         break
 					
 					case 'mowner':
