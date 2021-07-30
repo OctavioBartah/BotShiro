@@ -2128,7 +2128,7 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 						else {
                                                 const min = Math.ceil(Math.random() * 10000)
                                                 addLevelingXp(mentioned, min)
-                                                await reply(`*Entendido ADM!* *${mentioned}* você pega *${mining}Xp*`)
+                                                await reply(`*Entendido ADM!* *${mentioned}* você pega *${min}Xp*`)
                                         }
                                         await limitAdd(sender)
                                         break
@@ -2146,7 +2146,7 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 	    
 				 case 'slot':
                     const somtoy = sotoy[Math.floor(Math.random() * (sotoy.length))]
-                    ppg = Math.floor(Math.random() * 13) + 349
+              const mi = Math.ceil(Math.random() * 5000)
                     if ((somtoy == '🥑 : 🥑 : 🥑') || (somtoy == '🍉 : 🍉 : 🍉') || (somtoy == '🍓 : 🍓 : 🍓') || (somtoy == '🍎 : 🍎 : 🍎') || (somtoy == '🍍 : 🍍 : 🍍') || (somtoy == '🥝 : 🥝 : 🥝') || (somtoy == '🍑 : 🍑 : 🍑') || (somtoy == '🥥 : 🥥 : 🥥') || (somtoy == '🍋 : 🍋 : 🍋') || (somtoy == '🍐 : 🍐 : 🍐') || (somtoy == '🍌 : 🍌 : 🍌') || (somtoy == '🍒 : 🍒 : 🍒') || (somtoy == '🔔 : 🔔 : 🔔') || (somtoy == '🍊 : 🍊 : 🍊') || (somtoy == '🍇 : 🍇 : 🍇')) {
                         var vitr = "Você ganhou!!!"
                     } else {
@@ -2167,8 +2167,10 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 ${vitr}`
                     if (vitr == "Você ganhou!!!") {
                         setTimeout(() => {
-                            reply(`Você ganhou ${ppg} em xp!!!`)
+                            reply(`Você ganhou ${mi} em xp!!!`)
                         }, 1100)
+			    
+			    addLevelingXp(sender, mi)
                     }
                     client.sendMessage(from, slott, text, {quoted: mek})
                     break
