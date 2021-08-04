@@ -738,7 +738,7 @@ client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 break
 			}
 
-if (budy.includes(bad)) {
+if (budy.includes("${bad}")) {
                
                     if (!isGroup) return
                     if (!isBadWord) return
