@@ -68,6 +68,7 @@ const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'
 const sotoy = JSON.parse(fs.readFileSync('./src/sotoy.json'));
 const _badword = JSON.parse(fs.readFileSync('./database/json/badword.json'))
 const _bad = JSON.parse(fs.readFileSync('./database/json/bad.json'))
+const { addTTTId, addTTTwin,addTTTdefeat, addTTTtie, addTTTpoints, getTTTId, getTTTwins, getTTTdefeats, getTTTties, getTTTpoints } = require('./lib/tictactoe.js') //JOGO DA VELHA,AGRADECIMENTOS: Resen
 
 let {
 instagram, yt, groupLink, memberLimit, tobzkey
@@ -89,8 +90,494 @@ limitt = 100000
 ban = []
 userpremium = [] //ubah nomer kalian
 
+  //TTT 
+    
+    const { ttthelp } = require('./database/ttt/TTTconfig/ttthelp');
+const { tttme } = require('./database/ttt/TTTconfig/tttme');
+var tttset = require('./database/ttt/TTTconfig/tttset.json');
+var esp = require('./database/ttt/TTTconfig/tttframe.json');
 
+const WinnerX = () => {
+	if (
+		(esp.a1=="❌"&&esp.a2=="❌"&&esp.a3=="❌") || (esp.b1=="❌"&&esp.b2=="❌"&&esp.b3=="❌") || (esp.c1=="❌"&&esp.c2=="❌"&&esp.c3=="❌") || 
+		(esp.a1=="❌"&&esp.b1=="❌"&&esp.c1=="❌") || (esp.a2=="❌"&&esp.b2=="❌"&&esp.c2=="❌") || (esp.a3=="❌"&&esp.b3=="❌"&&esp.c3=="❌") ||
+		(esp.a1=="❌"&&esp.b2=="❌"&&esp.c3=="❌") || (esp.a3=="❌"&&esp.b2=="❌"&&esp.c1=="❌")
+	) {
+		return true
+	} else {
+		return false
+	}
+}
 
+//TESTE PARA VITÓRIA DE ⭕
+const WinnerO = () => {
+	if (
+		(esp.a1=="⭕"&&esp.a2=="⭕"&&esp.a3=="⭕") || (esp.b1=="⭕"&&esp.b2=="⭕"&&esp.b3=="⭕") || (esp.c1=="⭕"&&esp.c2=="⭕"&&esp.c3=="⭕") || 
+		(esp.a1=="⭕"&&esp.b1=="⭕"&&esp.c1=="⭕") || (esp.a2=="⭕"&&esp.b2=="⭕"&&esp.c2=="⭕") || (esp.a3=="⭕"&&esp.b3=="⭕"&&esp.c3=="⭕") ||
+		(esp.a1=="⭕"&&esp.b2=="⭕"&&esp.c3=="⭕") || (esp.a3=="⭕"&&esp.b2=="⭕"&&esp.c1=="⭕")
+	) {
+		return true
+	} else {
+		return false
+	}
+}
+
+//TESTE PARA EMPATE
+const Tie = () => {
+	if (esp.a1!="🔲"&&esp.a2!="🔲"&&esp.a3!="🔲"&&esp.b1!="🔲"&&esp.b2!="🔲"&&esp.b3!="🔲"&&esp.c1!="🔲"&&esp.c2!="🔲"&&esp.c3!="🔲") {
+		return true
+	} else {
+		return false
+	}
+}
+
+const IA = () => {
+    if (WinnerX() || WinnerO() || Tie()) {
+		tttset.reActivate1 = "off"
+//INICIO DO MODO IMPOSSIVEL
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" && ( 
+		//TESTE PARA TENTATIVA DE VITÓRIA
+		(esp.a1=="⭕"&&esp.a2=="⭕"&&esp.a3=="🔲") || (esp.a1=="⭕"&&esp.a2=="🔲"&&esp.a3=="⭕") || (esp.a1=="🔲"&&esp.a2=="⭕"&&esp.a3=="⭕") ||
+		(esp.b1=="⭕"&&esp.b2=="⭕"&&esp.b3=="🔲") || (esp.b1=="⭕"&&esp.b2=="🔲"&&esp.b3=="⭕") || (esp.b1=="🔲"&&esp.b2=="⭕"&&esp.b3=="⭕") ||
+		(esp.c1=="⭕"&&esp.c2=="⭕"&&esp.c3=="🔲") || (esp.c1=="⭕"&&esp.c2=="🔲"&&esp.c3=="⭕") || (esp.c1=="🔲"&&esp.c2=="⭕"&&esp.c3=="⭕") ||
+		(esp.a1=="⭕"&&esp.b1=="⭕"&&esp.c1=="🔲") || (esp.a1=="⭕"&&esp.b1=="🔲"&&esp.c1=="⭕") || (esp.a1=="🔲"&&esp.b1=="⭕"&&esp.c1=="⭕") ||
+		(esp.a2=="⭕"&&esp.b2=="⭕"&&esp.c2=="🔲") || (esp.a2=="⭕"&&esp.b2=="🔲"&&esp.c2=="⭕") || (esp.a2=="🔲"&&esp.b2=="⭕"&&esp.c2=="⭕") ||
+		(esp.a3=="⭕"&&esp.b3=="⭕"&&esp.c3=="🔲") || (esp.a3=="⭕"&&esp.b3=="🔲"&&esp.c3=="⭕") || (esp.a3=="🔲"&&esp.b3=="⭕"&&esp.c3=="⭕") ||
+		(esp.a1=="⭕"&&esp.b2=="⭕"&&esp.c3=="🔲") || (esp.a1=="⭕"&&esp.b2=="🔲"&&esp.c3=="⭕") || (esp.a1=="🔲"&&esp.b2=="⭕"&&esp.c3=="⭕") ||
+		(esp.a3=="⭕"&&esp.b2=="⭕"&&esp.c1=="🔲") || (esp.a3=="⭕"&&esp.b2=="🔲"&&esp.c1=="⭕") || (esp.a3=="🔲"&&esp.b2=="⭕"&&esp.c1=="⭕") ||
+		//TESTE PARA TENTATIVA DE BLOQUEIO
+		(esp.a1=="❌"&&esp.a2=="❌"&&esp.a3=="🔲") || (esp.a1=="❌"&&esp.a2=="🔲"&&esp.a3=="❌") || (esp.a1=="🔲"&&esp.a2=="❌"&&esp.a3=="❌") ||
+		(esp.b1=="❌"&&esp.b2=="❌"&&esp.b3=="🔲") || (esp.b1=="❌"&&esp.b2=="🔲"&&esp.b3=="❌") || (esp.b1=="🔲"&&esp.b2=="❌"&&esp.b3=="❌") ||
+		(esp.c1=="❌"&&esp.c2=="❌"&&esp.c3=="🔲") || (esp.c1=="❌"&&esp.c2=="🔲"&&esp.c3=="❌") || (esp.c1=="🔲"&&esp.c2=="❌"&&esp.c3=="❌") ||
+		(esp.a1=="❌"&&esp.b1=="❌"&&esp.c1=="🔲") || (esp.a1=="❌"&&esp.b1=="🔲"&&esp.c1=="❌") || (esp.a1=="🔲"&&esp.b1=="❌"&&esp.c1=="❌") ||
+		(esp.a2=="❌"&&esp.b2=="❌"&&esp.c2=="🔲") || (esp.a2=="❌"&&esp.b2=="🔲"&&esp.c2=="❌") || (esp.a2=="🔲"&&esp.b2=="❌"&&esp.c2=="❌") ||
+		(esp.a3=="❌"&&esp.b3=="❌"&&esp.c3=="🔲") || (esp.a3=="❌"&&esp.b3=="🔲"&&esp.c3=="❌") || (esp.a3=="🔲"&&esp.b3=="❌"&&esp.c3=="❌") ||
+		(esp.a1=="❌"&&esp.b2=="❌"&&esp.c3=="🔲") || (esp.a1=="❌"&&esp.b2=="🔲"&&esp.c3=="❌") || (esp.a1=="🔲"&&esp.b2=="❌"&&esp.c3=="❌") ||
+		(esp.a3=="❌"&&esp.b2=="❌"&&esp.c1=="🔲") || (esp.a3=="❌"&&esp.b2=="🔲"&&esp.c1=="❌") || (esp.a3=="🔲"&&esp.b2=="❌"&&esp.c1=="❌")
+	)){
+		tttset.reActivate1 = "off"
+		IAmove1()
+	//JOGADAS PROGRAMADAS ABAIXO
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" &&
+              ((esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "❌" && esp.c2 == "🔲" && esp.c3 == "⭕") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "❌" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "⭕") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "❌" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "⭕" && esp.c2 == "❌" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "⭕" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "❌" && esp.c1 == "❌" && esp.c2 == "🔲" && esp.c3 == "🔲"))) {
+     	  tttset.reActivate1 = "off"
+          esp.a1 = "⭕"
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" &&
+              ((esp.a1 == "⭕" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "❌" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "❌") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "⭕" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "❌" && esp.c1 == "❌" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "❌" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "❌") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "❌" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "❌" && esp.c2 == "🔲" && esp.c3 == "🔲"))) {
+          tttset.reActivate1 = "off"
+          esp.a2 = "⭕"
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" &&
+              ((esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "⭕" && esp.c2 == "🔲" && esp.c3 == "❌") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "❌" && esp.b3 == "🔲" && esp.c1 == "⭕" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "❌" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "❌" && esp.c3 == "⭕") ||
+               (esp.a1 == "⭕" && esp.a2 == "🔲" && esp.a3 == "❌" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "❌"))) {
+          tttset.reActivate1 = "off"
+          esp.a3 = "⭕"
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" &&
+              ((esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "❌" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "⭕" && esp.c2 == "❌" && esp.c3 == "🔲") ||
+               (esp.a1 == "⭕" && esp.a2 == "❌" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "❌"))) {
+          tttset.reActivate1 = "off"
+          esp.b1 = "⭕"
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" &&
+              ((esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "⭕" && esp.c2 == "❌" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "❌" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "⭕" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "❌" && esp.c3 == "⭕") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "❌" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "⭕") ||
+               (esp.a1 == "⭕" && esp.a2 == "❌" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "⭕" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "❌" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "❌" && esp.a3 == "⭕" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "⭕" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "❌" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "❌" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "⭕" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "❌" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "⭕") ||
+               (esp.a1 == "⭕" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "❌") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "⭕" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "❌" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "❌" && esp.c1 == "⭕" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "❌" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "⭕" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "❌" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "⭕") ||
+               (esp.a1 == "🔲" && esp.a2 == "❌" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "⭕") ||
+               (esp.a1 == "⭕" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "❌" && esp.c3 == "🔲") ||
+               (esp.a1 == "⭕" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "❌" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "⭕" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "❌" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "⭕" && esp.b1 == "❌" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "❌") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "❌" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "❌" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "❌" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲"))) {
+          tttset.reActivate1 = "off"
+          esp.b2 = "⭕"
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" &&
+              ((esp.a1 == "❌" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "❌" && esp.c3 == "⭕") ||
+               (esp.a1 == "🔲" && esp.a2 == "❌" && esp.a3 == "⭕" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "❌" && esp.c2 == "🔲" && esp.c3 == "🔲"))) {
+          tttset.reActivate1 = "off"
+          esp.b3 = "⭕"
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" &&
+              ((esp.a1 == "❌" && esp.a2 == "🔲" && esp.a3 == "⭕" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "⭕" && esp.b1 == "🔲" && esp.b2 == "❌" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "❌" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "❌" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "⭕") ||
+               (esp.a1 == "⭕" && esp.a2 == "❌" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "❌"))) {
+          tttset.reActivate1 = "off"
+          esp.c1 = "⭕"
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" &&
+              ((esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "❌" && esp.b1 == "❌" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "⭕" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "❌" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "❌" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "⭕"))) {
+          tttset.reActivate1 = "off"
+          esp.c2 = "⭕"
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" &&
+		    ((esp.a1 == "⭕" && esp.a2 == "🔲" && esp.a3 == "❌" && esp.b1 == "🔲" && esp.b2 == "🔲" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "⭕" && esp.a2 == "🔲" && esp.a3 == "🔲" && esp.b1 == "🔲" && esp.b2 == "❌" && esp.b3 == "🔲" && esp.c1 == "🔲" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "🔲" && esp.a3 == "❌" && esp.b1 == "❌" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "⭕" && esp.c2 == "🔲" && esp.c3 == "🔲") ||
+               (esp.a1 == "🔲" && esp.a2 == "❌" && esp.a3 == "⭕" && esp.b1 == "🔲" && esp.b2 == "⭕" && esp.b3 == "🔲" && esp.c1 == "❌" && esp.c2 == "🔲" && esp.c3 == "🔲"))) {
+          tttset.reActivate1 = "off"
+          esp.c3 = "⭕"
+	} else if (tttset.tttdifficulty == "IMPOSSIBLE" && (esp.a1 ==  "🔲" || esp.a3 ==  "🔲" || esp.b2 ==  "🔲" || esp.c1 ==  "🔲" || esp.c3 ==  "🔲")) {
+		//PRIORIZAR CANTOS E CENTRO
+		tttset.reActivate1 = "off"
+		while (tttset.reActivate3 == "on") {
+			priorityC()
+		}
+		tttset.reActivate3 = "on"
+//FIM DO MODO IMPOSSIVEL
+	} else if (tttset.tttdifficulty == "HARD" && ( 
+		//TESTE PARA TENTATIVA DE VITÓRIA
+		(esp.a1=="⭕"&&esp.a2=="⭕"&&esp.a3=="🔲") || (esp.a1=="⭕"&&esp.a2=="🔲"&&esp.a3=="⭕") || (esp.a1=="🔲"&&esp.a2=="⭕"&&esp.a3=="⭕") ||
+		(esp.b1=="⭕"&&esp.b2=="⭕"&&esp.b3=="🔲") || (esp.b1=="⭕"&&esp.b2=="🔲"&&esp.b3=="⭕") || (esp.b1=="🔲"&&esp.b2=="⭕"&&esp.b3=="⭕") ||
+		(esp.c1=="⭕"&&esp.c2=="⭕"&&esp.c3=="🔲") || (esp.c1=="⭕"&&esp.c2=="🔲"&&esp.c3=="⭕") || (esp.c1=="🔲"&&esp.c2=="⭕"&&esp.c3=="⭕") ||
+		(esp.a1=="⭕"&&esp.b1=="⭕"&&esp.c1=="🔲") || (esp.a1=="⭕"&&esp.b1=="🔲"&&esp.c1=="⭕") || (esp.a1=="🔲"&&esp.b1=="⭕"&&esp.c1=="⭕") ||
+		(esp.a2=="⭕"&&esp.b2=="⭕"&&esp.c2=="🔲") || (esp.a2=="⭕"&&esp.b2=="🔲"&&esp.c2=="⭕") || (esp.a2=="🔲"&&esp.b2=="⭕"&&esp.c2=="⭕") ||
+		(esp.a3=="⭕"&&esp.b3=="⭕"&&esp.c3=="🔲") || (esp.a3=="⭕"&&esp.b3=="🔲"&&esp.c3=="⭕") || (esp.a3=="🔲"&&esp.b3=="⭕"&&esp.c3=="⭕") ||
+		(esp.a1=="⭕"&&esp.b2=="⭕"&&esp.c3=="🔲") || (esp.a1=="⭕"&&esp.b2=="🔲"&&esp.c3=="⭕") || (esp.a1=="🔲"&&esp.b2=="⭕"&&esp.c3=="⭕") ||
+		(esp.a3=="⭕"&&esp.b2=="⭕"&&esp.c1=="🔲") || (esp.a3=="⭕"&&esp.b2=="🔲"&&esp.c1=="⭕") || (esp.a3=="🔲"&&esp.b2=="⭕"&&esp.c1=="⭕") ||
+		//TESTE PARA TENTATIVA DE BLOQUEIO
+		(esp.a1=="❌"&&esp.a2=="❌"&&esp.a3=="🔲") || (esp.a1=="❌"&&esp.a2=="🔲"&&esp.a3=="❌") || (esp.a1=="🔲"&&esp.a2=="❌"&&esp.a3=="❌") ||
+		(esp.b1=="❌"&&esp.b2=="❌"&&esp.b3=="🔲") || (esp.b1=="❌"&&esp.b2=="🔲"&&esp.b3=="❌") || (esp.b1=="🔲"&&esp.b2=="❌"&&esp.b3=="❌") ||
+		(esp.c1=="❌"&&esp.c2=="❌"&&esp.c3=="🔲") || (esp.c1=="❌"&&esp.c2=="🔲"&&esp.c3=="❌") || (esp.c1=="🔲"&&esp.c2=="❌"&&esp.c3=="❌") ||
+		(esp.a1=="❌"&&esp.b1=="❌"&&esp.c1=="🔲") || (esp.a1=="❌"&&esp.b1=="🔲"&&esp.c1=="❌") || (esp.a1=="🔲"&&esp.b1=="❌"&&esp.c1=="❌") ||
+		(esp.a2=="❌"&&esp.b2=="❌"&&esp.c2=="🔲") || (esp.a2=="❌"&&esp.b2=="🔲"&&esp.c2=="❌") || (esp.a2=="🔲"&&esp.b2=="❌"&&esp.c2=="❌") ||
+		(esp.a3=="❌"&&esp.b3=="❌"&&esp.c3=="🔲") || (esp.a3=="❌"&&esp.b3=="🔲"&&esp.c3=="❌") || (esp.a3=="🔲"&&esp.b3=="❌"&&esp.c3=="❌") ||
+		(esp.a1=="❌"&&esp.b2=="❌"&&esp.c3=="🔲") || (esp.a1=="❌"&&esp.b2=="🔲"&&esp.c3=="❌") || (esp.a1=="🔲"&&esp.b2=="❌"&&esp.c3=="❌") ||
+		(esp.a3=="❌"&&esp.b2=="❌"&&esp.c1=="🔲") || (esp.a3=="❌"&&esp.b2=="🔲"&&esp.c1=="❌") || (esp.a3=="🔲"&&esp.b2=="❌"&&esp.c1=="❌")
+	)){
+		//HARD
+		tttset.reActivate1 = "off"
+		IAmove1()
+	} else if (tttset.tttdifficulty == "NORMAL" && ( 
+		//TESTE PARA TENTATIVA DE VITÓRIA
+		(esp.a1=="⭕"&&esp.a2=="⭕"&&esp.a3=="🔲") || (esp.a1=="⭕"&&esp.a2=="🔲"&&esp.a3=="⭕") || (esp.a1=="🔲"&&esp.a2=="⭕"&&esp.a3=="⭕") ||
+		(esp.b1=="⭕"&&esp.b2=="⭕"&&esp.b3=="🔲") || (esp.b1=="⭕"&&esp.b2=="🔲"&&esp.b3=="⭕") || (esp.b1=="🔲"&&esp.b2=="⭕"&&esp.b3=="⭕") ||
+		(esp.c1=="⭕"&&esp.c2=="⭕"&&esp.c3=="🔲") || (esp.c1=="⭕"&&esp.c2=="🔲"&&esp.c3=="⭕") || (esp.c1=="🔲"&&esp.c2=="⭕"&&esp.c3=="⭕") ||
+		(esp.a1=="⭕"&&esp.b1=="⭕"&&esp.c1=="🔲") || (esp.a1=="⭕"&&esp.b1=="🔲"&&esp.c1=="⭕") || (esp.a1=="🔲"&&esp.b1=="⭕"&&esp.c1=="⭕") ||
+		(esp.a2=="⭕"&&esp.b2=="⭕"&&esp.c2=="🔲") || (esp.a2=="⭕"&&esp.b2=="🔲"&&esp.c2=="⭕") || (esp.a2=="🔲"&&esp.b2=="⭕"&&esp.c2=="⭕") ||
+		(esp.a3=="⭕"&&esp.b3=="⭕"&&esp.c3=="🔲") || (esp.a3=="⭕"&&esp.b3=="🔲"&&esp.c3=="⭕") || (esp.a3=="🔲"&&esp.b3=="⭕"&&esp.c3=="⭕") ||
+		(esp.a1=="⭕"&&esp.b2=="⭕"&&esp.c3=="🔲") || (esp.a1=="⭕"&&esp.b2=="🔲"&&esp.c3=="⭕") || (esp.a1=="🔲"&&esp.b2=="⭕"&&esp.c3=="⭕") ||
+		(esp.a3=="⭕"&&esp.b2=="⭕"&&esp.c1=="🔲") || (esp.a3=="⭕"&&esp.b2=="🔲"&&esp.c1=="⭕") || (esp.a3=="🔲"&&esp.b2=="⭕"&&esp.c1=="⭕") ||
+		//TESTE PARA TENTATIVA DE BLOQUEIO
+		(esp.a1=="❌"&&esp.a2=="❌"&&esp.a3=="🔲") || (esp.a1=="❌"&&esp.a2=="🔲"&&esp.a3=="❌") || (esp.a1=="🔲"&&esp.a2=="❌"&&esp.a3=="❌") ||
+		(esp.b1=="❌"&&esp.b2=="❌"&&esp.b3=="🔲") || (esp.b1=="❌"&&esp.b2=="🔲"&&esp.b3=="❌") || (esp.b1=="🔲"&&esp.b2=="❌"&&esp.b3=="❌") ||
+		(esp.c1=="❌"&&esp.c2=="❌"&&esp.c3=="🔲") || (esp.c1=="❌"&&esp.c2=="🔲"&&esp.c3=="❌") || (esp.c1=="🔲"&&esp.c2=="❌"&&esp.c3=="❌") ||
+		(esp.a1=="❌"&&esp.b1=="❌"&&esp.c1=="🔲") || (esp.a1=="❌"&&esp.b1=="🔲"&&esp.c1=="❌") || (esp.a1=="🔲"&&esp.b1=="❌"&&esp.c1=="❌") ||
+		(esp.a2=="❌"&&esp.b2=="❌"&&esp.c2=="🔲") || (esp.a2=="❌"&&esp.b2=="🔲"&&esp.c2=="❌") || (esp.a2=="🔲"&&esp.b2=="❌"&&esp.c2=="❌") ||
+		(esp.a3=="❌"&&esp.b3=="❌"&&esp.c3=="🔲") || (esp.a3=="❌"&&esp.b3=="🔲"&&esp.c3=="❌") || (esp.a3=="🔲"&&esp.b3=="❌"&&esp.c3=="❌") ||
+		(esp.a1=="❌"&&esp.b2=="❌"&&esp.c3=="🔲") || (esp.a1=="❌"&&esp.b2=="🔲"&&esp.c3=="❌") || (esp.a1=="🔲"&&esp.b2=="❌"&&esp.c3=="❌") ||
+		(esp.a3=="❌"&&esp.b2=="❌"&&esp.c1=="🔲") || (esp.a3=="❌"&&esp.b2=="🔲"&&esp.c1=="❌") || (esp.a3=="🔲"&&esp.b2=="❌"&&esp.c1=="❌")
+	)){
+		//NORMAL
+		tttset.reActivate1 = "off"
+		let randomNORMAL = Math.floor(Math.random() * 3)
+		if (randomNORMAL == 0 || randomNORMAL == 1) {
+			IAmove1()
+		} else {
+			while (tttset.reActivate2 == "on") {
+				IAalter()
+			}
+		}
+		tttset.reActivate2 = "on"
+	} else {
+		//EASY / RANDOM
+		let randomALL = Math.floor(Math.random() * 9)
+		switch (randomALL) {
+			case 0:
+				if (esp.a1 == "🔲") {
+    	            tttset.reActivate1 = "off"
+    	            esp.a1 = "⭕"
+    	        }
+    	    break
+			case 1:
+				if (esp.a2 == "🔲") {
+    	            tttset.reActivate1 = "off"
+    	            esp.a2 = "⭕"
+    	        }
+    	    break
+			case 2:
+				if (esp.a3 == "🔲") {
+    	            tttset.reActivate1 = "off"
+    	            esp.a3 = "⭕"
+    	        }
+    	    break
+			case 3:
+				if (esp.b1 == "🔲") {
+    	            tttset.reActivate1 = "off"
+    	            esp.b1 = "⭕"
+    	        }
+    	    break
+			case 4:
+				if (esp.b2 == "🔲") {
+    	            tttset.reActivate1 = "off"
+    	            esp.b2 = "⭕"
+    	        }
+    	    break
+			case 5:
+				if (esp.b3 == "🔲") {
+    	            tttset.reActivate1 = "off"
+    	            esp.b3 = "⭕"
+    	        }
+    	    break
+			case 6:
+				if (esp.c1 == "🔲") {
+    	            tttset.reActivate1 = "off"
+    	            esp.c1 = "⭕"
+    	        }
+    	    break
+			case 7:
+				if (esp.c2 == "🔲") {
+    	            tttset.reActivate1 = "off"
+    	            esp.c2 = "⭕"
+    	        }
+    	    break
+			case 8:
+				if (esp.c3 == "🔲") {
+        	        tttset.reActivate1 = "off"
+        	        esp.c3 = "⭕"
+        	    }
+        	break
+		}
+	}
+}
+
+const IAmove1 = () => {
+	//JOGADA PARA VITÓRIA
+	if (esp.a1=="⭕"&&esp.a2=="⭕"&&esp.a3=="🔲") {
+		esp.a3 = "⭕"
+	} else if (esp.a1=="⭕"&&esp.a2=="🔲"&&esp.a3=="⭕") {
+		esp.a2 = "⭕"
+	} else if (esp.a1=="🔲"&&esp.a2=="⭕"&&esp.a3=="⭕") {
+		esp.a1 = "⭕"
+	} else if (esp.b1=="⭕"&&esp.b2=="⭕"&&esp.b3=="🔲") {
+		esp.b3 = "⭕"
+	} else if (esp.b1=="⭕"&&esp.b2=="🔲"&&esp.b3=="⭕") {
+		esp.b2 = "⭕"
+	} else if (esp.b1=="🔲"&&esp.b2=="⭕"&&esp.b3=="⭕") {
+		esp.b1 = "⭕"
+	} else if (esp.c1=="⭕"&&esp.c2=="⭕"&&esp.c3=="🔲") {
+		esp.c3 = "⭕"
+	} else if (esp.c1=="⭕"&&esp.c2=="🔲"&&esp.c3=="⭕") {
+		esp.c2 = "⭕"
+	} else if (esp.c1=="🔲"&&esp.c2=="⭕"&&esp.c3=="⭕") {
+		esp.c1 = "⭕"
+	} else if (esp.a1=="⭕"&&esp.b1=="⭕"&&esp.c1=="🔲") {
+		esp.c1 = "⭕"
+	} else if (esp.a1=="⭕"&&esp.b1=="🔲"&&esp.c1=="⭕") {
+		esp.b1 = "⭕"
+	} else if (esp.a1=="🔲"&&esp.b1=="⭕"&&esp.c1=="⭕") {
+		esp.a1 = "⭕"
+	} else if (esp.a2=="⭕"&&esp.b2=="⭕"&&esp.c2=="🔲") {
+		esp.c2 = "⭕"
+	} else if (esp.a2=="⭕"&&esp.b2=="🔲"&&esp.c2=="⭕") {
+		esp.b2 = "⭕"
+	} else if (esp.a2=="🔲"&&esp.b2=="⭕"&&esp.c2=="⭕") {
+		esp.a2 = "⭕"
+	} else if (esp.a3=="⭕"&&esp.b3=="⭕"&&esp.c3=="🔲") {
+		esp.c3 = "⭕"
+	} else if (esp.a3=="⭕"&&esp.b3=="🔲"&&esp.c3=="⭕") {
+		esp.b3 = "⭕"
+	} else if (esp.a3=="🔲"&&esp.b3=="⭕"&&esp.c3=="⭕") {
+		esp.a3 = "⭕"
+	} else if (esp.a1=="⭕"&&esp.b2=="⭕"&&esp.c3=="🔲") {
+		esp.c3 = "⭕"
+	} else if (esp.a1=="⭕"&&esp.b2=="🔲"&&esp.c3=="⭕") {
+		esp.b2 = "⭕"
+	} else if (esp.a1=="🔲"&&esp.b2=="⭕"&&esp.c3=="⭕") {
+		esp.a1 = "⭕"
+	} else if (esp.a3=="⭕"&&esp.b2=="⭕"&&esp.c1=="🔲") {
+		esp.c1 = "⭕"
+	} else if (esp.a3=="⭕"&&esp.b2=="🔲"&&esp.c1=="⭕") {
+		esp.b2 = "⭕"
+	} else if (esp.a3=="🔲"&&esp.b2=="⭕"&&esp.c1=="⭕") {
+		esp.a3 = "⭕"
+	//JOGADA PARA BLOQUEIO
+	} else if (esp.a1=="❌"&&esp.a2=="❌"&&esp.a3=="🔲") {
+		esp.a3 = "⭕"
+	} else if (esp.a1=="❌"&&esp.a2=="🔲"&&esp.a3=="❌") {
+		esp.a2 = "⭕"
+	} else if (esp.a1=="🔲"&&esp.a2=="❌"&&esp.a3=="❌") {
+		esp.a1 = "⭕"
+	} else if (esp.b1=="❌"&&esp.b2=="❌"&&esp.b3=="🔲") {
+		esp.b3 = "⭕"
+	} else if (esp.b1=="❌"&&esp.b2=="🔲"&&esp.b3=="❌") {
+		esp.b2 = "⭕"
+	} else if (esp.b1=="🔲"&&esp.b2=="❌"&&esp.b3=="❌") {
+		esp.b1 = "⭕"
+	} else if (esp.c1=="❌"&&esp.c2=="❌"&&esp.c3=="🔲") {
+		esp.c3 = "⭕"
+	} else if (esp.c1=="❌"&&esp.c2=="🔲"&&esp.c3=="❌") {
+		esp.c2 = "⭕"
+	} else if (esp.c1=="🔲"&&esp.c2=="❌"&&esp.c3=="❌") {
+		esp.c1 = "⭕"
+	} else if (esp.a1=="❌"&&esp.b1=="❌"&&esp.c1=="🔲") {
+		esp.c1 = "⭕"
+	} else if (esp.a1=="❌"&&esp.b1=="🔲"&&esp.c1=="❌") {
+		esp.b1 = "⭕"
+	} else if (esp.a1=="🔲"&&esp.b1=="❌"&&esp.c1=="❌") {
+		esp.a1 = "⭕"
+	} else if (esp.a2=="❌"&&esp.b2=="❌"&&esp.c2=="🔲") {
+		esp.c2 = "⭕"
+	} else if (esp.a2=="❌"&&esp.b2=="🔲"&&esp.c2=="❌") {
+		esp.b2 = "⭕"
+	} else if (esp.a2=="🔲"&&esp.b2=="❌"&&esp.c2=="❌") {
+		esp.a2 = "⭕"
+	} else if (esp.a3=="❌"&&esp.b3=="❌"&&esp.c3=="🔲") {
+		esp.c3 = "⭕"
+	} else if (esp.a3=="❌"&&esp.b3=="🔲"&&esp.c3=="❌") {
+		esp.b3 = "⭕"
+	} else if (esp.a3=="🔲"&&esp.b3=="❌"&&esp.c3=="❌") {
+		esp.a3 = "⭕"
+	} else if (esp.a1=="❌"&&esp.b2=="❌"&&esp.c3=="🔲") {
+		esp.c3 = "⭕"
+	} else if (esp.a1=="❌"&&esp.b2=="🔲"&&esp.c3=="❌") {
+		esp.b2 = "⭕"
+	} else if (esp.a1=="🔲"&&esp.b2=="❌"&&esp.c3=="❌") {
+		esp.a1 = "⭕"
+	} else if (esp.a3=="❌"&&esp.b2=="❌"&&esp.c1=="🔲") {
+		esp.c1 = "⭕"
+	} else if (esp.a3=="❌"&&esp.b2=="🔲"&&esp.c1=="❌") {
+		esp.b2 = "⭕"
+	} else if (esp.a3=="🔲"&&esp.b2=="❌"&&esp.c1=="❌") {
+		esp.a3 = "⭕"
+	}
+}
+
+//MOVIMENTO ALTERNATIVO
+const IAalter = () => {
+	let randomALTER = Math.floor(Math.random() * 9)
+	switch (randomALTER) {
+		case 0:
+			if (esp.a1 == "🔲") {
+                tttset.reActivate2 = "off"
+                esp.a1 = "⭕"
+            }
+        break
+		case 1:
+			if (esp.a2 == "🔲") {
+                tttset.reActivate2 = "off"
+                esp.a2 = "⭕"
+            }
+        break
+		case 2:
+			if (esp.a3 == "🔲") {
+                tttset.reActivate2 = "off"
+                esp.a3 = "⭕"
+            }
+        break
+		case 3:
+			if (esp.b1 == "🔲") {
+                tttset.reActivate2 = "off"
+                esp.b1 = "⭕"
+            }
+        break
+		case 4:
+			if (esp.b2 == "🔲") {
+                tttset.reActivate2 = "off"
+                esp.b2 = "⭕"
+            }
+        break
+		case 5:
+			if (esp.b3 == "🔲") {
+                tttset.reActivate2 = "off"
+                esp.b3 = "⭕"
+            }
+        break
+		case 6:
+			if (esp.c1 == "🔲") {
+                tttset.reActivate2 = "off"
+                esp.c1 = "⭕"
+            }
+        break
+		case 7:
+			if (esp.c2 == "🔲") {
+                tttset.reActivate2 = "off"
+                esp.c2 = "⭕"
+            }
+        break
+		case 8:
+			if (esp.c3 == "🔲") {
+                tttset.reActivate2 = "off"
+                esp.c3 = "⭕"
+            }
+        break
+	}
+}
+
+//JOGAR NOS CANTOS E CENTRO - IMPOSSIVEL
+const priorityC = () => {
+	let randomPriC = Math.floor(Math.random() * 5)
+	switch (randomPriC) {
+		case 0 :
+			if (esp.a1 == "🔲") {
+				tttset.reActivate3 = "off"
+				esp.a1 = "⭕"
+			}
+		break
+		case 1 :
+			if (esp.a3 == "🔲") {
+				tttset.reActivate3 = "off"
+				esp.a3 = "⭕"
+			}
+		break
+		case 2 :
+			if (esp.b2 == "🔲") {
+				tttset.reActivate3 = "off"
+				esp.b2 = "⭕"
+			}
+		break
+		case 3 :
+			if (esp.c1 == "🔲") {
+				tttset.reActivate3 = "off"
+				esp.c1 = "⭕"
+			}
+		break
+		case 4 :
+			if (esp.c3 == "🔲") {
+				tttset.reActivate3 = "off"
+				esp.c3 = "⭕"
+			}
+		break
+	}
+}
+
+if (tttset.tttstatus == "off" && tttset.autoEndTime == "on") {
+tttset.autoEndTime = "off"
+} else if (tttset.tttstatus == "on" && tttset.autoEndTime == "on") {
+if (isLevelingOn) {
+const randomEndTTTXP = 0 - (Math.floor(Math.random() * 75) + 75)
+addLevelingXp(tttset.player, randomEndTTTXP)
+const checkTTTIdEnd = getTTTId(tttset.player)
+if (checkTTTIdEnd === undefined) addTTTId(tttset.player)
+addTTTpoints(tttset.player, randomEndTTTXP)
+client.sendMessage(tttset.local,`❌ O TEMPO DE JOGO EXPIROU ❌\n\n➣  PUNIÇÃO: ${randomEndTTTXP} XP 🔮`, text, {quoted: tttset.mentionPlayer})
+} else {
+client.sendMessage(tttset.local,`❌ O TEMPO DE JOGO EXPIROU ❌`, text, {quoted: tttset.mentionPlayer})
+}
+esp.a1 = "🔲"; esp.a2 = "🔲"; esp.a3 = "🔲"
+esp.b1 = "🔲"; esp.b2 = "🔲"; esp.b3 = "🔲"
+esp.c1 = "🔲"; esp.c2 = "🔲"; esp.c3 = "🔲"
+tttset.tttstatus = "off"
+tttset.autoEndTime = "off"
+}
 // Functions///////////////////////////////////////////////////////////
 const getLevelingXp = (userId) => {
             let position = false
@@ -759,6 +1246,300 @@ if (budy.includes("${bad}")) {
             }
 		
 			switch(command) {
+					
+					case 'ttt':
+				if (!isRegistered) return reply(ind.noregis())
+		    		if (isLimit(sender)) return reply(ind.limitend(pusname))
+			     	await limitAdd(sender)
+const limitrl = getLimit(sender, daily)
+if (!isGroup) {
+reply(ind.group())
+} else if (tttset.tttstatus == "on") {
+reply(`Alguém já está jogando no momento\nPor favor aguarde um instante...`)
+} else if (tttset.waitingTime == "on") {
+reply(`Alguém jogou recentemente\nPor favor aguarde o tempo de espera...`)
+} else if (args == 0 || (args != 'easy' && args != 'Easy' && args != 'EASY' && args != 'normal' && args != 'Normal' && args != 'NORMAL' && args != 'hard' && args != 'Hard' && args != 'HARD'&& args != 'impossible'&& args != 'Impossible' && args != 'IMPOSSIBLE')) {
+reply(`Defina a dificuldade\nEx.: ${prefix}ttt easy\n\nDificuldades: easy, normal, hard e impossible`)
+} else if (limitrl !== undefined && cdd - (Date.now() - limitrl) > 0) {
+reply('Opa, deixe seus amigos jogarem também, tente novamente em 8 minutos.')
+} else {
+tttset.tttstatus = "on"
+tttset.player = sender
+tttset.playerName = pushname
+tttset.mentionPlayer = mek
+tttset.local = from
+if (args == 'easy' || args == 'Easy' || args == 'EASY') {
+tttset.tttdifficulty = "EASY"
+} else if (args == 'normal' || args == 'Normal' || args == 'NORMAL') {
+tttset.tttdifficulty = "NORMAL"
+} else if (args == 'hard' || args == 'Hard' || args == 'HARD') {
+tttset.tttdifficulty = "HARD"
+} else if (args == 'impossible' || args == 'Impossible' || args == 'IMPOSSIBLE') {
+tttset.tttdifficulty = "IMPOSSIBLE"
+}
+const randomStartIA = Math.floor(Math.random() * 3)
+if (randomStartIA == 0) {
+IA()
+tttset.reActivate1 = "on"	
+}
+costum(`O jogo começou!!!\nModo: ${tttset.tttdifficulty}`, text, tescuk, crtt)
+client.sendMessage(from, `🌀1️⃣2️⃣3️⃣\n🅰️${esp.a1}${esp.a2}${esp.a3}\n🅱️${esp.b1}${esp.b2}${esp.b3}\n©️${esp.c1}${esp.c2}${esp.c3}`,text )
+client.sendMessage(from,`Caso não saiba como jogar digite: ${prefix}ttthelp`, text) 
+setTimeout( () => {
+tttset.waitingTime = "off"
+tttset.autoEndTime = "on"
+}, 240000) //4 minutos
+addLimit(sender, daily)
+}
+break
+
+case 'ttthelp':
+if (!isRegistered) return reply(ind.noregis())
+		    		if (isLimit(sender)) return reply(ind.limitend(pusname))
+			     	await limitAdd(sender)
+client.sendMessage(from, ttthelp(prefix), text)
+break
+
+case 'tttme':
+if (!isRegistered) return reply(ind.noregis())
+		    		if (isLimit(sender)) return reply(ind.limitend(pusname))
+			     	await limitAdd(sender)
+if (!isGroup) return reply(ind.groupo())
+const checkTTTIdMe = getTTTId(sender)
+if (checkTTTIdMe === undefined) addTTTId(sender)
+client.sendMessage(from, tttme(pushname, getTTTwins(sender), getTTTdefeats(sender), getTTTties(sender), getTTTpoints(sender)), text, {quoted:mek})
+break
+
+case 'tttrank':
+if (!isRegistered) return reply(ind.noregis())
+		    		if (isLimit(sender)) return reply(ind.limitend(pusname))
+			     	await limitAdd(sender)
+if (!isGroup) return reply(ind.groupo())
+//if (tictactoe.length < 3) return reply(`Humm, é necessário que no mínimo 3 pessoas tenham jogado...`)
+tictactoe.sort((a, b) => (a.points < b.points) ? 1 : -1)
+mentioned_jid = []
+let board = '【 TTT RANKS 】\n\n'
+try {
+for (let i = 0; i < 3; i++) {
+if (i == 0) {board += `${i + 1}º 🥇 : @${tictactoe[i].jid.split('@')[0]}\n╭╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸\n│ ➣ Vitórias: ${tictactoe[i].wins} 🎊\n│ ➣ Derrotas: ${tictactoe[i].defeats} 💥\n│ ➣ Empates: ${tictactoe[i].ties} 🌀\n│ ➣ Pontos: ${tictactoe[i].points} ✨\n╰╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸\n\n`
+} else if (i == 1) {board += `${i + 1}º 🥈 : @${tictactoe[i].jid.split('@')[0]}\n╭╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸\n│ ➣ Vitórias: ${tictactoe[i].wins} 🎊\n│ ➣ Derrotas: ${tictactoe[i].defeats} 💥\n│ ➣ Empates: ${tictactoe[i].ties} 🌀\n│ ➣ Pontos: ${tictactoe[i].points} ✨\n╰╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸\n\n`
+} else if (i == 2) {board += `${i + 1}º 🥉 : @${tictactoe[i].jid.split('@')[0]}\n╭╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸\n│ ➣ Vitórias: ${tictactoe[i].wins} 🎊\n│ ➣ Derrotas: ${tictactoe[i].defeats} 💥\n│ ➣ Empates: ${tictactoe[i].ties} 🌀\n│ ➣ Pontos: ${tictactoe[i].points} ✨\n╰╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸\n\n`
+}
+mentioned_jid.push(tictactoe[i].jid)
+} 
+mentions(board, mentioned_jid, true)
+} catch (err) {
+console.log(err)
+await client.sendMessage(from, `Humm, é necessário que no mínimo 3 pessoas tenham jogado...`, text, {quoted: mek})
+}
+break
+
+case 'coord':
+if (!isRegistered) return reply(ind.noregis())
+		    		if (isLimit(sender)) return reply(ind.limitend(pusname))
+			     	await limitAdd(sender)
+tttset.playertest = sender
+if (!isGroup) {
+reply(ind.group())
+} else if (tttset.tttstatus == "off") {
+reply(`Você ainda não iniciou o jogo\nDigite ${prefix}ttt [DIFICULDADE] para iniciar`)
+} else if (tttset.player != tttset.playertest) {
+reply(`Alguém já está jogando no momento\nPor favor aguarde um instante...`)
+} else if (tttset.tttantibug == "on") {
+reply(`Aguarde a ação anterior ser concluída...`)
+} else {
+tttset.tttantibug = "on"
+const coordX = args
+if (coordX != 'a1' && coordX != 'a2' && coordX != 'a3' &&
+coordX != 'b1' && coordX != 'b2' && coordX != 'b3' &&
+coordX != 'c1' && coordX != 'c2' && coordX != 'c3') {
+reply(`Digite o comando com uma coordenada\nExemplo: ${prefix}coord a1`)
+tttset.tttantibug = "off"
+} else {
+switch (args[0]) {
+case 'a1':
+if (esp.a1 != "🔲") {
+reply('O espaço já foi ocupado\nTente outra coordenada')
+} else {
+esp.a1 = "❌"
+while (tttset.reActivate1 == "on") {
+IA()
+}
+}
+break
+case 'a2':
+if (esp.a2 != "🔲") {
+reply('O espaço já foi ocupado\nTente outra coordenada')
+} else {
+esp.a2 = "❌"
+while (tttset.reActivate1 == "on") {
+IA()
+}
+}
+break
+case 'a3':
+if (esp.a3 != "🔲") {
+reply('O espaço já foi ocupado\nTente outra coordenada')
+} else {
+esp.a3 = "❌"
+while (tttset.reActivate1 == "on") {
+IA()
+}
+}
+break
+case 'b1':
+if (esp.b1 != "🔲") {
+reply('O espaço já foi ocupado\nTente outra coordenada')
+} else {
+esp.b1 = "❌"
+while (tttset.reActivate1 == "on") {
+IA()
+}
+}
+break
+case 'b2':
+if (esp.b2 != "🔲") {
+reply('O espaço já foi ocupado\nTente outra coordenada')
+} else {
+esp.b2 = "❌"
+while (tttset.reActivate1 == "on") {
+IA()
+}
+}
+break
+case 'b3':
+if (esp.b3 != "🔲") {
+reply('O espaço já foi ocupado\nTente outra coordenada')
+} else {
+esp.b3 = "❌"
+while (tttset.reActivate1 == "on") {
+IA()
+}
+}
+break
+case 'c1':
+if (esp.c1 != "🔲") {
+reply('O espaço já foi ocupado\nTente outra coordenada')
+} else {
+esp.c1 = "❌"
+while (tttset.reActivate1 == "on") {
+IA()
+}
+}
+break
+case 'c2':
+if (esp.c2 != "🔲") {
+reply('O espaço já foi ocupado\nTente outra coordenada')
+} else {
+esp.c2 = "❌"
+while (tttset.reActivate1 == "on") {
+IA()
+}
+}
+break
+case 'c3':
+if (esp.c3 != "🔲") {
+reply('O espaço já foi ocupado\nTente outra coordenada')
+} else {
+esp.c3 = "❌"
+while (tttset.reActivate1 == "on") {
+IA()
+}
+}
+break
+}
+tttset.reActivate1 = "on"
+reply(`🌀1️⃣2️⃣3️⃣\n🅰️${esp.a1}${esp.a2}${esp.a3}\n🅱️${esp.b1}${esp.b2}${esp.b3}\n©️${esp.c1}${esp.c2}${esp.c3}`)
+var randomTTTXP = 0
+if (WinnerX()) {
+if (isLevelingOn) {
+switch (tttset.tttdifficulty) {
+case "EASY":
+randomTTTXP = Math.floor(Math.random() * 2005) + 2005
+addLevelingXp(tttset.player, randomTTTXP)
+break
+case "NORMAL":
+randomTTTXP = Math.floor(Math.random() * 7005) + 7005
+addLevelingXp(tttset.player, randomTTTXP)
+break
+case "HARD":
+randomTTTXP = Math.floor(Math.random() * 20000) + 20000
+addLevelingXp(tttset.player, randomTTTXP)
+break
+case "IMPOSSIBLE":
+randomTTTXP = Math.floor(Math.random() * 100000) + 100000
+addLevelingXp(tttset.player, randomTTTXP)
+break
+}
+client.sendMessage(from, `🎉🎉 VITÓRIA DO JOGADOR 🎉🎉\n\n➣  RECOMPENSA: +${randomTTTXP} XP 🔮`, text)
+} else {
+client.sendMessage(from, `🎉🎉 VITÓRIA DO JOGADOR 🎉🎉`, text)
+}
+const currentTTTwins = getTTTwins(tttset.player)
+const checkTTTIdWin = getTTTId(tttset.player)
+if (currentTTTwins === undefined && checkTTTIdWin === undefined) addTTTId(tttset.player)
+addTTTwin(tttset.player, 1)
+addTTTpoints(tttset.player, randomTTTXP)
+esp.a1 = "🔲"; esp.a2 = "🔲"; esp.a3 = "🔲"
+esp.b1 = "🔲"; esp.b2 = "🔲"; esp.b3 = "🔲"
+esp.c1 = "🔲"; esp.c2 = "🔲"; esp.c3 = "🔲"
+tttset.tttstatus = "off"
+tttset.waitingTime = "on"
+} else if (WinnerO()) {
+if (isLevelingOn) {
+switch (tttset.tttdifficulty) {
+case "EASY":
+randomTTTXP = 0 - (Math.floor(Math.random() * 200) + 200)
+addLevelingXp(tttset.player, randomTTTXP)
+break
+case "NORMAL":
+randomTTTXP = 0 - (Math.floor(Math.random() * 705) + 705)
+addLevelingXp(tttset.player, randomTTTXP)
+break
+case "HARD":
+randomTTTXP = 0 - (Math.floor(Math.random() * 2005) + 2005)
+addLevelingXp(tttset.player, randomTTTXP)
+break
+case "IMPOSSIBLE":
+randomTTTXP = 0
+addLevelingXp(tttset.player, randomTTTXP)
+break
+}	
+client.sendMessage(from, `🎉🎉 VITÓRIA DO AKAME-BOT 🎉🎉\n\n➣  PUNIÇÃO: ${randomTTTXP} XP 🔮`, text)
+} else {
+client.sendMessage(from, `🎉🎉 VITÓRIA DO AKAME-BOT 🎉🎉`, text)
+}
+const currentTTTdefeats = getTTTdefeats(tttset.player)
+const checkTTTIdDefeat = getTTTId(tttset.player)
+if (currentTTTdefeats === undefined && checkTTTIdDefeat === undefined) addTTTId(tttset.player)
+addTTTdefeat(tttset.player, 1)
+addTTTpoints(tttset.player, randomTTTXP)
+esp.a1 = "🔲"; esp.a2 = "🔲"; esp.a3 = "🔲"
+esp.b1 = "🔲"; esp.b2 = "🔲"; esp.b3 = "🔲"
+esp.c1 = "🔲"; esp.c2 = "🔲"; esp.c3 = "🔲"
+tttset.tttstatus = "off"
+tttset.waitingTime = "on"
+} else if (Tie()) {
+if (isLevelingOn) {
+client.sendMessage(from, `🎉🎉 EMPATE 🎉🎉\n\n➣  NÃO HÁ GANHOS NEM PERDAS`, text)
+} else {
+client.sendMessage(from, `🎉🎉 EMPATE 🎉🎉`, text)
+}
+const currentTTTties = getTTTties(tttset.player)
+const checkTTTIdTie = getTTTId(tttset.player)
+if (currentTTTties === undefined && checkTTTIdTie === undefined) addTTTId(tttset.player)
+addTTTtie(tttset.player, 1)
+esp.a1 = "🔲"; esp.a2 = "🔲"; esp.a3 = "🔲"
+esp.b1 = "🔲"; esp.b2 = "🔲"; esp.b3 = "🔲"
+esp.c1 = "🔲"; esp.c2 = "🔲"; esp.c3 = "🔲"
+tttset.tttstatus = "off"
+tttset.waitingTime = "on"
+}
+tttset.tttantibug = "off"
+}
+}
+break
+//_FIM DO JOGO DA VELHA By: Resen
 					case 'setsafelink':
 				case 'setsafe':
 					if (args.length < 1) return
