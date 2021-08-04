@@ -60,12 +60,14 @@ const bucinrandom = JSON.parse(fs.readFileSync('./database/json/bucin.json'))
 const adminNumber = JSON.parse(fs.readFileSync('./database/json/admin.json'))
 const anime = JSON.parse(fs.readFileSync('./database/json/anime.json'))
 const blocked = JSON.parse(fs.readFileSync('./database/json/blocked.json'))
-let anlink = JSON.parse(fs.readFileSync('./database/json/antilink.json'))
+let antilink = JSON.parse(fs.readFileSync('./database/json/antilink.json'))
 const _leveling = JSON.parse(fs.readFileSync('./database/json/leveling.json'))
 const _level = JSON.parse(fs.readFileSync('./database/json/level.json'))
 const event = JSON.parse(fs.readFileSync('./database/json/event.json'))
 const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'))
 const sotoy = JSON.parse(fs.readFileSync('./src/sotoy.json'));
+const _badword = JSON.parse(fs.readFileSync('./database/json/badword.json'))
+const _bad = JSON.parse(fs.readFileSync('./database/json/bad.json'))
 
 let {
 instagram, yt, groupLink, memberLimit, tobzkey
@@ -412,6 +414,8 @@ const getRegisteredRandomId = () => {
 		const isEventon = isGroup ? event.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
 			const antilink = isGroup ? anlink.includes(from) : false
+		const isBadWord = isGroup ? _badword.includes(from) : false
+		const bad = _bad.includes(budy)
 			const isUser = user.includes(sender)
 			const isBanned = ban.includes(sender)
 			const isPrem = userpremium.includes(sender)
@@ -558,8 +562,80 @@ client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 break
 			}
 
+if (budy.match(bad)) {
+                if (!mek.key.fromMe) {
+                    if (!isGroup) return
+                    if (!isBadWord) return
+                    if (isGroupAdmins) return reply(`Você é admin, não irei te banir.`)
+                    client.updatePresence(from, Presence.composing)
+                    var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+                    reply('Palavra proibida detectada')
+                    setTimeout(() => {
+                        client.groupRemove(from, [kic]).catch((err) => {
+                            reply(`ERRO: ${e}`)
+                        })
+                    }, 1000)
+                    setTimeout(() => {
+                        client.updatePresence(from, Presence.composing)
+                        reply("tchau👋")
+                    }, 0)
+                }
+            }
 
 			switch(command) {
+					
+					 case 'badword':
+                    if (!isGroup) return reply(mess.only.group)
+                    if (!isGroupAdmins) return reply(mess.only.admin)
+                    if (args.length < 1) return reply(`Digite da forma correta:\nComando: ${prefix}leveis 1 para ativar `)
+                    if (Number(args[0]) === 1) {
+                        if (isBadWord) return reply('❎O recurso BADWORD já está ativado no grupo❎')
+                        _badword.push(from)
+                        fs.writeFileSync('./database/json/badword.json', JSON.stringify(_badword))
+                        reply('✅O recurso BADWORD foi ativado✅')
+                    } else if (Number(args[0]) === 0) {
+                        if (!isBadWord) return reply('❎O recurso BADWORD não está ativado no grupo❎')
+                        let position = false
+                        Object.keys(_badword).forEach((i) => {
+                            if (_badword[i] === from) {
+                                position = i
+                            }
+                        })
+                        if (position !== false) {
+                            _badword.splice(position, 1)
+                            fs.writeFileSync('./database/json/badword.json', JSON.stringify(_badword))
+                        }
+                        reply('❌O recurso BADWORD foi desativado❌')
+                    } else {
+                        reply(`Digite da forma correta:\nComando: ${prefix}badword 1, para ativar e 0 para desativar`)
+                    }
+                    break
+
+                case 'addbadword':
+                   
+                    if (!isGroupAdmins) return reply(mess.only.admin)
+                    const bw = body.slice(12)
+                    _bad.push(bw)
+                    fs.writeFileSync('./database/json/bad.json', JSON.stringify(_bad))
+                    reply('Palavra adicionada')
+                    break
+
+                case 'dellbadword':
+                  
+                    if (!isGroupAdmins) return reply(ptbr.admin())
+                    let dbw = body.slice(13)
+                    _bad.splice(dbw)
+                    fs.writeFileSync('./database/json/bad.json', JSON.stringify(_bad))
+                    reply('Palavra removida')
+                    break
+
+                case 'listbadword':
+                    let lbw = `lista de palavras proibidas\nTotal : ${bad.length}\n`
+                    for (let i of _bad) {
+                        lbw += ` ${i.replace(_bad)}\n`
+                    }
+                    reply(lbw)
+                    break
 
 				case 'grouplist':
 				case 'gruplist':
@@ -1534,6 +1610,33 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
                                         await limitAdd(sender)
 					break
 /*/////////////////////////JOGOS E COISAS RANDOM*/////////////////////////////
+					 case 'antilink':
+                    if (!isGroup) return reply(mess.only.group)
+                    if (!isGroupAdmins) return reply(mess.only.admin)
+                    if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+                     if (args.length < 1) return reply(`Digite ${prefix}antilink 1 para ativar`)
+                    if (Number(args[0]) === 1) {
+                        if (antilink) return reply('❎O recurso ANTILINK já está ativo no grupo❎')
+                        antilink.push(from)
+                        fs.writeFileSync('./database/json/antilink.json', JSON.stringify(antilink))
+                        reply('✅O recurso ANTILINK foi ativado nesse grupo✅')
+                    } else if (Number(args[0]) === 0) {
+                        if (!antilink) return reply('❎O recurso ANTILINK não está ativado no grupo❎')
+                        let position = false
+                        Object.keys(antilink).forEach((i) => {
+                            if (antilink[i] === from) {
+                                position = i
+                            }
+                        })
+                        if (position !== false) {
+                            antilink.splice(position, 1)
+                            fs.writeFileSync('./database/json/antilink.json', JSON.stringify(antilink))
+                        }
+                        reply('🚫O recurso ANTILINK foi desativado nesse grupo🚫')
+                    } else {
+                        reply(`Digite ${prefix}antlink 1 para ativar, 0 para desativar o recurso`)
+                    }
+                    break
 		case 'top5':
                     try {
                         if (args.length < 1) return reply('top5....?')
