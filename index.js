@@ -413,7 +413,7 @@ const getRegisteredRandomId = () => {
 			const isSimi = isGroup ? samih.includes(from) : false 
 		const isEventon = isGroup ? event.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
-			const antilink = isGroup ? anlink.includes(from) : false
+			const isAntiLink = isGroup ? antilink.includes(from) : false
 		const isBadWord = isGroup ? _badword.includes(from) : false
 		const bad = _bad.includes(budy)
 			const isUser = user.includes(sender)
@@ -515,7 +515,7 @@ const getRegisteredRandomId = () => {
 			if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
 			if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
 			
-			if (antilink && isGroup && isBotGroupAdmins){
+			if (isAntiLink && isGroup && !isBotGroupAdmins && !isOwner && !isGroupAdmins){
             if (args.match(/(https:\/\/chat.whatsapp.com)/gi)) {
                 const check = await mek.inviteInfo(args);
                 if (!check) {
@@ -581,7 +581,14 @@ if (budy.match(bad)) {
                     }, 0)
                 }
             }
-
+			if (isGroup && isAntiLink && !isOwner && !isGroupAdmins && isBotGroupAdmins){
+            if (chats.match(/(https:\/\/chat.whatsapp.com)/gi)) {
+                reply(`LINK DE GRUPO DETECTADO\n\nLinks de grupos não são permitidos nesse grupo, você será expulso`)
+                setTimeout(() =>{
+                client.groupRemove(from, [sender])
+                }, 2000)
+            }
+        }
 			switch(command) {
 					
 					 case 'badword':
@@ -1616,12 +1623,12 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
                     if (!isBotGroupAdmins) return reply(mess.only.Badmin)
                      if (args.length < 1) return reply(`Digite ${prefix}antilink 1 para ativar`)
                     if (Number(args[0]) === 1) {
-                        if (antilink) return reply('❎O recurso ANTILINK já está ativo no grupo❎')
+                        if (isAntiLink) return reply('❎O recurso ANTILINK já está ativo no grupo❎')
                         antilink.push(from)
                         fs.writeFileSync('./database/json/antilink.json', JSON.stringify(antilink))
                         reply('✅O recurso ANTILINK foi ativado nesse grupo✅')
                     } else if (Number(args[0]) === 0) {
-                        if (!antilink) return reply('❎O recurso ANTILINK não está ativado no grupo❎')
+                        if (!isAntiLink) return reply('❎O recurso ANTILINK não está ativado no grupo❎')
                         let position = false
                         Object.keys(antilink).forEach((i) => {
                             if (antilink[i] === from) {
