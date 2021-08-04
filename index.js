@@ -69,6 +69,8 @@ const sotoy = JSON.parse(fs.readFileSync('./src/sotoy.json'));
 const _badword = JSON.parse(fs.readFileSync('./database/json/badword.json'))
 const _bad = JSON.parse(fs.readFileSync('./database/json/bad.json'))
 const { addTTTId, addTTTwin,addTTTdefeat, addTTTtie, addTTTpoints, getTTTId, getTTTwins, getTTTdefeats, getTTTties, getTTTpoints } = require('./lib/tictactoe.js') //JOGO DA VELHA,AGRADECIMENTOS: Resen
+const daily = JSON.parse(fs.readFileSync('./data/diario.json'))
+const { addLimit, getLimit } = require('./lib/limit.js')// LIMITADOR, AGRADECIMENTOS: IRIS(kill), Resen
 
 let {
 instagram, yt, groupLink, memberLimit, tobzkey
@@ -1248,9 +1250,6 @@ if (budy.includes("${bad}")) {
 			switch(command) {
 					
 					case 'ttt':
-				if (!isRegistered) return reply(ind.noregis())
-		    		if (isLimit(sender)) return reply(ind.limitend(pusname))
-			     	await limitAdd(sender)
 const limitrl = getLimit(sender, daily)
 if (!isGroup) {
 reply(ind.group())
@@ -3288,11 +3287,14 @@ ${vitr}`
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					if (!isAnime) return reply(' *Modo Anime desligado sensei!* ')
 					reply(mess.wait)
-					anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=loli-chan`, {method: 'get'})
-					min = JSON.parse(JSON.stringify(anu));
-					ato =  min[Math.floor(Math.random() * min.length)];
-					nye = await getBuffer(ato)
-					client.sendMessage(from, nye, image, { caption: 'loli!!', quoted: mek })
+				//	anu = await fetchJson(`https://fdciabdul.tech/api/pinterest/?keyword=loli-chan`, {method: 'get'})
+				//	min = JSON.parse(JSON.stringify(anu));
+				//	ato =  min[Math.floor(Math.random() * min.length)];
+				//	nye = await getBuffer(ato)
+					 loli = await axios.get('https://tobz-api.herokuapp.com/api/waifu?apikey=' + tobzkey)
+         //   tobz.sendFileFromUrl(from, waifu.data.image, 'Waifu.jpg', `➸ Name : ${waifu.data.name}\n➸ Description : ${waifu.data.desc}\n\n➸ Source : ${waifu.data.source}`, id)
+           // await limitAdd(serial)
+					client.sendMessage(from, loli.data.image, image, { caption: 'loli!!', quoted: mek })
 					await limitAdd(sender)
 					break 
 					
