@@ -81,6 +81,7 @@ const vcard = 'BEGIN:VCARD\n'
             + 'END:VCARD'
 
 prefix = "_"
+safelink = "bob"
 name = "~ Loli_Senpai | B O T"
 rdaftar = "OBRIGADO POR SE REGISTRAR😁"
 rmenu = "Olá amigos da LOLIBOT👋"
@@ -515,18 +516,193 @@ const getRegisteredRandomId = () => {
 			if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
 			if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
 			
-			if (isAntiLink && isGroup && !isBotGroupAdmins && !isOwner && !isGroupAdmins){
-            if (args.match(/(https:\/\/chat.whatsapp.com)/gi)) {
-                const check = await mek.inviteInfo(args);
-                if (!check) {
-                    return
-                } else {
-                    reply('*[DETECTOR DE LINK DE GRUPO!]*\nVoce enviou um link de bate-papo em grupo, desculpe, você começou o grupo em breve.').then(() => {
-                        client.groupRemove(from, groupId, args.id)
-                    })
-                }
-            }
-         }
+						     if (budy.includes("://chat.whatsapp.com/")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			
+		}, 0)
+	}
+	
+		if (budy.includes("://youtu.be/")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			
+		}, 0)
+	}
+	
+    	if (budy.includes("https://")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			
+		}, 0)
+	}
+
+        if (budy.includes("Https://")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			
+		}, 0)
+	}
+	
+	   if (budy.includes("http:/")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			
+		}, 0)
+	}
+	
+	if (budy.includes("https:/")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+	
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			
+		}, 0)
+	}
+	            
+	
+	        if (budy.includes("https://t.me/")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('cara, nao poste essas coisas, é errado, mas vc e admin n irei te banir')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+		
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("peça permissão proxima vez")
+		}, 0)
+	}
+	
+	        if (budy.includes("https://wa.me/")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('cara, nao poste essas coisas, é errado, mas vc e admin n irei te banir')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+		
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("proxima vez peça permissão aoa ademir")
+		}, 0)
+	}
+	
+	        if (budy.includes(" *TED ou PIX*")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('cara, nao poste essas coisas, é errado, mas vc e admin n irei te banir')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+	
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("tchau nota fake")
+		}, 0)
+	}
+	
+	        if (budy.includes("https://vm.tiktok.com/")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('cara, nao poste essas coisas, é errado, mas vc e admin n irei te banir')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("vai postar merda de tiktok em outro lugar")
+		}, 0)
+	}
+	
+		 if (budy.includes("https://s.kwai.app/")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
+		client.updatePresence(from, Presence.composing)
+		if (is.includes(safelink)) return reply("Link autorizado")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 0)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("vai postar kwaii na casa do caralho seu mendigo")
+		}, 0)
+	}
 			
 			switch(is) {
 
@@ -562,8 +738,8 @@ client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 break
 			}
 
-if (budy.match(bad)) {
-                if (!mek.key.fromMe) {
+if (budy.includes(bad)) {
+               
                     if (!isGroup) return
                     if (!isBadWord) return
                     if (isGroupAdmins) return reply(`Você é admin, não irei te banir.`)
@@ -579,10 +755,17 @@ if (budy.match(bad)) {
                         client.updatePresence(from, Presence.composing)
                         reply("tchau👋")
                     }, 0)
-                }
+               
             }
 		
 			switch(command) {
+					case 'setsafelink':
+				case 'setsafe':
+					if (args.length < 1) return
+					if (!isOwner) return reply(mess.only.ownerB)
+					prefix = args[0]
+					reply(`palavra chave alterada : ${safelink}`)
+					break 
 					
 					 case 'badword':
                     if (!isGroup) return reply(mess.only.group)
