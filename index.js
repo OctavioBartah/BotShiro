@@ -1263,7 +1263,7 @@ reply(`Defina a dificuldade\nEx.: ${prefix}ttt easy\n\nDificuldades: easy, norma
 }  else {
 tttset.tttstatus = "on"
 tttset.player = sender
-tttset.playerName = pushname
+tttset.playerName = pushname2
 tttset.mentionPlayer = mek
 tttset.local = from
 if (args == 'easy' || args == 'Easy' || args == 'EASY') {
@@ -1299,7 +1299,7 @@ case 'tttme':
 if (!isGroup) return reply(mess.only.group)
 const checkTTTIdMe = getTTTId(sender)
 if (checkTTTIdMe === undefined) addTTTId(sender)
-client.sendMessage(from, tttme(pushname, getTTTwins(sender), getTTTdefeats(sender), getTTTties(sender), getTTTpoints(sender)), text, {quoted:mek})
+client.sendMessage(from, tttme(pushname2, getTTTwins(sender), getTTTdefeats(sender), getTTTties(sender), getTTTpoints(sender)), text, {quoted:mek})
 break
 
 case 'tttrank':
