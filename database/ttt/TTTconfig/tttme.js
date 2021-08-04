@@ -1,8 +1,7 @@
-const tttme = (pushname, userWins, userDefeats, userTies, userPoints) => {
+const tttme = (pushname2, userWins, userDefeats, userTies, userPoints) => {
   return `
 「 🌀💮 Tic Tac Toe 💮🌀 」
-by: Resen
-❖ NOME: ${pushname} 
+❖ NOME: ${pushname2} 
 
     ➣ Vitórias: ${userWins} 🎊
     ➣ Derrotas: ${userDefeats} 💥
