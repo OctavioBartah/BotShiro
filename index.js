@@ -581,14 +581,7 @@ if (budy.match(bad)) {
                     }, 0)
                 }
             }
-			if (isGroup && isAntiLink && !isOwner && !isGroupAdmins && isBotGroupAdmins){
-            if (chats.match(/(https:\/\/chat.whatsapp.com)/gi)) {
-                reply(`LINK DE GRUPO DETECTADO\n\nLinks de grupos não são permitidos nesse grupo, você será expulso`)
-                setTimeout(() =>{
-                client.groupRemove(from, [sender])
-                }, 2000)
-            }
-        }
+		
 			switch(command) {
 					
 					 case 'badword':
