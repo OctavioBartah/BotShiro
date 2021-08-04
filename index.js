@@ -1250,18 +1250,16 @@ if (budy.includes("${bad}")) {
 			switch(command) {
 					
 					case 'ttt':
-const limitrl = getLimit(sender, daily)
+
 if (!isGroup) {
-reply(ind.group())
+ reply(mess.only.group)
 } else if (tttset.tttstatus == "on") {
 reply(`Alguém já está jogando no momento\nPor favor aguarde um instante...`)
 } else if (tttset.waitingTime == "on") {
 reply(`Alguém jogou recentemente\nPor favor aguarde o tempo de espera...`)
 } else if (args == 0 || (args != 'easy' && args != 'Easy' && args != 'EASY' && args != 'normal' && args != 'Normal' && args != 'NORMAL' && args != 'hard' && args != 'Hard' && args != 'HARD'&& args != 'impossible'&& args != 'Impossible' && args != 'IMPOSSIBLE')) {
 reply(`Defina a dificuldade\nEx.: ${prefix}ttt easy\n\nDificuldades: easy, normal, hard e impossible`)
-} else if (limitrl !== undefined && cdd - (Date.now() - limitrl) > 0) {
-reply('Opa, deixe seus amigos jogarem também, tente novamente em 8 minutos.')
-} else {
+}  else {
 tttset.tttstatus = "on"
 tttset.player = sender
 tttset.playerName = pushname
@@ -1293,27 +1291,18 @@ addLimit(sender, daily)
 break
 
 case 'ttthelp':
-if (!isRegistered) return reply(ind.noregis())
-		    		if (isLimit(sender)) return reply(ind.limitend(pusname))
-			     	await limitAdd(sender)
 client.sendMessage(from, ttthelp(prefix), text)
 break
 
 case 'tttme':
-if (!isRegistered) return reply(ind.noregis())
-		    		if (isLimit(sender)) return reply(ind.limitend(pusname))
-			     	await limitAdd(sender)
-if (!isGroup) return reply(ind.groupo())
+if (!isGroup) return reply(mess.only.group)
 const checkTTTIdMe = getTTTId(sender)
 if (checkTTTIdMe === undefined) addTTTId(sender)
 client.sendMessage(from, tttme(pushname, getTTTwins(sender), getTTTdefeats(sender), getTTTties(sender), getTTTpoints(sender)), text, {quoted:mek})
 break
 
 case 'tttrank':
-if (!isRegistered) return reply(ind.noregis())
-		    		if (isLimit(sender)) return reply(ind.limitend(pusname))
-			     	await limitAdd(sender)
-if (!isGroup) return reply(ind.groupo())
+if (!isGroup) return reply(mess.only.group)
 //if (tictactoe.length < 3) return reply(`Humm, é necessário que no mínimo 3 pessoas tenham jogado...`)
 tictactoe.sort((a, b) => (a.points < b.points) ? 1 : -1)
 mentioned_jid = []
@@ -1334,12 +1323,10 @@ await client.sendMessage(from, `Humm, é necessário que no mínimo 3 pessoas te
 break
 
 case 'coord':
-if (!isRegistered) return reply(ind.noregis())
-		    		if (isLimit(sender)) return reply(ind.limitend(pusname))
-			     	await limitAdd(sender)
+
 tttset.playertest = sender
 if (!isGroup) {
-reply(ind.group())
+reply(mess.only.group)
 } else if (tttset.tttstatus == "off") {
 reply(`Você ainda não iniciou o jogo\nDigite ${prefix}ttt [DIFICULDADE] para iniciar`)
 } else if (tttset.player != tttset.playertest) {
