@@ -68,6 +68,7 @@ const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'
 const sotoy = JSON.parse(fs.readFileSync('./src/sotoy.json'));
 const _badword = JSON.parse(fs.readFileSync('./database/json/badword.json'))
 const _bad = JSON.parse(fs.readFileSync('./database/json/bad.json'))
+const tictactoe = JSON.parse(fs.readFileSync('./database/ttt/tictactoe.json'));
 const { addTTTId, addTTTwin,addTTTdefeat, addTTTtie, addTTTpoints, getTTTId, getTTTwins, getTTTdefeats, getTTTties, getTTTpoints } = require('./lib/tictactoe.js') //JOGO DA VELHA,AGRADECIMENTOS: Resen
 const daily = JSON.parse(fs.readFileSync('./data/diario.json'))
 const { addLimit, getLimit } = require('./lib/limit.js')// LIMITADOR, AGRADECIMENTOS: IRIS(kill), Resen
@@ -3278,7 +3279,7 @@ ${vitr}`
 				//	min = JSON.parse(JSON.stringify(anu));
 				//	ato =  min[Math.floor(Math.random() * min.length)];
 				//	nye = await getBuffer(ato)
-					 loli = await axios.get('https://tobz-api.herokuapp.com/api/waifu?apikey=' + tobzkey)
+					 loli = await axios.get('https://tobz-api.herokuapp.com/api/randomloli?apikey=Tobzzz17')
          //   tobz.sendFileFromUrl(from, waifu.data.image, 'Waifu.jpg', `➸ Name : ${waifu.data.name}\n➸ Description : ${waifu.data.desc}\n\n➸ Source : ${waifu.data.source}`, id)
            // await limitAdd(serial)
 					client.sendMessage(from, loli.data.image, image, { caption: 'loli!!', quoted: mek })
