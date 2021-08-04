@@ -149,6 +149,10 @@ const help = (prefix, instagram, yt, name, pushname2, user, limitt, uptime, jam,
 ❉ │➻ *${prefix}openanime*
 ❉ │➻ *${prefix}katiau*
 ❉ │➻ *${prefix}amongus*
+❉ │➻ *${prefix}badword*
+❉ │➻ *${prefix}addbadword*
+❉ │➻ *${prefix}dellbadword*
+❉ │➻ *${prefix}listbadword*
 ❉ ╰─────────────
 ❉
 ❉ ╭─❉ *SO PROPRIETARIO* ❉────
