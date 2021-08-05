@@ -3280,11 +3280,11 @@ ${vitr}`
 				//	min = JSON.parse(JSON.stringify(anu));
 				//	ato =  min[Math.floor(Math.random() * min.length)];
 				//	nye = await getBuffer(ato)
-					 loli = await axios.get('https://tobz-api.herokuapp.com/api/randomloli?apikey=Tobzzz17')
+					// loli = await axios.get('https://tobz-api.herokuapp.com/api/randomloli?apikey=Tobzzz17')
          //   tobz.sendFileFromUrl(from, waifu.data.image, 'Waifu.jpg', `➸ Name : ${waifu.data.name}\n➸ Description : ${waifu.data.desc}\n\n➸ Source : ${waifu.data.source}`, id)
-           // await limitAdd(serial)
-					client.sendMessage(from, loli.data.image, image, { caption: 'loli!!', quoted: mek })
-					await limitAdd(sender)
+           res = await fetchJson(`https://tobz-api.herokuapp.com/api/randomloli?apikey=${TobzApi}`, {method: 'get'})
+						buffer = await getBuffer(res.result)
+						client.sendMessage(from, buffer, image, {quoted: mek, caption: '190'})
 					break 
 					
 									case 'nami':
