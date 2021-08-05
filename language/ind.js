@@ -49,3 +49,15 @@ exports.satukos = () => {
 exports.uangkau = (pushname, sender, uangkau) => {
         return`◪ *ATM*\n  ❏ *Nome* : ${pushname}\n  ❏ *Numero* : ${sender.split("@")[0]}\n  ❏ *Dinheiro* : ${uangkau}`
 }
+
+exports.levelup = (pushname2, sender, getLevelingXp,  getLevel, getLevelingLevel, role) => {
+	return`
+	
+*「 🥳 LEVEL UP 🥳 」*
+┏⊱ *Nome* : ${pushname2}
+┣⊱ *Número* : wa.me/${sender.split("@")[0]}
+┣⊱ *Xp* : ${getLevelingXp(sender)}
+┣⊱ *Limit* : +3
+┣⊱ *Patente*: ${role}
+┗⊱ *Nível* : ${getLevel} ⊱ ${getLevelingLevel(sender)}
+`}
