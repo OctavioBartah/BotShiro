@@ -1319,7 +1319,7 @@ break
 				case 'ohayo':
 					case 'bd':
 					case 'dia':
-					case 'bom dia':
+					case 'bomdia':
 
 buf = fs.readFileSync(`./audio/ohayo.mp3`)
 
@@ -1330,12 +1330,27 @@ break
 					case 'almoço':
 					case 'almoçar':
 					case 'comer':
-					case 'vou comer':
+					case 'vou+comer':
 					case 'fome':
 					case 'comi':
 					
 
 buf = fs.readFileSync(`./audio/comida.mp3`)
+
+client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
+
+break
+					
+								case 'genio':
+					case 'esperto':
+					case 'inteligente':
+					case 'genial':
+					case 'raça':
+					case 'absoluta':
+					
+					
+
+buf = fs.readFileSync(`./audio/genio.mp3`)
 
 client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 
@@ -3214,6 +3229,7 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
                 const userLevel = getLevelingLevel(sender)
                 const userXp = getLevelingXp(sender)
                 if (userLevel === undefined && userXp === undefined) return reply(mess.levelnol)
+					const requiredXp = 5000 * (Math.pow(2, userLevel) - 1)
               //  sem = sender.replace('@s.whatsapp.net','')
 			//	var nom = mek.participant
 			//		const tag = {
