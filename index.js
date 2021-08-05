@@ -2358,13 +2358,11 @@ break
 					await limitAdd(sender) 
 					break 
 					*/
-										case 'cringe':
-                if (isBanned) return reply(mess.only.benned)    
-                if (isLimit(sender)) return reply(limitend(pushname2))
+										case 'blowjob':  
                 if (!isAnime) return reply(' *Ative o modo anime* ')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
-					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/cringe?apikey=OctavioBartah1508`, {method: 'get'})
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwblowjob?apikey=${TobzApi}`, {method: 'get'})
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
 						if (err) return reply(mess.error.stick)
@@ -2399,9 +2397,11 @@ break
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/hentai?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
-
+//nye = await getBuffer('http://lolhuman.herokuapp.com/api/random2/hentai?apikey=OctavioBartah1508')
+//client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
+		res = await fetchJson(`https://tobz-api.herokuapp.com/api/hentai?apikey=${TobzApi}`, {method: 'get'})
+		buffer = await getBuffer(res.result)
+		client.sendMessage(from, buffer, image, {quoted: mek, caption: 'nyaa'})
                 break
 
 					
@@ -2414,8 +2414,11 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/neko?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
+//nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/neko?apikey=OctavioBartah1508')
+//client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
+		res = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwneko?apikey=${TobzApi}`, {method: 'get'})
+		buffer = await getBuffer(res.result)
+		client.sendMessage(from, buffer, image, {quoted: mek, caption: 'nyaa'})
 
                 break
 
@@ -2430,8 +2433,11 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 				if (isLimit(sender)) return reply(limitend(pushname2))
 					reply(mess.wait)
 
-nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/trap?apikey=OctavioBartah1508')
-client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
+//nye = await getBuffer('http://lolhuman.herokuapp.com/api/random/nsfw/trap?apikey=OctavioBartah1508')
+//client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
+		res = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwtrap?apikey=${TobzApi}`, {method: 'get'})
+		buffer = await getBuffer(res.result)
+		client.sendMessage(from, buffer, image, {quoted: mek, caption: 'nyaa'})
 
                 break
 
@@ -3134,7 +3140,7 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 
                     break
 					
-		 case 'blowjob':
+		 case 'mamada':
                     if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Mecione dois membros do grupo')
                     mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
                     pro = '.\n'
