@@ -901,6 +901,7 @@ const getRegisteredRandomId = () => {
 			const isWelkom = isGroup ? welkom.includes(from) : false
 			const isNsfw = isGroup ? nsfw.includes(from) : false
 			const isAnime = isGroup ? anime.includes(from) : false
+			const tescuk = ["0@s.whatsapp.net"]
 			const isSimi = isGroup ? samih.includes(from) : false 
 		const isEventon = isGroup ? event.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
@@ -1011,7 +1012,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 
 		setTimeout( () => {
@@ -1028,7 +1029,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 
 		setTimeout( () => {
@@ -1045,7 +1046,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 
 		setTimeout( () => {
@@ -1062,7 +1063,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 
 		setTimeout( () => {
@@ -1079,7 +1080,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 
 		setTimeout( () => {
@@ -1096,7 +1097,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 	
 		setTimeout( () => {
@@ -1114,7 +1115,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('cara, nao poste essas coisas, é errado, mas vc e admin n irei te banir')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 		
 		setTimeout( () => {
@@ -1131,7 +1132,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('cara, nao poste essas coisas, é errado, mas vc e admin n irei te banir')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 		
 		setTimeout( () => {
@@ -1148,7 +1149,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('cara, nao poste essas coisas, é errado, mas vc e admin n irei te banir')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 	
 		setTimeout( () => {
@@ -1165,7 +1166,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('cara, nao poste essas coisas, é errado, mas vc e admin n irei te banir')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 
 		setTimeout( () => {
@@ -1182,7 +1183,7 @@ const getRegisteredRandomId = () => {
 		if (!isAntiLink) return
 		if (isGroupAdmins) return reply('vc é admin, então n irei te dar ban por usar links, rlx 🙂')
 		client.updatePresence(from, Presence.composing)
-		if (is.includes("${safelink}")) return reply("Link autorizado")
+		if (is.includes('${safelink}')) return reply("Link autorizado")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 
 		setTimeout( () => {
