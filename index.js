@@ -2086,10 +2086,10 @@ break
                     break
                 case 'tagme':
                 if (isBanned) return reply(mess.only.benned)    
-					var nom = mek.participant
+					var nig = mek.participant
 					const tag = {
 					text: `@${nom.split("@s.whatsapp.net")[0]} tag!`,
-					contextInfo: { mentionedJid: [nom] }
+					contextInfo: { mentionedJid: [nig] }
 					}
 					client.sendMessage(from, tag, text, {quoted: mek})
 					break
