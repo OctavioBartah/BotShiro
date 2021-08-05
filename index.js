@@ -1227,9 +1227,42 @@ buf = fs.readFileSync(`./audio/ash.mp3`)
 client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 
 break
-			}
+					case 'voltei':
+					case 'cheguei':
 
-if (budy.includes("${bad}")) {
+buf = fs.readFileSync(`./audio/okairi.mp3`)
+
+client.sendMessage(from, buf, audio, {quoted: mek, ptt:true})
+
+break
+				case 'ohayo':
+					case 'bd':
+					case 'dia':
+					case 'bom dia':
+
+buf = fs.readFileSync(`./audio/ohayo.mp3`)
+
+client.sendMessage(from, buf, audio, {quoted: mek, ptt:true})
+
+break
+			case 'comida':
+					case 'almoço':
+					case 'almoçar':
+					case 'comer':
+					case 'vou comer':
+					case 'fome':
+					case 'comi':
+					
+
+buf = fs.readFileSync(`./audio/comida.mp3`)
+
+client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
+
+break
+			}
+		
+
+if (budy.includes('${bad}')) {
                
                     if (!isGroup) return
                     if (!isBadWord) return
@@ -3815,16 +3848,27 @@ ${vitr}`
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Esse é forte!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+					buf = fs.readFileSync(`./audio/ash.mp3`)
 					if (mentioned.length > 1) {
 						teks = 'Pedidos aceitos, no edo tensei :\n'
 						for (let _ of mentioned) {
 							teks += `@${_.split('@')[0]}\n`
 						}
 						mentions(teks, mentioned, true)
-						client.groupRemove(from, mentioned)
+						
+
+client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
+						setTimeout( () => {
+							client.groupRemove(from, mentioned)
+					}, 8000)
+						
 					} else {
 						mentions(`Katiau! : @${mentioned[0].split('@')[0]} foi embora`, mentioned, true)
-						client.groupRemove(from, mentioned)
+						client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
+								setTimeout( () => {
+							client.groupRemove(from, mentioned)
+					}, 8000)
+						
 					}
 					break
 				case 'promote':
