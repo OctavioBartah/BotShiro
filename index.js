@@ -935,7 +935,88 @@ const getRegisteredRandomId = () => {
 			const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage')
 			
   //function leveling
-            if (isGroup && isLevelingOn) {
+            const levelRole = getLevelingLevel(sender)
+   	     var role = '🥉ʙʀᴏɴᴢᴇ🥉'
+   	     if (levelRole <= 3) {
+   	         role = '🥉ʙʀᴏɴᴢᴇ🥉'
+   	     } else if (levelRole <= 5) {
+   	         role = '🥉ʙʀᴏɴᴢᴇ🥉'
+   	     } else if (levelRole <= 7) {
+   	         role = '🥉ʙʀᴏɴᴢᴇ🥉'
+   	     } else if (levelRole <= 8) {
+   	         role = '🥈ᴘʀᴀᴛᴀ🥈'
+   	     } else if (levelRole <= 9) {
+   	         role = '🥈ᴘʀᴀᴛᴀ🥈'
+   	     } else if (levelRole <= 10) {
+   	         role = '🥈ᴘʀᴀᴛᴀ🥈'
+   	     } else if (levelRole <= 11) {
+   	         role = '🥈ᴘʀᴀᴛᴀ🥈'
+   	     } else if (levelRole <= 12) {
+   	         role = '🥇ᴏᴜʀᴏ🥇'
+   	     } else if (levelRole <= 13) {
+   	         role = '🥇ᴏᴜʀᴏ🥇'
+   	     } else if (levelRole <= 14) {
+   	         role = '🥇ᴏᴜʀᴏ🥇'
+   	     } else if (levelRole <= 14) {
+   	         role = '🥇ᴏᴜʀᴏ🥇'
+   	     } else if (levelRole <= 15) {
+   	         role = '🔹ᴘʟᴀᴛɪɴᴀ🔹'
+   	     } else if (levelRole <= 16) {
+   	         role = '🔹ᴘʟᴀᴛɪɴᴀ🔹'
+   	     } else if (levelRole <= 17) {
+   	         role = '🔹ᴘʟᴀᴛɪɴᴀ🔹'
+   	     } else if (levelRole <= 18) {
+   	         role = '🔹ᴘʟᴀᴛɪɴᴀ🔹'
+   	     } else if (levelRole <= 19) {
+   	         role = '💎ᴅɪᴀᴍᴀɴᴛᴇ💎'
+   	     } else if (levelRole <= 20) {
+   	         role = '💎ᴅɪᴀᴍᴀɴᴛᴇ💎'
+   	     } else if (levelRole <= 21) {
+   	         role = '💎ᴅɪᴀᴍᴀɴᴛᴇ💎'
+   	     } else if (levelRole <= 22) {
+   	         role = '💎ᴅɪᴀᴍᴀɴᴛᴇ💎'
+   	     } else if (levelRole <= 23) {
+   	         role = '🐃ᴍᴇsᴛʀᴇ🐃'
+   	     } else if (levelRole <= 24) {
+   	         role = '🐃ᴍᴇsᴛʀᴇ🐃'   	         
+   	     } else if (levelRole <= 25) {
+   	         role = '🐃ᴍᴇsᴛʀᴇ🐃'    
+   	     } else if (levelRole <= 26) {
+   	         role = '🐃ᴍᴇsᴛʀᴇ🐃'   	     
+   	     } else if (levelRole <= 27) {
+   	         role = '🏅ᴅᴇsᴀғɪᴀɴᴛᴇ🎖️'   	         
+   	     } else if (levelRole <= 28) {
+   	         role = '🏅ᴅᴇsᴀғɪᴀɴᴛᴇ🎖️'    
+   	     } else if (levelRole <= 29) {
+   	         role = '🏅ᴅᴇsᴀғɪᴀɴᴛᴇ🎖️'     
+   	     } else if (levelRole <= 30) {
+   	         role = '🏅ᴅᴇsᴀғɪᴀɴᴛᴇ🎖️'         
+   	     } else if (levelRole <= 31) {
+   	         role = '🏆ᴄᴀᴍᴘᴇᴀ̃ᴏ🏆'   	         
+   	     } else if (levelRole <= 32) {
+   	         role = '🏆ᴄᴀᴍᴘᴇᴀ̃ᴏ🏆'    
+   	     } else if (levelRole <= 33) {
+   	         role = '🏆ᴄᴀᴍᴘᴇᴀ̃ᴏ🏆'     
+   	     } else if (levelRole <= 34) {
+    	        role = '🏆ᴄᴀᴍᴘᴇᴀ̃ᴏ🏆'            
+    	    } else if (levelRole <= 31) {
+   	         role = '👹ʟᴇɴᴅᴀ👹'   	         
+   	     } else if (levelRole <= 32) {
+   	         role = '👹ʟᴇɴᴅᴀ👹'    
+   	     } else if (levelRole <= 33) {
+   	         role = '👹ʟᴇɴᴅᴀ👹'     
+   	     } else if (levelRole <= 34) {
+    	        role = '👹ʟᴇɴᴅᴀ👹'                
+   	    }
+   
+      	
+        			var premi = '🧍🏻‍♂️membro comum🧍🏻‍♂️'
+         			if (isOwner) {
+      				premi = '🧝🏻‍♂️ᴄʀɪᴀᴅᴏʀ🧝🏻‍♂️'
+       			}
+			
+			
+			if (isGroup && isLevelingOn) {
             const currentLevel = getLevelingLevel(sender)
             const checkId = getLevelingId(sender)
             try {
@@ -946,8 +1027,8 @@ const getRegisteredRandomId = () => {
                 addLevelingXp(sender, amountXp)
                 if (requiredXp <= getLevelingXp(sender)) {
                     addLevelingLevel(sender, 1)
-                    await reply(`*「 LEVEL UP 」*\n\n➸ *Name*: @${nom.split("@s.whatsapp.net")[0]}\n➸ *XP*: ${getLevelingXp(sender)}\n➸ *Level*: ${getLevel} -> ${getLevelingLevel(sender)}\n\nCongrats!! 🎉🎉`)
-                }
+		await reply(ind.levelup(pushname2, sender, getLevelingXp,  getLevel, getLevelingLevel, role))
+                     }
             } catch (err) {
                 console.error(err)
             }
@@ -1283,6 +1364,24 @@ if (budy.includes('${bad}')) {
             }
 		
 			switch(command) {
+					case 'rank':
+					
+				bo = args[0]
+				_level.sort((a, b) => (a.xp < b.xp) ? 1 : -1)
+                let leaderboardlvl = '-----[ *RANK DE NÍVEL* ]----\n\n'
+                let nom = 0
+                try {
+                    for (let i = 0; i < 10; i++) {
+                        nom++
+                        leaderboardlvl += `*[${nom}]* wa.me/${_level[i].id.replace('@s.whatsapp.net', '')}\n┗⊱ *XP*: ${_level[i].xp} *NÍVEL*: ${_level[i].level}\n`
+                    }
+                    await reply(leaderboardlvl)
+              
+                } catch (err) {
+                    console.error(err)
+                    await reply(`minimo ${len} usuários para poder acessar o banco de dados`)
+                }
+				break
 					
 					case 'ttt':
 
@@ -3115,7 +3214,7 @@ client.sendMessage(from, nye, image, { caption: 'nyaa!!', quoted: mek })
 			//		text: `@${nom.split("@s.whatsapp.net")[0]} tag!`,
 			//		contextInfo: { mentionedJid: [nom] }
 			//		}
-                resul = `=>*LEVEL*\n=> *Name* : *${pushname2}*\n=>*User XP* : ${userXp}\n=>*User Level* : ${userLevel}`
+                resul =  `┏━━❉ *NÍVEL* ❉━━\n┣⊱ *Nome* : ${pushname2}\n┣⊱ Número : wa.me/${sender.split("@")[0]}\n┣⊱ XP :  ${userXp}/${requiredXp}\n┣⊱ Seu nível : ${userLevel}\n┣⊱ Patente : ${role}\n┗━━━━━━━━━━━━`
                client.sendMessage(from, resul, text, { quoted: mek})
                 .catch(async (err) => {
                         console.error(err)
