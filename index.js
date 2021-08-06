@@ -4000,7 +4000,7 @@ ${vitr}`
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					buf = fs.readFileSync(`./audio/light.mp3`)
 					if (mentioned.length > 1) {
-						teks = 'Pedidos aceitos, no edo tensei :\n'
+						teks = 'Pedidos aceitos, no katiau :\n'
 						for (let _ of mentioned) {
 							teks += `@${_.split('@')[0]}\n`
 						}
@@ -4018,6 +4018,38 @@ client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 								setTimeout( () => {
 							client.groupRemove(from, mentioned)
 					}, 20000)
+						
+					}
+					break
+					
+					case 'zawarudo':
+				if (isBanned) return reply(mess.only.benned)    
+		//		if (!isUser) return reply(mess.only.userB)
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Esse é forte!')
+					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+					buf = fs.readFileSync(`./audio/ban.mp3`)
+					if (mentioned.length > 1) {
+						teks = 'Pedidos aceitos, no zawarudo :\n'
+						for (let _ of mentioned) {
+							teks += `@${_.split('@')[0]}\n`
+						}
+						mentions(teks, mentioned, true)
+						
+
+client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
+						setTimeout( () => {
+							client.groupRemove(from, mentioned)
+					}, 8000)
+						
+					} else {
+						mentions(`Za warudo! : @${mentioned[0].split('@')[0]} foi embora`, mentioned, true)
+						client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
+								setTimeout( () => {
+							client.groupRemove(from, mentioned)
+					}, 8000)
 						
 					}
 					break
