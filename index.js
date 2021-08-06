@@ -1326,6 +1326,35 @@ buf = fs.readFileSync(`./audio/ohayo.mp3`)
 client.sendMessage(from, buf, audio, {quoted: mek, ptt:true})
 
 break
+					case 'zawarudo':
+					if (!isGroupAdmins) return
+					buf = fs.readFileSync(`./audio/zawarudo.mp3`)
+
+client.sendMessage(from, buf, audio, {quoted: mek, ptt:true})
+						client.groupSettingChange(from, GroupSettingChange.messageSend, true)
+						setTimeout( () => {
+					client.sendMessage(from, '5 segundos', text) // ur cods
+					}, 0000) // 1000 = 1s,
+					setTimeout( () => {
+					client.sendMessage(from, '4 segundos', text) // ur cods
+					}, 1000) // 1000 = 1s,
+						setTimeout( () => {
+						client.sendMessage(from, '3 segundos', text) // ur cods
+					}, 2000) // 1000 = 1s,
+					setTimeout( () => {
+					client.sendMessage(from, '2 segundos', text) // ur cods
+					}, 3000) // 1000 = 1s,
+						setTimeout( () => {
+					client.sendMessage(from, '1 segundos', text) // ur cods
+					}, 4000) // 1000 = 1s,
+								setTimeout( () => {
+					client.sendMessage(from, '1 segundos', text) // ur cods
+					}, 5000) // 1000 = 1s,
+					setTimeout( () => {
+						client.groupSettingChange(from, GroupSettingChange.messageSend, false)
+						}, 6000) // 1000 = 1s,
+				
+					
 			case 'comida':
 					case 'almoço':
 					case 'almoçar':
@@ -3969,7 +3998,7 @@ ${vitr}`
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Esse é forte!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
-					buf = fs.readFileSync(`./audio/ash.mp3`)
+					buf = fs.readFileSync(`./audio/light.mp3`)
 					if (mentioned.length > 1) {
 						teks = 'Pedidos aceitos, no edo tensei :\n'
 						for (let _ of mentioned) {
@@ -3981,14 +4010,14 @@ ${vitr}`
 client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 						setTimeout( () => {
 							client.groupRemove(from, mentioned)
-					}, 8000)
+					}, 20000)
 						
 					} else {
 						mentions(`Katiau! : @${mentioned[0].split('@')[0]} foi embora`, mentioned, true)
 						client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 								setTimeout( () => {
 							client.groupRemove(from, mentioned)
-					}, 8000)
+					}, 20000)
 						
 					}
 					break
