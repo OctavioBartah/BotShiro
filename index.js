@@ -1353,7 +1353,7 @@ client.sendMessage(from, buf, audio, {quoted: mek, ptt:true})
 					setTimeout( () => {
 						client.groupSettingChange(from, GroupSettingChange.messageSend, false)
 						}, 6000) // 1000 = 1s,
-				
+				break
 					
 			case 'comida':
 					case 'almoço':
