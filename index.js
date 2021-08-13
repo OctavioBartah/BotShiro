@@ -4851,7 +4851,7 @@ client.sendMessage(from, buf, audio, {mimetype: 'audio/mp4', quoted: mek})
 		} catch (e) {
 			console.log('Error : %s', color(e, 'red'))
 		}
-	})
+})
 }
 
 starts()
